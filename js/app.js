@@ -256,6 +256,9 @@ class LMSApp {
 
           </header>
 
+          <!-- Breadcrumb Navigation (Clean breadcrumbs matching Reference: My Learning > Science) -->
+          <div class="lms-global-breadcrumb" id="lms-global-breadcrumb" style="display: none; padding: 14px 28px 0 28px;"></div>
+
           <!-- Active Screen Content Stage -->
           <div id="screen-stage"></div>
 
@@ -413,6 +416,106 @@ class LMSApp {
       stage.innerHTML = "";
       config.fn(stage, this.state, this);
     }
+
+    // Update global breadcrumbs
+    this.updateBreadcrumb(screenId);
+  }
+
+  updateBreadcrumb(screenId) {
+    const bc = document.getElementById("lms-global-breadcrumb");
+    if (!bc) return;
+
+    if (screenId === "02" || screenId === "01" || screenId === "04") {
+      bc.style.display = "none";
+      bc.innerHTML = "";
+      return;
+    }
+
+    const currentSubId = this.state.activeSubjectId || "science";
+    const subObj = this.state.subjects.find(s => s.id === currentSubId) || this.state.subjects[0];
+    const subTitle = subObj ? subObj.title : "Science";
+
+    let crumbs = [];
+    if (screenId === "03") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "My Learning", active: true }
+      ];
+    } else if (screenId === "04") {
+      crumbs = [
+        { label: "My Learning", screen: "03" },
+        { label: subTitle, active: true }
+      ];
+    } else if (screenId === "05") {
+      crumbs = [
+        { label: "My Learning", screen: "03" },
+        { label: subTitle, screen: "04" },
+        { label: "Video Lesson", active: true }
+      ];
+    } else if (screenId === "06") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Quizzes", active: true }
+      ];
+    } else if (screenId === "07") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Challenges", active: true }
+      ];
+    } else if (screenId === "08") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Assignments", active: true }
+      ];
+    } else if (screenId === "09") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Progress", active: true }
+      ];
+    } else if (screenId === "10") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Achievements", active: true }
+      ];
+    } else if (screenId === "11") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "AI Study Buddy", active: true }
+      ];
+    } else if (screenId === "12") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Live Classes", active: true }
+      ];
+    } else if (screenId === "13") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Profile", active: true }
+      ];
+    }
+
+    bc.innerHTML = `
+      <div class="lms-breadcrumb-nav" style="margin-bottom: 0;">
+        ${crumbs.map((c, i) => {
+          if (c.active) {
+            return `<span class="crumb-active">${c.label}</span>`;
+          }
+          return `
+            <span class="crumb-link" data-screen-target="${c.screen}">${c.label}</span>
+            <span style="color: #94A3B8; font-weight: 400; margin: 0 4px;">&gt;</span>
+          `;
+        }).join('')}
+      </div>
+    `;
+
+    bc.querySelectorAll(".crumb-link").forEach(link => {
+      link.addEventListener("click", () => {
+        const target = link.getAttribute("data-screen-target");
+        if (target) this.navigateTo(target);
+      });
+    });
+
+    bc.style.display = "block";
   }
 
   navigateRelative(offset) {

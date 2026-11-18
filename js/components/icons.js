@@ -65,10 +65,10 @@ export const ICONS = {
   `,
 
   target: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"></circle>
-      <circle cx="12" cy="12" r="6"></circle>
-      <circle cx="12" cy="12" r="2"></circle>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
     </svg>
   `,
 
@@ -180,14 +180,38 @@ export const ICONS = {
   `,
 
   flame: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-vivid-flame">
+      <defs>
+        <linearGradient id="vividFlameGrad_${size}" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#EA580C"/>
+          <stop offset="45%" stop-color="#F97316"/>
+          <stop offset="100%" stop-color="#FBBF24"/>
+        </linearGradient>
+        <linearGradient id="vividFlameInner_${size}" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#F59E0B"/>
+          <stop offset="100%" stop-color="#FEF08A"/>
+        </linearGradient>
+      </defs>
+      <!-- Outer Flame -->
+      <path d="M12 2C10.5 4.5 9 6.8 9 9C9 10.2 9.5 11.2 10.2 12C8.5 12.2 7 13.5 7 15.5C7 18.5 9.2 21 12 21C14.8 21 17 18.5 17 15.5C17 13.8 15.8 12.2 14.5 11C14 7.5 16 5.5 12 2Z" fill="url(#vividFlameGrad_${size})"/>
+      <!-- Inner Flame Core -->
+      <path d="M12 11.5C11.2 12.5 10.5 13.8 10.5 15.2C10.5 16.8 11.2 18.5 12 18.5C12.8 18.5 13.5 16.8 13.5 15.2C13.5 13.5 12.8 12.5 12 11.5Z" fill="url(#vividFlameInner_${size})"/>
     </svg>
   `,
 
   star: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-vivid-star">
+      <defs>
+        <linearGradient id="vividStarGrad_${size}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FDE047"/>
+          <stop offset="50%" stop-color="#F59E0B"/>
+          <stop offset="100%" stop-color="#D97706"/>
+        </linearGradient>
+      </defs>
+      <!-- 3D Gold Star Body -->
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#vividStarGrad_${size})" stroke="#D97706" stroke-width="0.8" stroke-linejoin="round"/>
+      <!-- Top Left Shimmer Facet -->
+      <polygon points="12 2 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" fill="#FFFFFF" fill-opacity="0.32"/>
     </svg>
   `,
 
@@ -207,6 +231,12 @@ export const ICONS = {
 
   chevronRight: (size = 20) => `
     <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  `,
+
+  chevronSmall: (size = 12, color = "#FFFFFF") => `
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   `,

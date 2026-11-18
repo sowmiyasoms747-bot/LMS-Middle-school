@@ -690,46 +690,40 @@ export const GRAPHICS = {
   progressChart3D: (width = 90, height = 90) => `
     <svg width="${width}" height="${height}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="pcBar1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#BAE6FD"/>
+        <linearGradient id="pcBar1_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#7DD3FC"/>
           <stop offset="100%" stop-color="#38BDF8"/>
         </linearGradient>
-        <linearGradient id="pcBar2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="pcBar2_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#38BDF8"/>
           <stop offset="100%" stop-color="#0284C7"/>
         </linearGradient>
-        <linearGradient id="pcBar3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="pcBar3_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#0284C7"/>
           <stop offset="100%" stop-color="#0369A1"/>
         </linearGradient>
-        <linearGradient id="pcArrow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#06B6D4"/>
-          <stop offset="100%" stop-color="#0284C7"/>
-        </linearGradient>
       </defs>
       
-      <!-- Base Shadow -->
-      <ellipse cx="50" cy="88" rx="42" ry="6" fill="#BAE6FD" fill-opacity="0.4"/>
+      <!-- Base Shadow (Matching Reference) -->
+      <ellipse cx="44" cy="82" rx="36" ry="6.5" fill="#DDF4FF" fill-opacity="0.8"/>
 
-      <!-- Bar 1 (Short) -->
-      <rect x="18" y="58" width="16" height="26" rx="4" fill="url(#pcBar1)"/>
-      <!-- Bar 2 (Medium) -->
-      <rect x="42" y="42" width="16" height="42" rx="4" fill="url(#pcBar2)"/>
-      <!-- Bar 3 (Tall) -->
-      <rect x="66" y="24" width="16" height="60" rx="4" fill="url(#pcBar3)"/>
+      <!-- Bar 1 (Short - Light Blue) -->
+      <rect x="14" y="52" width="14" height="28" rx="7" fill="url(#pcBar1_${width})"/>
+      <!-- Bar 2 (Medium - Cyan Blue) -->
+      <rect x="34" y="38" width="14" height="42" rx="7" fill="url(#pcBar2_${width})"/>
+      <!-- Bar 3 (Tall - Deep Blue) -->
+      <rect x="54" y="20" width="14" height="60" rx="7" fill="url(#pcBar3_${width})"/>
 
-      <!-- 3D Isometric top facets -->
-      <path d="M18 58 L24 53 L40 53 L34 58 Z" fill="#E0F2FE"/>
-      <path d="M42 42 L48 37 L64 37 L58 42 Z" fill="#BAE6FD"/>
-      <path d="M66 24 L72 19 L88 19 L82 24 Z" fill="#7DD3FC"/>
+      <!-- Cyan Ascending Trend Arrow (Matching Reference) -->
+      <path d="M8 58 Q34 40 68 18" stroke="#00B4D8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <polygon points="62,13 74,16 67,26" fill="#0284C7"/>
 
-      <!-- Ascending Trend Arrow Line -->
-      <path d="M14 62 Q45 42 78 18" stroke="#06B6D4" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <polygon points="76,14 85,15 82,24" fill="#0284C7"/>
+      <!-- Golden Sphere at Arrow Tip (Matching Reference) -->
+      <circle cx="74" cy="15" r="4.5" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.2"/>
+      <circle cx="73" cy="13.5" r="1.2" fill="#FFFFFF"/>
 
-      <!-- Glowing sparkles -->
-      <circle cx="86" cy="14" r="2.5" fill="#FBBF24"/>
-      <circle cx="48" cy="34" r="1.5" fill="#38BDF8"/>
+      <!-- Sparkle Cyan Dot -->
+      <circle cx="34" cy="33" r="2" fill="#38BDF8"/>
     </svg>
   `,
 
@@ -1086,10 +1080,10 @@ export const GRAPHICS = {
             <stop offset="30%" stop-color="#8B5CF6"/>
             <stop offset="100%" stop-color="#5B21B6"/>
           </linearGradient>
-          <linearGradient id="flameGrad_${size}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FDE047"/>
+          <linearGradient id="lampGrad_${size}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FEF08A"/>
             <stop offset="50%" stop-color="#F59E0B"/>
-            <stop offset="100%" stop-color="#EF4444"/>
+            <stop offset="100%" stop-color="#D97706"/>
           </linearGradient>
         </defs>
         <!-- Drop Shadow -->
@@ -1099,13 +1093,15 @@ export const GRAPHICS = {
         <!-- Top Half Gloss Highlight -->
         <path d="M32 5 L56 18 L56 31 C56 31 43 25 32 25 C21 25 8 31 8 31 L8 18 Z" fill="#FFFFFF" fill-opacity="0.35"/>
         
-        <!-- Glowing Flame & Bookmark Emblem -->
+        <!-- Glowing Core Circle -->
         <circle cx="32" cy="31" r="14" fill="#6D28D9" fill-opacity="0.6"/>
-        <!-- Ribbon Bookmark -->
-        <path d="M28 20 L36 20 L36 38 L32 35 L28 38 Z" fill="#FBBF24" stroke="#78350F" stroke-width="1.2"/>
-        <!-- Flame -->
-        <path d="M32 18 C35 24 38 27 38 31 C38 34.5 35.3 37 32 37 C28.7 37 26 34.5 26 31 C26 27 29 24 32 18 Z" fill="url(#flameGrad_${size})"/>
-        <path d="M32 24 C33.5 27 35 29 35 31 C35 33 33.7 34.5 32 34.5 C30.3 34.5 29 33 29 31 C29 29 30.5 27 32 24 Z" fill="#FFFFFF" fill-opacity="0.8"/>
+        
+        <!-- Glowing Lantern / Lamp (Knowledge Flame) -->
+        <rect x="28" y="20" width="8" height="3" rx="1.5" fill="#FDE047"/>
+        <line x1="32" y1="18" x2="32" y2="20" stroke="#FDE047" stroke-width="1.5"/>
+        <path d="M26 23 L38 23 C40 28 40 34 37 38 L27 38 C24 34 24 28 26 23 Z" fill="url(#lampGrad_${size})" stroke="#FEF08A" stroke-width="1.2"/>
+        <path d="M32 25 C33.5 28 34.5 30 34.5 32 C34.5 33.5 33.5 35 32 35 C30.5 35 29.5 33.5 29.5 32 C29.5 30 30.5 28 32 25 Z" fill="#FFFFFF"/>
+        <rect x="27" y="38" width="10" height="3" rx="1" fill="#D97706" stroke="#FEF08A" stroke-width="0.8"/>
       </svg>
     </div>
   `,

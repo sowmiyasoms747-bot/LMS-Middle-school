@@ -854,10 +854,10 @@ const ICONS = {
   `,
 
   target: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"></circle>
-      <circle cx="12" cy="12" r="6"></circle>
-      <circle cx="12" cy="12" r="2"></circle>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="5.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
     </svg>
   `,
 
@@ -969,14 +969,38 @@ const ICONS = {
   `,
 
   flame: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"></path>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-vivid-flame">
+      <defs>
+        <linearGradient id="vividFlameGrad_${size}" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#EA580C"/>
+          <stop offset="45%" stop-color="#F97316"/>
+          <stop offset="100%" stop-color="#FBBF24"/>
+        </linearGradient>
+        <linearGradient id="vividFlameInner_${size}" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#F59E0B"/>
+          <stop offset="100%" stop-color="#FEF08A"/>
+        </linearGradient>
+      </defs>
+      <!-- Outer Flame -->
+      <path d="M12 2C10.5 4.5 9 6.8 9 9C9 10.2 9.5 11.2 10.2 12C8.5 12.2 7 13.5 7 15.5C7 18.5 9.2 21 12 21C14.8 21 17 18.5 17 15.5C17 13.8 15.8 12.2 14.5 11C14 7.5 16 5.5 12 2Z" fill="url(#vividFlameGrad_${size})"/>
+      <!-- Inner Flame Core -->
+      <path d="M12 11.5C11.2 12.5 10.5 13.8 10.5 15.2C10.5 16.8 11.2 18.5 12 18.5C12.8 18.5 13.5 16.8 13.5 15.2C13.5 13.5 12.8 12.5 12 11.5Z" fill="url(#vividFlameInner_${size})"/>
     </svg>
   `,
 
   star: (size = 20) => `
-    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-vivid-star">
+      <defs>
+        <linearGradient id="vividStarGrad_${size}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FDE047"/>
+          <stop offset="50%" stop-color="#F59E0B"/>
+          <stop offset="100%" stop-color="#D97706"/>
+        </linearGradient>
+      </defs>
+      <!-- 3D Gold Star Body -->
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#vividStarGrad_${size})" stroke="#D97706" stroke-width="0.8" stroke-linejoin="round"/>
+      <!-- Top Left Shimmer Facet -->
+      <polygon points="12 2 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" fill="#FFFFFF" fill-opacity="0.32"/>
     </svg>
   `,
 
@@ -996,6 +1020,12 @@ const ICONS = {
 
   chevronRight: (size = 20) => `
     <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  `,
+
+  chevronSmall: (size = 12, color = "#FFFFFF") => `
+    <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   `,
@@ -2016,46 +2046,40 @@ const GRAPHICS = {
   progressChart3D: (width = 90, height = 90) => `
     <svg width="${width}" height="${height}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="pcBar1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#BAE6FD"/>
+        <linearGradient id="pcBar1_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#7DD3FC"/>
           <stop offset="100%" stop-color="#38BDF8"/>
         </linearGradient>
-        <linearGradient id="pcBar2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="pcBar2_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#38BDF8"/>
           <stop offset="100%" stop-color="#0284C7"/>
         </linearGradient>
-        <linearGradient id="pcBar3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="pcBar3_${width}" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#0284C7"/>
           <stop offset="100%" stop-color="#0369A1"/>
         </linearGradient>
-        <linearGradient id="pcArrow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#06B6D4"/>
-          <stop offset="100%" stop-color="#0284C7"/>
-        </linearGradient>
       </defs>
       
-      <!-- Base Shadow -->
-      <ellipse cx="50" cy="88" rx="42" ry="6" fill="#BAE6FD" fill-opacity="0.4"/>
+      <!-- Base Shadow (Matching Reference) -->
+      <ellipse cx="44" cy="82" rx="36" ry="6.5" fill="#DDF4FF" fill-opacity="0.8"/>
 
-      <!-- Bar 1 (Short) -->
-      <rect x="18" y="58" width="16" height="26" rx="4" fill="url(#pcBar1)"/>
-      <!-- Bar 2 (Medium) -->
-      <rect x="42" y="42" width="16" height="42" rx="4" fill="url(#pcBar2)"/>
-      <!-- Bar 3 (Tall) -->
-      <rect x="66" y="24" width="16" height="60" rx="4" fill="url(#pcBar3)"/>
+      <!-- Bar 1 (Short - Light Blue) -->
+      <rect x="14" y="52" width="14" height="28" rx="7" fill="url(#pcBar1_${width})"/>
+      <!-- Bar 2 (Medium - Cyan Blue) -->
+      <rect x="34" y="38" width="14" height="42" rx="7" fill="url(#pcBar2_${width})"/>
+      <!-- Bar 3 (Tall - Deep Blue) -->
+      <rect x="54" y="20" width="14" height="60" rx="7" fill="url(#pcBar3_${width})"/>
 
-      <!-- 3D Isometric top facets -->
-      <path d="M18 58 L24 53 L40 53 L34 58 Z" fill="#E0F2FE"/>
-      <path d="M42 42 L48 37 L64 37 L58 42 Z" fill="#BAE6FD"/>
-      <path d="M66 24 L72 19 L88 19 L82 24 Z" fill="#7DD3FC"/>
+      <!-- Cyan Ascending Trend Arrow (Matching Reference) -->
+      <path d="M8 58 Q34 40 68 18" stroke="#00B4D8" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <polygon points="62,13 74,16 67,26" fill="#0284C7"/>
 
-      <!-- Ascending Trend Arrow Line -->
-      <path d="M14 62 Q45 42 78 18" stroke="#06B6D4" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <polygon points="76,14 85,15 82,24" fill="#0284C7"/>
+      <!-- Golden Sphere at Arrow Tip (Matching Reference) -->
+      <circle cx="74" cy="15" r="4.5" fill="#FBBF24" stroke="#F59E0B" stroke-width="1.2"/>
+      <circle cx="73" cy="13.5" r="1.2" fill="#FFFFFF"/>
 
-      <!-- Glowing sparkles -->
-      <circle cx="86" cy="14" r="2.5" fill="#FBBF24"/>
-      <circle cx="48" cy="34" r="1.5" fill="#38BDF8"/>
+      <!-- Sparkle Cyan Dot -->
+      <circle cx="34" cy="33" r="2" fill="#38BDF8"/>
     </svg>
   `,
 
@@ -2412,10 +2436,10 @@ const GRAPHICS = {
             <stop offset="30%" stop-color="#8B5CF6"/>
             <stop offset="100%" stop-color="#5B21B6"/>
           </linearGradient>
-          <linearGradient id="flameGrad_${size}" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FDE047"/>
+          <linearGradient id="lampGrad_${size}" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FEF08A"/>
             <stop offset="50%" stop-color="#F59E0B"/>
-            <stop offset="100%" stop-color="#EF4444"/>
+            <stop offset="100%" stop-color="#D97706"/>
           </linearGradient>
         </defs>
         <!-- Drop Shadow -->
@@ -2425,13 +2449,15 @@ const GRAPHICS = {
         <!-- Top Half Gloss Highlight -->
         <path d="M32 5 L56 18 L56 31 C56 31 43 25 32 25 C21 25 8 31 8 31 L8 18 Z" fill="#FFFFFF" fill-opacity="0.35"/>
         
-        <!-- Glowing Flame & Bookmark Emblem -->
+        <!-- Glowing Core Circle -->
         <circle cx="32" cy="31" r="14" fill="#6D28D9" fill-opacity="0.6"/>
-        <!-- Ribbon Bookmark -->
-        <path d="M28 20 L36 20 L36 38 L32 35 L28 38 Z" fill="#FBBF24" stroke="#78350F" stroke-width="1.2"/>
-        <!-- Flame -->
-        <path d="M32 18 C35 24 38 27 38 31 C38 34.5 35.3 37 32 37 C28.7 37 26 34.5 26 31 C26 27 29 24 32 18 Z" fill="url(#flameGrad_${size})"/>
-        <path d="M32 24 C33.5 27 35 29 35 31 C35 33 33.7 34.5 32 34.5 C30.3 34.5 29 33 29 31 C29 29 30.5 27 32 24 Z" fill="#FFFFFF" fill-opacity="0.8"/>
+        
+        <!-- Glowing Lantern / Lamp (Knowledge Flame) -->
+        <rect x="28" y="20" width="8" height="3" rx="1.5" fill="#FDE047"/>
+        <line x1="32" y1="18" x2="32" y2="20" stroke="#FDE047" stroke-width="1.5"/>
+        <path d="M26 23 L38 23 C40 28 40 34 37 38 L27 38 C24 34 24 28 26 23 Z" fill="url(#lampGrad_${size})" stroke="#FEF08A" stroke-width="1.2"/>
+        <path d="M32 25 C33.5 28 34.5 30 34.5 32 C34.5 33.5 33.5 35 32 35 C30.5 35 29.5 33.5 29.5 32 C29.5 30 30.5 28 32 25 Z" fill="#FFFFFF"/>
+        <rect x="27" y="38" width="10" height="3" rx="1" fill="#D97706" stroke="#FEF08A" stroke-width="0.8"/>
       </svg>
     </div>
   `,
@@ -3354,8 +3380,8 @@ function renderDashboardScreen(container, state, app) {
           <div class="lms-card-v2" style="margin-top: 22px;">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center;">
-                  ${ICONS.target(18)}
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.15);">
+                  ${ICONS.target(20)}
                 </div>
                 <div>
                   <h3 style="font-size: 16px; font-weight: 800; color: #1E293B;">Learning Challenges</h3>
@@ -3382,12 +3408,12 @@ function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #0284C7;">60%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -3403,12 +3429,12 @@ function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #10B981;">75%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -3424,12 +3450,12 @@ function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #059669;">40%</span>
-                  <div class="challenge-round-arrow-btn green-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
+                  <div class="challenge-round-arrow-btn green-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -3445,12 +3471,12 @@ function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #DB2777;">80%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -3710,50 +3736,50 @@ function renderDashboardScreen(container, state, app) {
               
               <!-- Science -->
               <div class="progress-sub-row-v2" data-screen="04">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.scienceFlaskIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #E0F2FE;">
+                  ${GRAPHICS.scienceFlaskIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Science</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">72%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">72%</span>
               </div>
 
               <!-- Maths -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.mathsCalcIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #FEF3C7;">
+                  ${GRAPHICS.mathsCalcIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Maths</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">68%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">68%</span>
               </div>
 
               <!-- Social -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.socialGlobeIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #D1FAE5;">
+                  ${GRAPHICS.socialGlobeIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Social</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">62%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">62%</span>
               </div>
 
               <!-- English -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.englishBookIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #EDE9FE;">
+                  ${GRAPHICS.englishBookIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">English</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">78%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">78%</span>
               </div>
 
             </div>
@@ -11397,6 +11423,9 @@ class LMSApp {
 
           </header>
 
+          <!-- Breadcrumb Navigation (Clean breadcrumbs matching Reference: My Learning > Science) -->
+          <div class="lms-global-breadcrumb" id="lms-global-breadcrumb" style="display: none; padding: 14px 28px 0 28px;"></div>
+
           <!-- Active Screen Content Stage -->
           <div id="screen-stage"></div>
 
@@ -11554,6 +11583,106 @@ class LMSApp {
       stage.innerHTML = "";
       config.fn(stage, this.state, this);
     }
+
+    // Update global breadcrumbs
+    this.updateBreadcrumb(screenId);
+  }
+
+  updateBreadcrumb(screenId) {
+    const bc = document.getElementById("lms-global-breadcrumb");
+    if (!bc) return;
+
+    if (screenId === "02" || screenId === "01" || screenId === "04") {
+      bc.style.display = "none";
+      bc.innerHTML = "";
+      return;
+    }
+
+    const currentSubId = this.state.activeSubjectId || "science";
+    const subObj = this.state.subjects.find(s => s.id === currentSubId) || this.state.subjects[0];
+    const subTitle = subObj ? subObj.title : "Science";
+
+    let crumbs = [];
+    if (screenId === "03") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "My Learning", active: true }
+      ];
+    } else if (screenId === "04") {
+      crumbs = [
+        { label: "My Learning", screen: "03" },
+        { label: subTitle, active: true }
+      ];
+    } else if (screenId === "05") {
+      crumbs = [
+        { label: "My Learning", screen: "03" },
+        { label: subTitle, screen: "04" },
+        { label: "Video Lesson", active: true }
+      ];
+    } else if (screenId === "06") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Quizzes", active: true }
+      ];
+    } else if (screenId === "07") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Challenges", active: true }
+      ];
+    } else if (screenId === "08") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Assignments", active: true }
+      ];
+    } else if (screenId === "09") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Progress", active: true }
+      ];
+    } else if (screenId === "10") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Achievements", active: true }
+      ];
+    } else if (screenId === "11") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "AI Study Buddy", active: true }
+      ];
+    } else if (screenId === "12") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Live Classes", active: true }
+      ];
+    } else if (screenId === "13") {
+      crumbs = [
+        { label: "Home", screen: "02" },
+        { label: "Profile", active: true }
+      ];
+    }
+
+    bc.innerHTML = `
+      <div class="lms-breadcrumb-nav" style="margin-bottom: 0;">
+        ${crumbs.map((c, i) => {
+          if (c.active) {
+            return `<span class="crumb-active">${c.label}</span>`;
+          }
+          return `
+            <span class="crumb-link" data-screen-target="${c.screen}">${c.label}</span>
+            <span style="color: #94A3B8; font-weight: 400; margin: 0 4px;">&gt;</span>
+          `;
+        }).join('')}
+      </div>
+    `;
+
+    bc.querySelectorAll(".crumb-link").forEach(link => {
+      link.addEventListener("click", () => {
+        const target = link.getAttribute("data-screen-target");
+        if (target) this.navigateTo(target);
+      });
+    });
+
+    bc.style.display = "block";
   }
 
   navigateRelative(offset) {

@@ -47,8 +47,8 @@ export function renderDashboardScreen(container, state, app) {
           <div class="lms-card-v2" style="margin-top: 22px;">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center;">
-                  ${ICONS.target(18)}
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.15);">
+                  ${ICONS.target(20)}
                 </div>
                 <div>
                   <h3 style="font-size: 16px; font-weight: 800; color: #1E293B;">Learning Challenges</h3>
@@ -75,12 +75,12 @@ export function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #0284C7;">60%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -96,12 +96,12 @@ export function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #10B981;">75%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -117,12 +117,12 @@ export function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #059669;">40%</span>
-                  <div class="challenge-round-arrow-btn green-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
+                  <div class="challenge-round-arrow-btn green-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -138,12 +138,12 @@ export function renderDashboardScreen(container, state, app) {
                   </div>
                 </div>
 
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
                     <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
-                  <span style="font-size: 11.5px; font-weight: 800; color: #DB2777;">80%</span>
-                  <div class="challenge-round-arrow-btn">❯</div>
+                  <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
+                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
                 </div>
               </div>
 
@@ -403,50 +403,50 @@ export function renderDashboardScreen(container, state, app) {
               
               <!-- Science -->
               <div class="progress-sub-row-v2" data-screen="04">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.scienceFlaskIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #E0F2FE;">
+                  ${GRAPHICS.scienceFlaskIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Science</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">72%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">72%</span>
               </div>
 
               <!-- Maths -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.mathsCalcIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #FEF3C7;">
+                  ${GRAPHICS.mathsCalcIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Maths</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">68%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">68%</span>
               </div>
 
               <!-- Social -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.socialGlobeIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #D1FAE5;">
+                  ${GRAPHICS.socialGlobeIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">Social</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">62%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">62%</span>
               </div>
 
               <!-- English -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px;">
-                  ${GRAPHICS.englishBookIcon(26)}
+                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #EDE9FE;">
+                  ${GRAPHICS.englishBookIcon(22)}
                 </div>
-                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 50px;">English</span>
-                <div style="flex: 1; height: 6px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
+                <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
+                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
                 </div>
-                <span style="font-size: 12px; font-weight: 800; color: #1E293B;">78%</span>
+                <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">78%</span>
               </div>
 
             </div>

@@ -433,21 +433,47 @@ body {
 }
 
 .stat-pill-streak {
-  background: #FFFFFF;
-  color: #1E293B;
-  border: 1.5px solid #FED7AA;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1.5px solid #FDBA74;
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.12);
+}
+
+.stat-pill-streak:hover {
+  transform: translateY(-2px);
+  border-color: #FB923C;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.24);
 }
 
 .stat-pill-points {
-  background: #FFFFFF;
-  color: #1E293B;
-  border: 1.5px solid #FEF08A;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  background: #FEFCE8;
+  color: #A16207;
+  border: 1.5px solid #FDE047;
+  box-shadow: 0 2px 8px rgba(234, 179, 8, 0.12);
 }
 
-.stat-pill-points svg {
-  color: #EAB308;
+.stat-pill-points:hover {
+  transform: translateY(-2px);
+  border-color: #FACC15;
+  box-shadow: 0 4px 14px rgba(234, 179, 8, 0.24);
+}
+
+.icon-vivid-flame {
+  filter: drop-shadow(0 2px 4px rgba(249, 115, 22, 0.35));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-pill-streak:hover .icon-vivid-flame {
+  transform: scale(1.18) rotate(-6deg);
+}
+
+.icon-vivid-star {
+  filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.35));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-pill-points:hover .icon-vivid-star {
+  transform: scale(1.18) rotate(12deg);
 }
 
 .header-user-chip {
