@@ -186,11 +186,11 @@ class LMSApp {
             </li>
           </ul>
 
-          <!-- Sidebar Bottom 3D Stacked Books with Plant Illustration (Seamless Full-Width Blend) -->
-          <div class="sidebar-bottom-illustration">
+          <!-- Sidebar Bottom Knowledge Tree Illustration (Matching Image 4) -->
+          <div class="sidebar-bottom-illustration" title="Learning Universe - Tree of Knowledge">
             <img 
-              src="assets/sidebar-bottom-seamless.png" 
-              alt="Learning Decor" 
+              src="assets/knowledge-tree.png" 
+              alt="Tree of Knowledge" 
               class="sidebar-bottom-img"
               onerror="this.onerror=null; this.parentElement.innerHTML = GRAPHICS.sidebarBooksPlant(220, 150);"
             />
