@@ -1,0 +1,137 @@
+
+    <div class="anim-icon-wrap anim-fanning-book-wrap anim-tamil-wrap" style="width: 120px; height: 105px; position: relative;" title="Tamil Book" data-theme="tamil">
+      <svg width="120" height="105" viewBox="0 0 120 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="fanning-book-svg fanning-book-tamil">
+        <defs>
+          <linearGradient id="fCoverGrad_tamil_120" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9333EA"/>
+            <stop offset="100%" stop-color="#7E22CE"/>
+          </linearGradient>
+          <linearGradient id="pageIvoryLight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#FFFDF5"/>
+          </linearGradient>
+          <linearGradient id="pageIvoryWarm" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFDF7"/>
+            <stop offset="100%" stop-color="#FEF3C7"/>
+          </linearGradient>
+          <linearGradient id="flipPageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="70%" stop-color="#FFFBEB"/>
+            <stop offset="100%" stop-color="#FDE68A"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Ambient Ground Shadow -->
+        <ellipse cx="60" cy="88" rx="46" ry="5.5" fill="#1E1B4B" fill-opacity="0.16"/>
+
+        <!-- ================= 1. HARDCOVER BASE (Wide open lying flat) ================= -->
+        <!-- Red/Crimson cover thickness trim underneath -->
+        <path d="M60 84 C42 84 22 80 8 74 L6 79 C22 85 42 89 60 89 C78 89 98 85 114 79 L112 74 C98 80 78 84 60 84 Z" 
+              fill="#581C87"/>
+        
+        <!-- Left cover wing -->
+        <path d="M60 83 C42 83 24 79 8 73 L18 52 C32 58 46 61 60 62 Z" 
+              fill="url(#fCoverGrad_tamil_120)" stroke="#6B21A8" stroke-width="1.8" stroke-linejoin="round"/>
+        
+        <!-- Right cover wing -->
+        <path d="M60 83 C78 83 96 79 112 73 L102 52 C88 58 74 61 60 62 Z" 
+              fill="url(#fCoverGrad_tamil_120)" stroke="#6B21A8" stroke-width="1.8" stroke-linejoin="round"/>
+
+        <!-- Central Spine Notch / Joint at bottom center -->
+        <path d="M53 83 C53 88 67 88 67 83 C67 79 53 79 53 83 Z" fill="#581C87" stroke="#6B21A8" stroke-width="1.6"/>
+
+        <!-- ================= 2. FLAT BASE PAGES (Resting on covers) ================= -->
+        <!-- Left flat base pages stack -->
+        <path d="M60 80 C44 80 28 76 12 71 L20 52 C34 57 47 60 60 61 Z" 
+              fill="url(#pageIvoryLight)" stroke="#6B21A8" stroke-width="1.6" stroke-linejoin="round"/>
+        <!-- Margin border & text lines on left base page -->
+        <path d="M57 63 C46 62 35 59 23 55 L16 68 C29 72 43 75 57 76 Z" fill="none" stroke="#FDE68A" stroke-width="0.9"/>
+        <line x1="26" y1="58" x2="52" y2="65" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="23" y1="63" x2="49" y2="70" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="20" y1="68" x2="44" y2="75" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+
+        <!-- Right flat base pages stack -->
+        <path d="M60 80 C76 80 92 76 108 71 L100 52 C86 57 73 60 60 61 Z" 
+              fill="url(#pageIvoryLight)" stroke="#6B21A8" stroke-width="1.6" stroke-linejoin="round"/>
+        <!-- Margin border & text lines on right base page -->
+        <path d="M63 63 C74 62 85 59 97 55 L104 68 C91 72 77 75 63 76 Z" fill="none" stroke="#FDE68A" stroke-width="0.9"/>
+        <line x1="94" y1="58" x2="68" y2="65" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="97" y1="63" x2="71" y2="70" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="100" y1="68" x2="76" y2="75" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+
+        <!-- ================= 3. FANNING PAGES (Standing in 3D arc) ================= -->
+
+        <!-- Fan Page 1: Low-left standing sheet -->
+        <g class="fanning-sheet sheet-left-low">
+          <path d="M60 78 L22 47 L36 29 L60 71 Z" fill="url(#pageIvoryWarm)" stroke="#6B21A8" stroke-width="1.4" stroke-linejoin="round"/>
+          <line x1="30" y1="45" x2="46" y2="41" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="34" y1="52" x2="51" y2="48" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- Fan Page 2: Low-right standing sheet -->
+        <g class="fanning-sheet sheet-right-low">
+          <path d="M60 78 L98 47 L84 29 L60 71 Z" fill="url(#pageIvoryWarm)" stroke="#6B21A8" stroke-width="1.4" stroke-linejoin="round"/>
+          <line x1="90" y1="45" x2="74" y2="41" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="86" y1="52" x2="69" y2="48" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- Fan Page 3: Mid-left standing sheet -->
+        <g class="fanning-sheet sheet-left-mid">
+          <path d="M60 77 L34 32 L49 19 L60 70 Z" fill="url(#pageIvoryLight)" stroke="#6B21A8" stroke-width="1.4" stroke-linejoin="round"/>
+          <line x1="42" y1="33" x2="50" y2="30" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="44" y1="41" x2="52" y2="38" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="47" y1="50" x2="55" y2="47" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- ================= 4. DYNAMIC FLIPPING / MOVING PAGES ================= -->
+        <!-- Flipping Page A: Center-Left Flipping Leaf (Moves across on hover/click) -->
+        <g class="fanning-sheet fanning-flip-page-1" style="transform-origin: 60px 76px;">
+          <path d="M60 76 L48 18 L58 13 L60 69 Z" fill="url(#flipPageGrad)" stroke="#6B21A8" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Inner printed margin box -->
+          <path d="M51 23 L56 20 L58 56 L53 58 Z" fill="none" stroke="#FDE68A" stroke-width="0.8"/>
+          <line x1="53" y1="26" x2="56" y2="24" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="53" y1="34" x2="57" y2="32" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="54" y1="42" x2="58" y2="40" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- Flipping Page B: Center-Right Flipping Leaf (Moves across on hover/click) -->
+        <g class="fanning-sheet fanning-flip-page-2" style="transform-origin: 60px 76px;">
+          <path d="M60 76 L72 18 L62 13 L60 69 Z" fill="url(#flipPageGrad)" stroke="#6B21A8" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Inner printed margin box -->
+          <path d="M69 23 L64 20 L62 56 L67 58 Z" fill="none" stroke="#FDE68A" stroke-width="0.8"/>
+          <line x1="67" y1="26" x2="64" y2="24" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="67" y1="34" x2="63" y2="32" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="66" y1="42" x2="62" y2="40" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- Fan Page 6: Mid-right standing sheet -->
+        <g class="fanning-sheet sheet-right-mid">
+          <path d="M60 77 L86 32 L71 19 L60 70 Z" fill="url(#pageIvoryLight)" stroke="#6B21A8" stroke-width="1.4" stroke-linejoin="round"/>
+          <line x1="78" y1="33" x2="70" y2="30" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="76" y1="41" x2="68" y2="38" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="73" y1="50" x2="65" y2="47" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+
+        <!-- Golden Spine Bookmark Ribbon hanging down from bottom center -->
+        <path d="M58 72 L58 92 L60 90 L62 92 L62 72 Z" fill="#FBBF24" stroke="#6B21A8" stroke-width="1"/>
+
+        <!-- ================= 5. THEME OVERLAYS (ABC for English, தமிழ் + Leaves for Tamil) ================= -->
+        
+        <!-- Sprouting Green Leaves on Top & Golden/Purple Tamil Script -->
+        <g class="float-fanning-tamil">
+          <!-- Sprouting green leaves at top-right -->
+          <path d="M68 12 C75 4 87 6 91 15 C84 20 73 19 68 12 Z" fill="#22C55E" stroke="#15803D" stroke-width="1.2"/>
+          <path d="M68 12 C70 4 63 1 57 4 C59 11 64 12 68 12 Z" fill="#4ADE80"/>
+          <!-- Tamil typography 'தமிழ்' floating gracefully above center-right page -->
+          <g transform="translate(54, 4)">
+            <text x="14" y="9" text-anchor="middle" font-size="14" font-weight="900" fill="#9333EA" font-family="'Noto Sans Tamil', 'Latha', 'Mukta Malar', 'Plus Jakarta Sans', sans-serif">தமிழ்</text>
+          </g>
+          <!-- Golden Sparkles -->
+          <path d="M24 16 L25.5 19 L28 20 L25.5 21 L24 24 L22.5 21 L20 20 L22.5 19 Z" fill="#FBBF24"/>
+          <path d="M96 20 L97.5 22 L99 23 L97.5 24 L96 26 L94.5 24 L93 23 L94.5 22 Z" fill="#FBBF24"/>
+        </g>
+        
+
+      </svg>
+    </div>
+    

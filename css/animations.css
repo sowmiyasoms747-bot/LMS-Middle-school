@@ -1,0 +1,320 @@
+/* Learning Universe LMS - Custom Animations & Keyframes */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes waveArm {
+  0%, 100% {
+    transform: rotate(0deg);
+    transform-origin: 40px 115px;
+  }
+  50% {
+    transform: rotate(-18deg);
+    transform-origin: 40px 115px;
+  }
+}
+
+@keyframes blinkEyes {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: floatGentle 3.5s infinite ease-in-out;
+}
+
+.animate-wave {
+  animation: waveArm 2s infinite ease-in-out;
+}
+
+.robot-eyes {
+  animation: blinkEyes 4s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+.floating-spark-1 {
+  animation: floatGentle 4s infinite ease-in-out;
+}
+
+.floating-spark-2 {
+  animation: floatGentle 3s infinite ease-in-out 1s;
+}
+
+.floating-spark-3 {
+  animation: floatGentle 3.5s infinite ease-in-out 0.5s;
+}
+
+/* Toast Notification */
+.lms-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1E1B4B;
+  color: #FFFFFF;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 999999;
+  border-left: 5px solid var(--primary);
+  animation: toastSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing Indicator */
+.typing-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+  background: #F1F5F9;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background: #94A3B8;
+  border-radius: 50%;
+  animation: dotBounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+
+/* ========================================================
+   ANIMATED 3D SUBJECT ICONS & BADGES MICRO-INTERACTIONS
+   ======================================================== */
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.5deg);
+  }
+}
+
+@keyframes bubbleRiseSlow {
+  0% {
+    transform: translateY(0px) scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-16px) scale(0.8);
+    opacity: 0.2;
+  }
+}
+
+@keyframes bubbleRiseFast {
+  0% {
+    transform: translateY(0px) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes globeSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes calcTilt {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+}
+
+@keyframes calcDisplayGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(52, 211, 153, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.95));
+  }
+}
+
+@keyframes quillSway {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-10deg) translateY(-2px);
+  }
+}
+
+.anim-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
+}
+
+.anim-icon-wrap:hover,
+.challenge-item-card-v2:hover .anim-icon-wrap,
+.progress-sub-row-v2:hover .anim-icon-wrap {
+  transform: scale(1.14) translateY(-2px);
+}
+
+.svg-bubble.b1 {
+  animation: bubbleRiseSlow 2.4s infinite ease-in-out;
+}
+.svg-bubble.b2 {
+  animation: bubbleRiseFast 1.8s infinite ease-in-out 0.4s;
+}
+.svg-bubble.b3 {
+  animation: bubbleRiseSlow 2.8s infinite ease-in-out 0.8s;
+}
+.svg-bubble.b4 {
+  animation: bubbleRiseFast 2.1s infinite ease-in-out 1.2s;
+}
+
+.anim-science-wrap:hover .svg-flask {
+  animation: iconFloat 2s infinite ease-in-out;
+}
+
+.anim-maths-wrap:hover .svg-calc {
+  animation: calcTilt 2s infinite ease-in-out;
+}
+
+.anim-social-wrap:hover .svg-globe {
+  animation: globeSway 2.5s infinite ease-in-out;
+}
+
+.anim-english-wrap:hover .svg-book {
+  animation: iconFloat 2.2s infinite ease-in-out;
+}
+
+.anim-english-wrap:hover .svg-quill {
+  animation: quillSway 1.6s infinite ease-in-out;
+}
+
+.svg-display-text {
+  animation: calcDisplayGlow 2s infinite ease-in-out;
+}
+
+/* 3D Hexagonal Badge Hover animations */
+.badge-hex-anim {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+  cursor: pointer;
+}
+
+.badge-hex-anim:hover {
+  transform: translateY(-5px) scale(1.1);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.milestone-badge-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.milestone-badge-col:hover {
+  transform: translateY(-3px);
+}

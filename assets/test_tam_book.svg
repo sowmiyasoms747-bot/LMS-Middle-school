@@ -1,0 +1,108 @@
+<svg width="120" height="102" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="fanning-book-svg fanning-tamil">
+  <defs>
+    <linearGradient id="bookCoverGrad_tamil_120" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333EA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="pageGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFFBEB"/>
+    </linearGradient>
+    <linearGradient id="pageGradShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF5"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <filter id="fanningDropShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#1E1B4B" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Ground Ambient Shadow -->
+  <ellipse cx="60" cy="92" rx="48" ry="5.5" fill="#1E1B4B" fill-opacity="0.15"/>
+
+  <!-- HARDCOVER CASING (Opened wide lying flat) -->
+  <!-- Left cover thickness & spine -->
+  <path d="M60 88 C40 88 20 84 6 78 L4 83 C18 89 38 93 60 93 Z" fill="#6B21A8"/>
+  <!-- Right cover thickness & spine -->
+  <path d="M60 88 C80 88 100 84 114 78 L116 83 C102 89 82 93 60 93 Z" fill="#6B21A8"/>
+  
+  <!-- Left cover face -->
+  <path d="M60 87 C40 87 22 83 6 77 L15 54 C30 60 45 64 60 66 Z" fill="url(#bookCoverGrad_tamil_120)" stroke="#581C87" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- Right cover face -->
+  <path d="M60 87 C80 87 98 83 114 77 L105 54 C90 60 75 64 60 66 Z" fill="url(#bookCoverGrad_tamil_120)" stroke="#581C87" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Center Spine Notch / Rounded Joint -->
+  <path d="M54 87 C54 91 66 91 66 87 C66 83 54 83 54 87 Z" fill="#6B21A8" stroke="#581C87" stroke-width="1.5"/>
+
+  <!-- STATIC BASE PAGES (Lying flat on the covers) -->
+  <!-- Left Flat Page Stack -->
+  <path d="M60 84 C42 84 26 80 10 74 L18 53 C32 59 46 62 60 64 Z" fill="url(#pageGradLight)" stroke="#581C87" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- Left page printed text lines -->
+  <line x1="22" y1="60" x2="48" y2="67" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="20" y1="66" x2="46" y2="73" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="18" y1="71" x2="40" y2="78" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Right Flat Page Stack -->
+  <path d="M60 84 C78 84 94 80 110 74 L102 53 C88 59 74 62 60 64 Z" fill="url(#pageGradLight)" stroke="#581C87" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- Right page printed text lines -->
+  <line x1="98" y1="60" x2="72" y2="67" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="100" y1="66" x2="74" y2="73" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="96" y1="71" x2="76" y2="77" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- FANNING PAGES (Standing up in 3D perspective arc) -->
+  
+  <!-- 1. Left Low Fan Page -->
+  <g class="fanning-leaf leaf-left-low">
+    <path d="M60 82 L20 49 L36 31 L60 76 Z" fill="url(#pageGradShade)" stroke="#581C87" stroke-width="1.4" stroke-linejoin="round"/>
+    <line x1="28" y1="48" x2="45" y2="44" stroke="#FCD34D" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="32" y1="56" x2="50" y2="52" stroke="#FCD34D" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 2. Right Low Fan Page -->
+  <g class="fanning-leaf leaf-right-low">
+    <path d="M60 82 L100 49 L84 31 L60 76 Z" fill="url(#pageGradShade)" stroke="#581C87" stroke-width="1.4" stroke-linejoin="round"/>
+    <line x1="92" y1="48" x2="75" y2="44" stroke="#FCD34D" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="88" y1="56" x2="70" y2="52" stroke="#FCD34D" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 3. FLUTTERING PAGE 1 (Left Mid - Moves on hover/click) -->
+  <g class="fanning-leaf fanning-moving-leaf-1">
+    <path d="M60 81 L38 27 L54 17 L60 74 Z" fill="url(#pageGradLight)" stroke="#581C87" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Page text line simulation -->
+    <line x1="45" y1="30" x2="52" y2="28" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="47" y1="40" x2="55" y2="38" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="49" y1="50" x2="57" y2="48" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 4. FLUTTERING PAGE 2 (Center Vertical - The active flipping page) -->
+  <g class="fanning-leaf fanning-moving-leaf-2">
+    <path d="M60 80 L58 12 L64 12 L61 74 Z" fill="#FFFFFF" stroke="#581C87" stroke-width="1.4" stroke-linejoin="round"/>
+    <line x1="59" y1="24" x2="63" y2="24" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="59" y1="36" x2="63" y2="36" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 5. FLUTTERING PAGE 3 (Right Mid - Moves on hover/click) -->
+  <g class="fanning-leaf fanning-moving-leaf-3">
+    <path d="M60 81 L82 27 L66 17 L60 74 Z" fill="url(#pageGradLight)" stroke="#581C87" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="75" y1="30" x2="68" y2="28" stroke="#F59E0B" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="73" y1="40" x2="65" y2="38" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="71" y1="50" x2="63" y2="48" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Golden Spine Ribbon Bookmark -->
+  <path d="M59 74 L59 95 L61 93 L63 95 L63 74 Z" fill="#FBBF24" stroke="#581C87" stroke-width="1"/>
+
+  <!-- Sprouting Green Leaves on Top & Tamil Typography -->
+  <g class="float-fanning-tamil">
+    <!-- Sprouting green leaves at top-right -->
+    <path d="M68 14 C75 6 86 8 90 17 C83 22 73 21 68 14 Z" fill="#22C55E" stroke="#15803D" stroke-width="1.2"/>
+    <path d="M68 14 C70 6 63 3 57 6 C59 13 64 14 68 14 Z" fill="#4ADE80"/>
+    <!-- Tamil typography 'தமிழ்' floating gracefully above center-right page -->
+    <g transform="translate(54, 6)">
+      <text x="14" y="9" text-anchor="middle" font-size="13" font-weight="900" fill="#9333EA" font-family="'Noto Sans Tamil', 'Latha', 'Mukta Malar', 'Plus Jakarta Sans', sans-serif">தமிழ்</text>
+    </g>
+    <!-- Golden Sparkles -->
+    <path d="M26 18 L27.5 21 L30 22 L27.5 23 L26 26 L24.5 23 L22 22 L24.5 21 Z" fill="#FBBF24"/>
+    <path d="M94 22 L95.5 24 L97 25 L95.5 26 L94 28 L92.5 26 L91 25 L92.5 24 Z" fill="#FBBF24"/>
+  </g>
+</svg>
