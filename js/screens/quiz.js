@@ -10,6 +10,7 @@
 // 8. Quiz History -> Completed Tab in Quizzes List with Scores & View Buttons (Screen 8)
 
 import { ICONS } from '../components/icons.js';
+import { QUIZ_QUESTION_BANK } from '../data/quizQuestions.js';
 import { GRAPHICS } from '../components/graphics.js';
 import { triggerConfetti } from '../components/confetti.js';
 
@@ -17,8 +18,10 @@ export function renderQuizScreen(container, state, app) {
   let view = state.quizCurrentView || "list"; // "list", "details", "instructions", "runner", "result"
   let activeTab = state.quizzesActiveTab || "all"; // "all", "practice", "timed", "completed"
   let activeQuiz = state.selectedQuiz || null;
-  let qIndex = 2; // Default to Question 3 of 10 to match exact reference image!
-  let userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
+  let qIndex = 0;
+  let userAnswers = {};
+  let quizStartedAt = Date.now();
+  let lastResult = null;
   let timerInterval = null;
   let timeLeftSeconds = 14 * 60 + 32; // 14:32 countdown like in reference image
   let showSubmitModal = false;
@@ -302,6 +305,71 @@ export function renderQuizScreen(container, state, app) {
     }
   }
 
+  // Attach the full question bank so every quiz has all its questions
+  quizzesCatalog.forEach(qz => {
+    const bank = QUIZ_QUESTION_BANK[qz.id];
+    if (bank && bank.length) {
+      qz.questions = bank;
+      qz.questionsCount = bank.length;
+    }
+  });
+
+  function getCurrentQuiz() {
+    const id = activeQuiz && activeQuiz.id;
+    return quizzesCatalog.find(x => x.id === id) || activeQuiz || quizzesCatalog[0];
+  }
+
+  function getRunQuestions() {
+    const q = getCurrentQuiz();
+    return QUIZ_QUESTION_BANK[q.id] || (q.questions && q.questions.length ? q.questions : QUIZ_QUESTION_BANK["quiz-sci-cell"]);
+  }
+
+  function countAnswered() {
+    const total = getRunQuestions().length;
+    let n = 0;
+    for (let i = 0; i < total; i++) if (userAnswers[i] !== undefined) n++;
+    return n;
+  }
+
+  // Start (or restart) a quiz: Question 1, nothing selected, full timer
+  function startQuizRun() {
+    const q = getCurrentQuiz();
+    qIndex = 0;
+    userAnswers = {};
+    timeLeftSeconds = (q.durationMinutes || 15) * 60;
+    quizStartedAt = Date.now();
+    lastResult = null;
+    showSubmitModal = false;
+    view = "runner";
+    render();
+  }
+
+  // Score the attempt from the student's real answers
+  function finishQuiz() {
+    const q = getCurrentQuiz();
+    const questions = getRunQuestions();
+    let correct = 0;
+    questions.forEach((qq, i) => { if (userAnswers[i] === qq.correct) correct++; });
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+    const pointsPer = Math.round((q.points || total * 10) / total);
+    const points = correct * pointsPer;
+    const usedSec = Math.max(1, Math.round((Date.now() - quizStartedAt) / 1000));
+    lastResult = { correct, total, pct, points, timeText: formatTimer(Math.min(usedSec, 99 * 60 + 59)), answers: Object.assign({}, userAnswers) };
+
+    q.scoreText = correct + " / " + total;
+    q.scorePct = pct + "%";
+    q.pointsEarned = points;
+    q.timeTakenText = lastResult.timeText;
+    q.completed = true;
+
+    state.student.points += points;
+    if (app.updateHeaderStats) app.updateHeaderStats();
+    showSubmitModal = false;
+    view = "result";
+    render();
+  }
+
   function formatTimer(sec) {
     const m = Math.floor(sec / 60);
     const s = sec % 60;
@@ -323,15 +391,14 @@ export function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizStartNow = function() {
-    qIndex = 2; // Default to Question 3 of 10 matching reference image
-    userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
-    timeLeftSeconds = 14 * 60 + 32;
-    showSubmitModal = false;
-    view = "runner";
-    render();
+    startQuizRun();
   };
 
   window.lmsQuizOpenSubmitModal = function() {
+    if (countAnswered() < getRunQuestions().length) {
+      app.showToast("Please answer all questions before submitting.");
+      return;
+    }
     showSubmitModal = true;
     render();
   };
@@ -342,11 +409,7 @@ export function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizConfirmSubmit = function() {
-    showSubmitModal = false;
-    state.student.points += 80;
-    app.updateHeaderStats();
-    view = "result";
-    render();
+    finishQuiz();
   };
 
   window.lmsQuizBackToList = function() {
@@ -362,12 +425,7 @@ export function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizRestart = function() {
-    qIndex = 0;
-    userAnswers = {};
-    timeLeftSeconds = 14 * 60 + 32;
-    showSubmitModal = false;
-    view = "runner";
-    render();
+    startQuizRun();
   };
 
   window.lmsQuizViewResult = function(quizId) {
@@ -530,7 +588,7 @@ export function renderQuizScreen(container, state, app) {
   // VIEW 2: Quiz Details (Matches Image 1 Screen 3 & Image 2 Screen 3)
   // =========================================================================
   function renderDetailsView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     container.innerHTML = `
       <div class="screen-container view-enter" style="padding-top: 6px;">
@@ -682,7 +740,7 @@ export function renderQuizScreen(container, state, app) {
   // VIEW 3: Quiz Instructions (Matches Image 1 Screen 4 & Image 3 Screen 4)
   // =========================================================================
   function renderInstructionsView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     container.innerHTML = `
       <div class="screen-container view-enter" style="padding-top: 6px;">
@@ -758,12 +816,7 @@ export function renderQuizScreen(container, state, app) {
     });
 
     container.querySelector("#start-now-btn")?.addEventListener("click", () => {
-      qIndex = 2; // Default to Question 3
-      userAnswers = { 2: 1 };
-      timeLeftSeconds = 14 * 60 + 32;
-      showSubmitModal = false;
-      view = "runner";
-      render();
+      startQuizRun();
     });
   }
 
@@ -771,19 +824,14 @@ export function renderQuizScreen(container, state, app) {
   // VIEW 4: Take Quiz / Question Runner (Matches Image 1 Screen 5 & Image 3 Screen 5)
   // =========================================================================
   function renderRunnerView() {
-    const q = activeQuiz || quizzesCatalog[0];
-    const questions = q.questions && q.questions.length ? q.questions : [
-      {
-        num: 3,
-        text: "Which part of the cell controls all the activities?",
-        options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"],
-        correct: 1,
-        explanation: "The nucleus is the command center containing the cell's genetic material (DNA)."
-      }
-    ];
+    const q = getCurrentQuiz();
+    const questions = getRunQuestions();
+    if (qIndex >= questions.length) qIndex = questions.length - 1;
 
     const currentQ = questions[qIndex] || questions[0];
-    const totalQuestions = 10;
+    const totalQuestions = questions.length;
+    const isLastQuestion = qIndex === totalQuestions - 1;
+    const answeredCount = countAnswered();
     const progressPercent = Math.round(((qIndex + 1) / totalQuestions) * 100);
 
     container.innerHTML = `
@@ -808,6 +856,7 @@ export function renderQuizScreen(container, state, app) {
           <div>
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
+              <span style="float: right; color: #7C3AED;">${answeredCount} / ${totalQuestions} answered</span>
             </div>
             <div style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
               <div style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
@@ -848,7 +897,7 @@ export function renderQuizScreen(container, state, app) {
               <div style="width: 260px; display: flex; align-items: center; justify-content: center; position: relative;">
                 <div style="position: absolute; width: 200px; height: 160px; background: radial-gradient(circle, #F3E8FF 0%, rgba(243, 232, 255, 0) 70%); filter: blur(8px);"></div>
                 <div style="position: relative; z-index: 2; transform: scale(0.9); filter: drop-shadow(0 10px 24px rgba(124, 58, 237, 0.2));">
-                  ${GRAPHICS.cell3D(260, 200, "nucleus")}
+                  ${q.subjectId === "science" || !q.subjectId ? GRAPHICS.cell3D(260, 200, "nucleus") : GRAPHICS.getSubjectIcon(({ maths: "calculator", social: "globe", english: "book", tamil: "tamil" })[q.subjectId] || "flask", 150)}
                 </div>
               </div>
 
@@ -861,7 +910,7 @@ export function renderQuizScreen(container, state, app) {
               </button>
 
               <button id="quiz-runner-next-btn" class="ongoing-continue-btn" style="padding: 10px 32px; font-size: 14.5px;">
-                ${qIndex === questions.length - 1 ? 'Next →' : 'Next →'}
+                ${isLastQuestion ? 'Submit Quiz ✓' : 'Next →'}
               </button>
             </div>
 
@@ -880,6 +929,10 @@ export function renderQuizScreen(container, state, app) {
         timeLeftSeconds--;
         const el = document.getElementById("quiz-timer-display");
         if (el) el.innerText = formatTimer(timeLeftSeconds);
+        if (timeLeftSeconds === 0 && view === "runner") {
+          app.showToast("Time is up! Your quiz has been submitted.");
+          finishQuiz();
+        }
       }
     }, 1000);
 
@@ -908,6 +961,23 @@ export function renderQuizScreen(container, state, app) {
 
     // Bind Next button -> Opens Submit Confirmation Modal (Image 1 Screen 6)
     container.querySelector("#quiz-runner-next-btn")?.addEventListener("click", () => {
+      if (userAnswers[qIndex] === undefined) {
+        app.showToast("Please choose an answer to continue.");
+        return;
+      }
+      if (!isLastQuestion) {
+        qIndex++;
+        render();
+        return;
+      }
+      // Last question: every question must be answered before submitting
+      const firstUnanswered = questions.findIndex((_, i) => userAnswers[i] === undefined);
+      if (firstUnanswered !== -1) {
+        app.showToast("Please answer Question " + (firstUnanswered + 1) + " before submitting.");
+        qIndex = firstUnanswered;
+        render();
+        return;
+      }
       showSubmitModal = true;
       render();
     });
@@ -931,7 +1001,7 @@ export function renderQuizScreen(container, state, app) {
 
           <!-- Modal Title & Question Count -->
           <h2 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 6px;">Submit Quiz?</h2>
-          <p style="font-size: 14px; color: #64748B; margin: 0 0 20px; font-weight: 600;">You have answered 10 of 10 questions.</p>
+          <p style="font-size: 14px; color: #64748B; margin: 0 0 20px; font-weight: 600;">You have answered ${countAnswered()} of ${getRunQuestions().length} questions.</p>
 
           <!-- Action Buttons: Review Answers & Submit -->
           <div class="quiz-modal-btns">
@@ -953,7 +1023,7 @@ export function renderQuizScreen(container, state, app) {
   // VIEW 6: Quiz Result (Matches Image 1 Screen 7 & Image 3 Screen 7)
   // =========================================================================
   function renderResultView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     // Trigger celebratory confetti burst!
     triggerConfetti();
@@ -977,7 +1047,7 @@ export function renderQuizScreen(container, state, app) {
           </div>
 
           <!-- Great Job! Heading -->
-          <h2 style="font-size: 26px; font-weight: 900; color: #10B981; margin: 0 0 6px;">Great Job!</h2>
+          <h2 style="font-size: 26px; font-weight: 900; color: ${lastResult && lastResult.pct < 50 ? '#F59E0B' : '#10B981'}; margin: 0 0 6px;">${!lastResult || lastResult.pct >= 80 ? 'Great Job!' : lastResult.pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h2>
           <div style="font-size: 14px; color: #64748B; font-weight: 600;">You Scored</div>
 
           <!-- Score Display 8 / 10 -->
@@ -1031,28 +1101,25 @@ export function renderQuizScreen(container, state, app) {
 
     // Bind View Answers button -> opens answers modal
     container.querySelector("#quiz-view-answers-btn")?.addEventListener("click", () => {
+      const reviewQs = getRunQuestions();
+      const given = (lastResult && lastResult.answers) || userAnswers;
+      const rows = reviewQs.map((qq, i) => {
+        const ans = given[i];
+        const ok = ans === qq.correct;
+        const yourText = ans === undefined ? "Not answered" : qq.options[ans];
+        return `
+          <div style="background: ${ok ? '#F0FDF4' : '#FEF2F2'}; border: 1.5px solid ${ok ? '#10B981' : '#F87171'}; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
+            <div style="font-weight: 700; font-size: 13.5px; color: ${ok ? '#065F46' : '#991B1B'};">Q${i + 1}. ${qq.text}</div>
+            <div style="font-size: 13px; color: ${ok ? '#047857' : '#B91C1C'}; margin-top: 4px;"><strong>Your Answer:</strong> ${ok ? '✔' : '✘'} ${yourText} ${ok ? '(Correct)' : ''}</div>
+            ${ok ? '' : `<div style="font-size: 13px; color: #047857; margin-top: 2px;"><strong>Correct Answer:</strong> ${qq.options[qq.correct]}</div>`}
+            <div style="font-size: 12px; color: #475569; margin-top: 6px;">${qq.explanation || ''}</div>
+          </div>
+        `;
+      }).join('');
       app.showModal(`
-        <div style="padding: 8px;">
-          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – Science: The Cell</h3>
-          
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q1. What is the basic structural and functional unit of all living organisms?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Cell (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">All organisms are composed of one or more cells.</div>
-          </div>
-
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q2. Which organelle is known as the powerhouse of the cell?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Mitochondria (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">Mitochondria generate ATP chemical energy.</div>
-          </div>
-
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q3. Which part of the cell controls all the activities?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Nucleus (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">The nucleus controls all activities and contains DNA.</div>
-          </div>
-
+        <div style="padding: 8px; max-height: 70vh; overflow-y: auto;">
+          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – ${q.title}</h3>
+          ${rows}
           <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700; margin-top: 10px;" onclick="window.closeLmsModal()">
             Done
           </button>
@@ -1062,12 +1129,7 @@ export function renderQuizScreen(container, state, app) {
 
     // Bind Try Again button
     container.querySelector("#quiz-try-again-btn")?.addEventListener("click", () => {
-      qIndex = 0;
-      userAnswers = {};
-      timeLeftSeconds = 14 * 60 + 32;
-      showSubmitModal = false;
-      view = "runner";
-      render();
+      startQuizRun();
     });
   }
 

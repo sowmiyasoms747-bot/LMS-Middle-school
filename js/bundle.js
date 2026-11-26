@@ -787,6 +787,94 @@ const LMS_DATA = {
   }
 };
 
+// ===== Module: js/data/quizQuestions.js =====
+// Quiz Question Bank for Learning Universe LMS (Classes 6-8)
+// Each quiz has exactly as many questions as its "questionsCount".
+// correct = index of the right option (0-based).
+const QUIZ_QUESTION_BANK = {
+  // ---------------------------------------------------------------------
+  // Science – The Cell (10)
+  // ---------------------------------------------------------------------
+  "quiz-sci-cell": [
+    { text: "What is the basic structural and functional unit of all living organisms?", options: ["Tissue", "Cell", "Organ", "Nucleus"], correct: 1, explanation: "The cell is the basic structural and functional unit of all known living organisms." },
+    { text: "Which organelle is known as the powerhouse of the cell?", options: ["Ribosome", "Mitochondria", "Golgi Apparatus", "Vacuole"], correct: 1, explanation: "Mitochondria generate most of the chemical energy needed to power the cell's biochemical reactions." },
+    { text: "Which part of the cell controls all the activities?", options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"], correct: 1, explanation: "The nucleus is the control center of the cell containing the genetic material (DNA)." },
+    { text: "Which structure provides shape and rigidity exclusively to plant cells?", options: ["Cell Wall", "Cell Membrane", "Cytoplasm", "Endoplasmic Reticulum"], correct: 0, explanation: "The cell wall is a rigid layer outside the cell membrane found in plant cells." },
+    { text: "Which green pigment in chloroplasts absorbs light energy for photosynthesis?", options: ["Carotene", "Chlorophyll", "Xanthophyll", "Anthocyanin"], correct: 1, explanation: "Chlorophyll is the green pigment that captures sunlight to make food." },
+    { text: "The jelly-like substance between the cell membrane and the nucleus is called:", options: ["Cytoplasm", "Protoplasm", "Nucleolus", "Plasma"], correct: 0, explanation: "Cytoplasm is the jelly-like substance in which the cell organelles are found." },
+    { text: "Which part of the cell allows only some substances to pass in and out?", options: ["Cell Wall", "Cell Membrane", "Vacuole", "Nucleus"], correct: 1, explanation: "The cell membrane is selectively permeable – it controls what enters and leaves the cell." },
+    { text: "Large vacuoles are commonly found in:", options: ["Animal cells", "Plant cells", "Bacteria only", "Nerve cells"], correct: 1, explanation: "Plant cells usually have one large central vacuole; animal cells have small ones or none." },
+    { text: "Which instrument is used to observe cells?", options: ["Telescope", "Periscope", "Microscope", "Stethoscope"], correct: 2, explanation: "Cells are too small to see with the naked eye, so we use a microscope." },
+    { text: "Organisms made of only one cell are called:", options: ["Multicellular", "Unicellular", "Tissues", "Organs"], correct: 1, explanation: "Unicellular organisms like Amoeba and Paramecium are made of a single cell." }
+  ],
+
+  // ---------------------------------------------------------------------
+  // Mathematics – Fractions (12)
+  // ---------------------------------------------------------------------
+  "quiz-math-fractions": [
+    { text: "What is 3/4 + 2/3 in simplest form?", options: ["5/7", "17/12 (1 5/12)", "1", "6/12"], correct: 1, explanation: "LCM of 4 and 3 is 12: 9/12 + 8/12 = 17/12." },
+    { text: "What is 2/5 × 3/4?", options: ["6/20 = 3/10", "5/9", "8/15", "6/9"], correct: 0, explanation: "Multiply numerators and denominators: (2×3)/(5×4) = 6/20 = 3/10." },
+    { text: "What is 1/2 ÷ 1/4?", options: ["1/8", "2", "1/2", "4"], correct: 1, explanation: "Dividing by a fraction = multiplying by its reciprocal: 1/2 × 4/1 = 2." },
+    { text: "Which fraction is equivalent to 2/3?", options: ["4/9", "6/9", "3/2", "2/6"], correct: 1, explanation: "Multiply numerator and denominator by 3: 2/3 = 6/9." },
+    { text: "Convert 7/4 into a mixed fraction.", options: ["1 3/4", "1 1/4", "3 1/4", "2 1/4"], correct: 0, explanation: "7 ÷ 4 = 1 remainder 3, so 7/4 = 1 3/4." },
+    { text: "What is 5/6 − 1/3?", options: ["4/3", "1/2", "4/6", "2/3"], correct: 1, explanation: "1/3 = 2/6, so 5/6 − 2/6 = 3/6 = 1/2." },
+    { text: "Which is the largest fraction?", options: ["2/5", "3/8", "1/2", "3/7"], correct: 2, explanation: "1/2 = 0.5, which is greater than 0.4, 0.375 and about 0.43." },
+    { text: "What is 3/4 of 20?", options: ["12", "15", "16", "5"], correct: 1, explanation: "20 ÷ 4 = 5, and 5 × 3 = 15." },
+    { text: "A fraction whose numerator is smaller than its denominator is called a:", options: ["Proper fraction", "Improper fraction", "Mixed fraction", "Unit fraction"], correct: 0, explanation: "In a proper fraction the numerator is less than the denominator, e.g. 3/5." },
+    { text: "What is the reciprocal of 5/8?", options: ["8/5", "5/8", "1/8", "−5/8"], correct: 0, explanation: "The reciprocal is found by swapping the numerator and the denominator: 8/5." },
+    { text: "What is 2 1/2 × 4?", options: ["8", "9", "10", "12"], correct: 2, explanation: "2 1/2 = 5/2, and 5/2 × 4 = 20/2 = 10." },
+    { text: "Simplify 18/24.", options: ["2/3", "3/4", "9/16", "6/8"], correct: 1, explanation: "Divide numerator and denominator by their HCF 6: 18/24 = 3/4." }
+  ],
+
+  // ---------------------------------------------------------------------
+  // Social Science – Our Environment (10)
+  // ---------------------------------------------------------------------
+  "quiz-soc-env": [
+    { text: "Which of these is a natural component of the environment?", options: ["Bridges", "Buildings", "Rivers", "Roads"], correct: 2, explanation: "Rivers are part of the natural environment; bridges, buildings and roads are human-made." },
+    { text: "The solid crust or hard top layer of the Earth is called the:", options: ["Hydrosphere", "Lithosphere", "Atmosphere", "Biosphere"], correct: 1, explanation: "The lithosphere is the solid crust made of rocks and minerals." },
+    { text: "The domain of water on Earth is called the:", options: ["Hydrosphere", "Lithosphere", "Biosphere", "Troposphere"], correct: 0, explanation: "The hydrosphere includes oceans, rivers, lakes, ice and groundwater." },
+    { text: "The thin layer of air that surrounds the Earth is the:", options: ["Lithosphere", "Hydrosphere", "Atmosphere", "Biosphere"], correct: 2, explanation: "The atmosphere is the blanket of air surrounding the Earth." },
+    { text: "The narrow zone where land, water and air interact to support life is the:", options: ["Biosphere", "Stratosphere", "Lithosphere", "Exosphere"], correct: 0, explanation: "The biosphere is the zone of life where all living organisms are found." },
+    { text: "A system formed by living organisms interacting with each other and their surroundings is called a(n):", options: ["Habitat", "Ecosystem", "Community", "Environment"], correct: 1, explanation: "An ecosystem is a community of living things interacting with their physical environment." },
+    { text: "Which gas makes up the largest part of the atmosphere?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"], correct: 2, explanation: "Nitrogen makes up about 78% of the air around us." },
+    { text: "Which of these is a human-made environment?", options: ["Forest", "Mountain", "Park built in a city", "Ocean"], correct: 2, explanation: "A park built by people in a city is part of the human-made environment." },
+    { text: "Which day is celebrated as World Environment Day?", options: ["5 June", "22 April", "15 August", "2 October"], correct: 0, explanation: "World Environment Day is celebrated every year on 5 June." },
+    { text: "Which is the best way to protect our environment?", options: ["Cutting more trees", "Using more plastic bags", "Reduce, Reuse and Recycle", "Burning garbage"], correct: 2, explanation: "Reducing, reusing and recycling saves resources and reduces pollution." }
+  ],
+
+  // ---------------------------------------------------------------------
+  // English – Tenses (10)
+  // ---------------------------------------------------------------------
+  "quiz-eng-tenses": [
+    { text: "She ___ to school every day.", options: ["go", "goes", "going", "gone"], correct: 1, explanation: "Simple present with he/she/it takes -s or -es: 'She goes'." },
+    { text: "They ___ football right now.", options: ["play", "played", "are playing", "have played"], correct: 2, explanation: "'Right now' shows an action happening at this moment – present continuous." },
+    { text: "I ___ my homework yesterday.", options: ["finish", "finished", "have finished", "will finish"], correct: 1, explanation: "'Yesterday' points to a completed past action – simple past." },
+    { text: "We ___ visit our grandparents next Sunday.", options: ["will", "did", "were", "have"], correct: 0, explanation: "'Next Sunday' is in the future – simple future: 'will visit'." },
+    { text: "He ___ already ___ his lunch.", options: ["has, eaten", "have, eat", "had, eat", "is, eating"], correct: 0, explanation: "Present perfect with he: 'has' + past participle 'eaten'." },
+    { text: "When I reached the station, the train ___.", options: ["leaves", "has left", "had left", "will leave"], correct: 2, explanation: "Past perfect shows the action finished before another past action." },
+    { text: "Identify the tense: 'Riya was reading a book.'", options: ["Simple past", "Past continuous", "Present continuous", "Past perfect"], correct: 1, explanation: "'was + verb-ing' forms the past continuous tense." },
+    { text: "The sun ___ in the east.", options: ["rise", "rises", "rose", "is rising"], correct: 1, explanation: "Universal truths use the simple present: 'The sun rises'." },
+    { text: "By next year, she ___ her course.", options: ["completes", "will have completed", "completed", "has completed"], correct: 1, explanation: "Future perfect: an action that will be finished before a future time." },
+    { text: "Choose the past participle of 'write'.", options: ["wrote", "writed", "written", "writing"], correct: 2, explanation: "write – wrote – written." }
+  ],
+
+  // ---------------------------------------------------------------------
+  // தமிழ் – எழுத்துக்கள் வகைகள் (10)
+  // ---------------------------------------------------------------------
+  "quiz-tam-letters": [
+    { text: "தமிழில் உயிர் எழுத்துக்கள் எத்தனை?", options: ["10", "12", "18", "30"], correct: 1, explanation: "அ முதல் ஔ வரை 12 உயிர் எழுத்துக்கள் உள்ளன." },
+    { text: "தமிழில் மெய் எழுத்துக்கள் எத்தனை?", options: ["12", "16", "18", "216"], correct: 2, explanation: "க் முதல் ன் வரை 18 மெய் எழுத்துக்கள் உள்ளன." },
+    { text: "உயிர்மெய் எழுத்துக்கள் மொத்தம் எத்தனை?", options: ["216", "247", "18", "108"], correct: 0, explanation: "12 உயிர் × 18 மெய் = 216 உயிர்மெய் எழுத்துக்கள்." },
+    { text: "தமிழ் எழுத்துக்கள் மொத்தம் எத்தனை?", options: ["216", "230", "247", "250"], correct: 2, explanation: "12 உயிர் + 18 மெய் + 216 உயிர்மெய் + 1 ஆய்தம் = 247." },
+    { text: "ஆய்த எழுத்து எது?", options: ["ஃ", "ஔ", "ங்", "ழ்"], correct: 0, explanation: "'ஃ' ஆய்த எழுத்து எனப்படும்." },
+    { text: "வல்லின எழுத்துக்கள் எவை?", options: ["ங ஞ ண ந ம ன", "க ச ட த ப ற", "ய ர ல வ ழ ள", "அ இ உ எ ஒ"], correct: 1, explanation: "க ச ட த ப ற – இவை ஆறும் வல்லின எழுத்துக்கள்." },
+    { text: "மெல்லின எழுத்துக்கள் எவை?", options: ["ங ஞ ண ந ம ன", "க ச ட த ப ற", "ய ர ல வ ழ ள", "ஆ ஈ ஊ ஏ ஓ"], correct: 0, explanation: "ங ஞ ண ந ம ன – இவை ஆறும் மெல்லின எழுத்துக்கள்." },
+    { text: "இடையின எழுத்துக்கள் எவை?", options: ["க ச ட த ப ற", "ங ஞ ண ந ம ன", "ய ர ல வ ழ ள", "அ ஆ இ ஈ உ ஊ"], correct: 2, explanation: "ய ர ல வ ழ ள – இவை ஆறும் இடையின எழுத்துக்கள்." },
+    { text: "குறில் எழுத்துக்கள் எத்தனை?", options: ["5", "7", "12", "6"], correct: 0, explanation: "அ இ உ எ ஒ – இவை ஐந்தும் குறில் எழுத்துக்கள்." },
+    { text: "நெடில் எழுத்துக்கள் எத்தனை?", options: ["5", "6", "7", "12"], correct: 2, explanation: "ஆ ஈ ஊ ஏ ஐ ஓ ஔ – இவை ஏழும் நெடில் எழுத்துக்கள்." }
+  ]
+};
+
 // ===== Module: js/components/icons.js =====
 // Reusable Crisp SVG Icons for Learning Universe LMS
 const ICONS = {
@@ -4708,8 +4796,10 @@ function renderQuizScreen(container, state, app) {
   let view = state.quizCurrentView || "list"; // "list", "details", "instructions", "runner", "result"
   let activeTab = state.quizzesActiveTab || "all"; // "all", "practice", "timed", "completed"
   let activeQuiz = state.selectedQuiz || null;
-  let qIndex = 2; // Default to Question 3 of 10 to match exact reference image!
-  let userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
+  let qIndex = 0;
+  let userAnswers = {};
+  let quizStartedAt = Date.now();
+  let lastResult = null;
   let timerInterval = null;
   let timeLeftSeconds = 14 * 60 + 32; // 14:32 countdown like in reference image
   let showSubmitModal = false;
@@ -4993,6 +5083,71 @@ function renderQuizScreen(container, state, app) {
     }
   }
 
+  // Attach the full question bank so every quiz has all its questions
+  quizzesCatalog.forEach(qz => {
+    const bank = QUIZ_QUESTION_BANK[qz.id];
+    if (bank && bank.length) {
+      qz.questions = bank;
+      qz.questionsCount = bank.length;
+    }
+  });
+
+  function getCurrentQuiz() {
+    const id = activeQuiz && activeQuiz.id;
+    return quizzesCatalog.find(x => x.id === id) || activeQuiz || quizzesCatalog[0];
+  }
+
+  function getRunQuestions() {
+    const q = getCurrentQuiz();
+    return QUIZ_QUESTION_BANK[q.id] || (q.questions && q.questions.length ? q.questions : QUIZ_QUESTION_BANK["quiz-sci-cell"]);
+  }
+
+  function countAnswered() {
+    const total = getRunQuestions().length;
+    let n = 0;
+    for (let i = 0; i < total; i++) if (userAnswers[i] !== undefined) n++;
+    return n;
+  }
+
+  // Start (or restart) a quiz: Question 1, nothing selected, full timer
+  function startQuizRun() {
+    const q = getCurrentQuiz();
+    qIndex = 0;
+    userAnswers = {};
+    timeLeftSeconds = (q.durationMinutes || 15) * 60;
+    quizStartedAt = Date.now();
+    lastResult = null;
+    showSubmitModal = false;
+    view = "runner";
+    render();
+  }
+
+  // Score the attempt from the student's real answers
+  function finishQuiz() {
+    const q = getCurrentQuiz();
+    const questions = getRunQuestions();
+    let correct = 0;
+    questions.forEach((qq, i) => { if (userAnswers[i] === qq.correct) correct++; });
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+    const pointsPer = Math.round((q.points || total * 10) / total);
+    const points = correct * pointsPer;
+    const usedSec = Math.max(1, Math.round((Date.now() - quizStartedAt) / 1000));
+    lastResult = { correct, total, pct, points, timeText: formatTimer(Math.min(usedSec, 99 * 60 + 59)), answers: Object.assign({}, userAnswers) };
+
+    q.scoreText = correct + " / " + total;
+    q.scorePct = pct + "%";
+    q.pointsEarned = points;
+    q.timeTakenText = lastResult.timeText;
+    q.completed = true;
+
+    state.student.points += points;
+    if (app.updateHeaderStats) app.updateHeaderStats();
+    showSubmitModal = false;
+    view = "result";
+    render();
+  }
+
   function formatTimer(sec) {
     const m = Math.floor(sec / 60);
     const s = sec % 60;
@@ -5014,15 +5169,14 @@ function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizStartNow = function() {
-    qIndex = 2; // Default to Question 3 of 10 matching reference image
-    userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
-    timeLeftSeconds = 14 * 60 + 32;
-    showSubmitModal = false;
-    view = "runner";
-    render();
+    startQuizRun();
   };
 
   window.lmsQuizOpenSubmitModal = function() {
+    if (countAnswered() < getRunQuestions().length) {
+      app.showToast("Please answer all questions before submitting.");
+      return;
+    }
     showSubmitModal = true;
     render();
   };
@@ -5033,11 +5187,7 @@ function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizConfirmSubmit = function() {
-    showSubmitModal = false;
-    state.student.points += 80;
-    app.updateHeaderStats();
-    view = "result";
-    render();
+    finishQuiz();
   };
 
   window.lmsQuizBackToList = function() {
@@ -5053,12 +5203,7 @@ function renderQuizScreen(container, state, app) {
   };
 
   window.lmsQuizRestart = function() {
-    qIndex = 0;
-    userAnswers = {};
-    timeLeftSeconds = 14 * 60 + 32;
-    showSubmitModal = false;
-    view = "runner";
-    render();
+    startQuizRun();
   };
 
   window.lmsQuizViewResult = function(quizId) {
@@ -5221,7 +5366,7 @@ function renderQuizScreen(container, state, app) {
   // VIEW 2: Quiz Details (Matches Image 1 Screen 3 & Image 2 Screen 3)
   // =========================================================================
   function renderDetailsView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     container.innerHTML = `
       <div class="screen-container view-enter" style="padding-top: 6px;">
@@ -5373,7 +5518,7 @@ function renderQuizScreen(container, state, app) {
   // VIEW 3: Quiz Instructions (Matches Image 1 Screen 4 & Image 3 Screen 4)
   // =========================================================================
   function renderInstructionsView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     container.innerHTML = `
       <div class="screen-container view-enter" style="padding-top: 6px;">
@@ -5449,12 +5594,7 @@ function renderQuizScreen(container, state, app) {
     });
 
     container.querySelector("#start-now-btn")?.addEventListener("click", () => {
-      qIndex = 2; // Default to Question 3
-      userAnswers = { 2: 1 };
-      timeLeftSeconds = 14 * 60 + 32;
-      showSubmitModal = false;
-      view = "runner";
-      render();
+      startQuizRun();
     });
   }
 
@@ -5462,19 +5602,14 @@ function renderQuizScreen(container, state, app) {
   // VIEW 4: Take Quiz / Question Runner (Matches Image 1 Screen 5 & Image 3 Screen 5)
   // =========================================================================
   function renderRunnerView() {
-    const q = activeQuiz || quizzesCatalog[0];
-    const questions = q.questions && q.questions.length ? q.questions : [
-      {
-        num: 3,
-        text: "Which part of the cell controls all the activities?",
-        options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"],
-        correct: 1,
-        explanation: "The nucleus is the command center containing the cell's genetic material (DNA)."
-      }
-    ];
+    const q = getCurrentQuiz();
+    const questions = getRunQuestions();
+    if (qIndex >= questions.length) qIndex = questions.length - 1;
 
     const currentQ = questions[qIndex] || questions[0];
-    const totalQuestions = 10;
+    const totalQuestions = questions.length;
+    const isLastQuestion = qIndex === totalQuestions - 1;
+    const answeredCount = countAnswered();
     const progressPercent = Math.round(((qIndex + 1) / totalQuestions) * 100);
 
     container.innerHTML = `
@@ -5499,6 +5634,7 @@ function renderQuizScreen(container, state, app) {
           <div>
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
+              <span style="float: right; color: #7C3AED;">${answeredCount} / ${totalQuestions} answered</span>
             </div>
             <div style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
               <div style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
@@ -5539,7 +5675,7 @@ function renderQuizScreen(container, state, app) {
               <div style="width: 260px; display: flex; align-items: center; justify-content: center; position: relative;">
                 <div style="position: absolute; width: 200px; height: 160px; background: radial-gradient(circle, #F3E8FF 0%, rgba(243, 232, 255, 0) 70%); filter: blur(8px);"></div>
                 <div style="position: relative; z-index: 2; transform: scale(0.9); filter: drop-shadow(0 10px 24px rgba(124, 58, 237, 0.2));">
-                  ${GRAPHICS.cell3D(260, 200, "nucleus")}
+                  ${q.subjectId === "science" || !q.subjectId ? GRAPHICS.cell3D(260, 200, "nucleus") : GRAPHICS.getSubjectIcon(({ maths: "calculator", social: "globe", english: "book", tamil: "tamil" })[q.subjectId] || "flask", 150)}
                 </div>
               </div>
 
@@ -5552,7 +5688,7 @@ function renderQuizScreen(container, state, app) {
               </button>
 
               <button id="quiz-runner-next-btn" class="ongoing-continue-btn" style="padding: 10px 32px; font-size: 14.5px;">
-                ${qIndex === questions.length - 1 ? 'Next →' : 'Next →'}
+                ${isLastQuestion ? 'Submit Quiz ✓' : 'Next →'}
               </button>
             </div>
 
@@ -5571,6 +5707,10 @@ function renderQuizScreen(container, state, app) {
         timeLeftSeconds--;
         const el = document.getElementById("quiz-timer-display");
         if (el) el.innerText = formatTimer(timeLeftSeconds);
+        if (timeLeftSeconds === 0 && view === "runner") {
+          app.showToast("Time is up! Your quiz has been submitted.");
+          finishQuiz();
+        }
       }
     }, 1000);
 
@@ -5599,6 +5739,23 @@ function renderQuizScreen(container, state, app) {
 
     // Bind Next button -> Opens Submit Confirmation Modal (Image 1 Screen 6)
     container.querySelector("#quiz-runner-next-btn")?.addEventListener("click", () => {
+      if (userAnswers[qIndex] === undefined) {
+        app.showToast("Please choose an answer to continue.");
+        return;
+      }
+      if (!isLastQuestion) {
+        qIndex++;
+        render();
+        return;
+      }
+      // Last question: every question must be answered before submitting
+      const firstUnanswered = questions.findIndex((_, i) => userAnswers[i] === undefined);
+      if (firstUnanswered !== -1) {
+        app.showToast("Please answer Question " + (firstUnanswered + 1) + " before submitting.");
+        qIndex = firstUnanswered;
+        render();
+        return;
+      }
       showSubmitModal = true;
       render();
     });
@@ -5622,7 +5779,7 @@ function renderQuizScreen(container, state, app) {
 
           <!-- Modal Title & Question Count -->
           <h2 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 6px;">Submit Quiz?</h2>
-          <p style="font-size: 14px; color: #64748B; margin: 0 0 20px; font-weight: 600;">You have answered 10 of 10 questions.</p>
+          <p style="font-size: 14px; color: #64748B; margin: 0 0 20px; font-weight: 600;">You have answered ${countAnswered()} of ${getRunQuestions().length} questions.</p>
 
           <!-- Action Buttons: Review Answers & Submit -->
           <div class="quiz-modal-btns">
@@ -5644,7 +5801,7 @@ function renderQuizScreen(container, state, app) {
   // VIEW 6: Quiz Result (Matches Image 1 Screen 7 & Image 3 Screen 7)
   // =========================================================================
   function renderResultView() {
-    const q = activeQuiz || quizzesCatalog[0];
+    const q = getCurrentQuiz();
 
     // Trigger celebratory confetti burst!
     triggerConfetti();
@@ -5668,7 +5825,7 @@ function renderQuizScreen(container, state, app) {
           </div>
 
           <!-- Great Job! Heading -->
-          <h2 style="font-size: 26px; font-weight: 900; color: #10B981; margin: 0 0 6px;">Great Job!</h2>
+          <h2 style="font-size: 26px; font-weight: 900; color: ${lastResult && lastResult.pct < 50 ? '#F59E0B' : '#10B981'}; margin: 0 0 6px;">${!lastResult || lastResult.pct >= 80 ? 'Great Job!' : lastResult.pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h2>
           <div style="font-size: 14px; color: #64748B; font-weight: 600;">You Scored</div>
 
           <!-- Score Display 8 / 10 -->
@@ -5722,28 +5879,25 @@ function renderQuizScreen(container, state, app) {
 
     // Bind View Answers button -> opens answers modal
     container.querySelector("#quiz-view-answers-btn")?.addEventListener("click", () => {
+      const reviewQs = getRunQuestions();
+      const given = (lastResult && lastResult.answers) || userAnswers;
+      const rows = reviewQs.map((qq, i) => {
+        const ans = given[i];
+        const ok = ans === qq.correct;
+        const yourText = ans === undefined ? "Not answered" : qq.options[ans];
+        return `
+          <div style="background: ${ok ? '#F0FDF4' : '#FEF2F2'}; border: 1.5px solid ${ok ? '#10B981' : '#F87171'}; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
+            <div style="font-weight: 700; font-size: 13.5px; color: ${ok ? '#065F46' : '#991B1B'};">Q${i + 1}. ${qq.text}</div>
+            <div style="font-size: 13px; color: ${ok ? '#047857' : '#B91C1C'}; margin-top: 4px;"><strong>Your Answer:</strong> ${ok ? '✔' : '✘'} ${yourText} ${ok ? '(Correct)' : ''}</div>
+            ${ok ? '' : `<div style="font-size: 13px; color: #047857; margin-top: 2px;"><strong>Correct Answer:</strong> ${qq.options[qq.correct]}</div>`}
+            <div style="font-size: 12px; color: #475569; margin-top: 6px;">${qq.explanation || ''}</div>
+          </div>
+        `;
+      }).join('');
       app.showModal(`
-        <div style="padding: 8px;">
-          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – Science: The Cell</h3>
-          
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q1. What is the basic structural and functional unit of all living organisms?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Cell (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">All organisms are composed of one or more cells.</div>
-          </div>
-
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q2. Which organelle is known as the powerhouse of the cell?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Mitochondria (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">Mitochondria generate ATP chemical energy.</div>
-          </div>
-
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q3. Which part of the cell controls all the activities?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Nucleus (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">The nucleus controls all activities and contains DNA.</div>
-          </div>
-
+        <div style="padding: 8px; max-height: 70vh; overflow-y: auto;">
+          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – ${q.title}</h3>
+          ${rows}
           <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700; margin-top: 10px;" onclick="window.closeLmsModal()">
             Done
           </button>
@@ -5753,12 +5907,7 @@ function renderQuizScreen(container, state, app) {
 
     // Bind Try Again button
     container.querySelector("#quiz-try-again-btn")?.addEventListener("click", () => {
-      qIndex = 0;
-      userAnswers = {};
-      timeLeftSeconds = 14 * 60 + 32;
-      showSubmitModal = false;
-      view = "runner";
-      render();
+      startQuizRun();
     });
   }
 
@@ -10390,6 +10539,7 @@ function renderProfileScreen(container, state, app) {
 
   window.lmsProfileSetTheme = function(themeName) {
     s.theme = themeName;
+    if (app.applyTheme) app.applyTheme(themeName);
     app.showToast(`Theme changed to ${themeName.charAt(0).toUpperCase() + themeName.slice(1)}`);
     renderProfileScreen(container, state, app);
   };
@@ -11162,6 +11312,12 @@ class LMSApp {
   }
 
   init() {
+    // Restore saved theme (Light / Dark / System) before first paint
+    let savedTheme = "light";
+    try { savedTheme = localStorage.getItem("lu-theme") || "light"; } catch (e) {}
+    this.state.student.theme = savedTheme;
+    this.applyTheme(savedTheme);
+
     this.renderFlowNavigator();
     this.renderAppShell();
     this.navigateTo(this.currentScreen);
@@ -11651,6 +11807,26 @@ class LMSApp {
         index = (index + 1) % this.screensConfig.length;
         this.navigateTo(this.screensConfig[index].id);
       }, 4000);
+    }
+  }
+
+  // Apply Light / Dark / System theme to the whole app
+  applyTheme(theme) {
+    const root = document.documentElement;
+    const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    const isDark = theme === "dark" || (theme === "system" && mq && mq.matches);
+    root.classList.toggle("lu-dark", !!isDark);
+    root.setAttribute("data-theme", theme);
+    try { localStorage.setItem("lu-theme", theme); } catch (e) {}
+
+    // Follow the OS setting live while "System" is selected
+    if (mq && !this._themeMqBound) {
+      this._themeMqBound = true;
+      const onChange = () => {
+        if ((this.state.student.theme || "light") === "system") this.applyTheme("system");
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
     }
   }
 

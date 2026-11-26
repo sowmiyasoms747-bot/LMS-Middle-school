@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Learning Universe LMS — Dark Theme
+   Active when <html> has the "lu-dark" class (Profile → Preferences → Dark,
+   or System while the OS is in dark mode). Loaded after theme.css.
+   ========================================================================== */
+
+html.lu-dark {
+  color-scheme: dark;
+
+  --lu-d-bg: #0F0B1E;
+  --lu-d-surface: #1A1530;
+  --lu-d-surface-2: #231C3F;
+  --lu-d-surface-3: #2C2450;
+  --lu-d-border: #352C5C;
+  --lu-d-text: #EEEAFB;
+  --lu-d-text-2: #B9B2D9;
+  --lu-d-text-3: #8C84B0;
+
+  --bg-app: var(--lu-d-bg);
+  --bg-card: var(--lu-d-surface);
+  --bg-subtle: var(--lu-d-surface-2);
+  --border-light: var(--lu-d-border);
+  --text-main: var(--lu-d-text);
+  --text-secondary: var(--lu-d-text-2);
+  --text-muted: var(--lu-d-text-3);
+  --primary-light: #2E2358;
+  --lu-card-border: 1px solid var(--lu-d-border);
+  --lu-card-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+  --lu-card-shadow-hover: 0 18px 40px -16px rgba(124, 58, 237, 0.45);
+}
+
+/* ---------- Canvas ---------- */
+html.lu-dark,
+html.lu-dark body {
+  background:
+    radial-gradient(1100px 600px at 100% -10%, rgba(124, 58, 237, 0.22), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(168, 85, 247, 0.16), transparent 60%),
+    linear-gradient(180deg, #120D24 0%, #0F0B1E 60%, #110C22 100%);
+  background-attachment: fixed;
+  color: var(--lu-d-text);
+}
+
+html.lu-dark h1, html.lu-dark h2, html.lu-dark h3,
+html.lu-dark h4, html.lu-dark h5,
+html.lu-dark .my-learning-heading {
+  color: var(--lu-d-text);
+}
+
+/* ---------- Sidebar & header ---------- */
+html.lu-dark .lms-sidebar {
+  background: rgba(22, 17, 42, 0.92);
+  border-right-color: var(--lu-d-border);
+  box-shadow: 6px 0 30px -18px rgba(0, 0, 0, 0.8);
+}
+html.lu-dark .sidebar-link { color: var(--lu-d-text-2); }
+html.lu-dark .sidebar-link:hover { background: #2A2150; color: #FFFFFF; }
+html.lu-dark .sidebar-logo-img { filter: brightness(1.6) saturate(1.1); }
+
+html.lu-dark .lms-top-header {
+  background: rgba(20, 15, 38, 0.78);
+  border-bottom-color: var(--lu-d-border);
+}
+html.lu-dark .search-input-field {
+  background: var(--lu-d-surface-2);
+  border-color: var(--lu-d-border);
+  color: var(--lu-d-text);
+}
+html.lu-dark .search-input-field::placeholder { color: var(--lu-d-text-3); }
+html.lu-dark .stat-pill-streak,
+html.lu-dark .stat-pill-points,
+html.lu-dark #header-bell-btn {
+  background: var(--lu-d-surface-2) !important;
+  border-color: var(--lu-d-border) !important;
+}
+html.lu-dark .stat-pill-streak { color: #FDBA74; }
+html.lu-dark .stat-pill-points { color: #FDE047; }
+html.lu-dark .user-name-title { color: var(--lu-d-text); }
+html.lu-dark .header-user-chip:hover { background: #2A2150; }
+html.lu-dark #search-dropdown {
+  background: var(--lu-d-surface) !important;
+  border-color: var(--lu-d-border) !important;
+}
+
+/* ---------- Cards & rows ---------- */
+html.lu-dark .lms-card,
+html.lu-dark .lms-card-v2,
+html.lu-dark .widget-card-v2,
+html.lu-dark .promo-card-v2,
+html.lu-dark .promo-action-card,
+html.lu-dark .settings-list-card,
+html.lu-dark .lesson-resources-card,
+html.lu-dark .progress-top-hero-card,
+html.lu-dark .progress-table-card,
+html.lu-dark .progress-bar-chart-card,
+html.lu-dark .progress-next-ach-card,
+html.lu-dark .overall-progress-card,
+html.lu-dark .quiz-main-card,
+html.lu-dark .quiz-instruction-card,
+html.lu-dark .challenge-details-hero-card,
+html.lu-dark .challenge-result-card,
+html.lu-dark .challenge-runner-card,
+html.lu-dark .profile-home-top-card,
+html.lu-dark .profile-setting-row-card,
+html.lu-dark .profile-option-tile-card,
+html.lu-dark .ai-option-tile-card,
+html.lu-dark .ai-revise-card,
+html.lu-dark .ai-buddy-card-v2,
+html.lu-dark .achievements-card-v2,
+html.lu-dark .milestone-badge-card,
+html.lu-dark .badge-tile-card,
+html.lu-dark .live-card,
+html.lu-dark .leaderboard-row-card,
+html.lu-dark .task-item-card,
+html.lu-dark .assignment-item-card,
+html.lu-dark .chapter-row-item,
+html.lu-dark .ongoing-chapter-row,
+html.lu-dark .completed-chapter-row,
+html.lu-dark .challenge-row-card,
+html.lu-dark .challenge-item-card-v2,
+html.lu-dark .asg-row-v2,
+html.lu-dark .milestone-item-row,
+html.lu-dark .certificate-item-row,
+html.lu-dark .progress-sub-row-v2,
+html.lu-dark .leaderboard-runner-row,
+html.lu-dark .task-row-v2,
+html.lu-dark .checklist-item,
+html.lu-dark .resource-item-btn,
+html.lu-dark .quiz-type-box,
+html.lu-dark .quiz-type-item,
+html.lu-dark .challenge-metric-item,
+html.lu-dark .challenge-topic-item,
+html.lu-dark .progress-metric-box,
+html.lu-dark .challenge-result-stat-box,
+html.lu-dark .quiz-runner-option,
+html.lu-dark .challenge-radio-option,
+html.lu-dark .modal-dialog,
+html.lu-dark .quiz-modal-card,
+html.lu-dark .challenge-arena-modal {
+  background: var(--lu-d-surface) !important;
+  border-color: var(--lu-d-border) !important;
+  color: var(--lu-d-text);
+}
+
+html.lu-dark .chapter-row-item[data-chapter-status="in-progress"],
+html.lu-dark .chapter-row-item.chapter-current-active,
+html.lu-dark .quiz-runner-option.selected,
+html.lu-dark .challenge-radio-option.selected {
+  background: #2A2150 !important;
+  border-color: #7C3AED !important;
+}
+
+html.lu-dark .task-row-v2:hover,
+html.lu-dark .resource-item-btn:hover,
+html.lu-dark .quiz-runner-option:hover {
+  background: var(--lu-d-surface-2) !important;
+}
+
+/* ---------- Dashboard ---------- */
+html.lu-dark .hero-learning-banner-v2 {
+  background:
+    radial-gradient(500px 260px at 85% 20%, rgba(167, 139, 250, 0.25), transparent 70%),
+    linear-gradient(120deg, #241A4D 0%, #2E2163 50%, #3B2A7A 100%);
+  border-color: var(--lu-d-border);
+}
+html.lu-dark .hero-title-v2 { color: #FFFFFF; }
+html.lu-dark .hero-subtitle-v2 { color: #C4B5FD; }
+html.lu-dark .hero-badge-pill { background: #3B2A7A; color: #DDD6FE; }
+
+/* ---------- Tabs ---------- */
+html.lu-dark .tabs-nav-bar-flow,
+html.lu-dark .tabs-nav-bar,
+html.lu-dark .profile-theme-segmented-bar {
+  background: var(--lu-d-surface) !important;
+  border-color: var(--lu-d-border) !important;
+}
+html.lu-dark .tab-pill-btn-flow,
+html.lu-dark .tab-pill-btn,
+html.lu-dark .profile-theme-pill-btn { color: var(--lu-d-text-2); }
+html.lu-dark .tab-pill-btn-flow:hover,
+html.lu-dark .tab-pill-btn:hover { background: #2A2150; color: #FFFFFF; }
+
+/* ---------- My Learning subject tiles (deep jewel tints) ---------- */
+html.lu-dark .subject-card-3d-flow { border-color: rgba(255, 255, 255, 0.08); }
+html.lu-dark .subject-card-3d-flow.subject-theme-science { background: linear-gradient(160deg, #13284A 0%, #183563 100%); }
+html.lu-dark .subject-card-3d-flow.subject-theme-maths   { background: linear-gradient(160deg, #3A2A0C 0%, #4D3710 100%); }
+html.lu-dark .subject-card-3d-flow.subject-theme-social  { background: linear-gradient(160deg, #0E3326 0%, #124434 100%); }
+html.lu-dark .subject-card-3d-flow.subject-theme-english { background: linear-gradient(160deg, #3D1430 0%, #521A40 100%); }
+html.lu-dark .subject-card-3d-flow.subject-theme-tamil   { background: linear-gradient(160deg, #251A4D 0%, #322366 100%); }
+html.lu-dark .subject-card-title-flow { color: #FFFFFF; }
+html.lu-dark .subject-card-chapters-flow { color: var(--lu-d-text-2); }
+html.lu-dark .subject-card-prog-track { background: rgba(255, 255, 255, 0.14); }
+html.lu-dark .subject-card-prog-val { color: var(--lu-d-text); }
+
+/* ---------- Progress tracks ---------- */
+html.lu-dark .custom-progress-track,
+html.lu-dark .ongoing-bar-track { background: #2C2450; }
+
+/* ---------- Buttons & inputs ---------- */
+html.lu-dark .btn-secondary,
+html.lu-dark .btn-outline,
+html.lu-dark .upcoming-remind-btn {
+  background: var(--lu-d-surface-2);
+  border-color: var(--lu-d-border);
+  color: #C4B5FD;
+}
+html.lu-dark .btn-secondary:hover,
+html.lu-dark .btn-outline:hover,
+html.lu-dark .upcoming-remind-btn:hover { background: #2A2150; }
+
+html.lu-dark input,
+html.lu-dark select,
+html.lu-dark textarea,
+html.lu-dark .ai-quick-input-pill,
+html.lu-dark .ai-bottom-chat-bar,
+html.lu-dark .ai-input-field,
+html.lu-dark .profile-edit-input,
+html.lu-dark .asg-text-input,
+html.lu-dark .pill-input-wrap {
+  background: var(--lu-d-surface-2) !important;
+  border-color: var(--lu-d-border) !important;
+  color: var(--lu-d-text) !important;
+}
+html.lu-dark input::placeholder,
+html.lu-dark textarea::placeholder { color: var(--lu-d-text-3); }
+
+/* ---------- Chat ---------- */
+html.lu-dark .chat-bubble-bot,
+html.lu-dark .ai-speech-bubble-hero,
+html.lu-dark .prompt-chip-btn {
+  background: var(--lu-d-surface-2) !important;
+  border-color: var(--lu-d-border) !important;
+  color: var(--lu-d-text) !important;
+}
+
+/* ---------- Modals ---------- */
+html.lu-dark .modal-overlay,
+html.lu-dark .quiz-modal-backdrop { background: rgba(5, 3, 12, 0.6); }
+
+/* ---------- Breadcrumbs ---------- */
+html.lu-dark .crumb-active { color: var(--lu-d-text); }
+
+/* ==========================================================================
+   Catch-all for colours written inline in the screen templates
+   ========================================================================== */
+html.lu-dark [style*="background: #FFFFFF" i],
+html.lu-dark [style*="background:#FFFFFF" i],
+html.lu-dark [style*="background: #FFF;" i],
+html.lu-dark [style*="background: white" i],
+html.lu-dark [style*="background: #F8FAFC" i],
+html.lu-dark [style*="background:#F8FAFC" i],
+html.lu-dark [style*="background-color: #FFFFFF" i] {
+  background: var(--lu-d-surface) !important;
+}
+
+html.lu-dark [style*="background: #F1F5F9" i],
+html.lu-dark [style*="background:#F1F5F9" i],
+html.lu-dark [style*="background: #E2E8F0" i],
+html.lu-dark [style*="background: #FAF5FF" i],
+html.lu-dark [style*="background: #F5F3FF" i],
+html.lu-dark [style*="background: #EDE9FE" i],
+html.lu-dark [style*="background: #F3E8FF" i] {
+  background: var(--lu-d-surface-3) !important;
+}
+
+/* Pastel status tints → deep tints */
+html.lu-dark [style*="background: #F0FDF4" i],
+html.lu-dark [style*="background: #ECFDF5" i],
+html.lu-dark [style*="background: #DCFCE7" i],
+html.lu-dark [style*="background: #D1FAE5" i] { background: #0F3326 !important; }
+html.lu-dark [style*="background: #EFF6FF" i],
+html.lu-dark [style*="background: #E0F2FE" i] { background: #13284A !important; }
+html.lu-dark [style*="background: #FFFBEB" i],
+html.lu-dark [style*="background: #FEF3C7" i],
+html.lu-dark [style*="background: #FFEDD5" i],
+html.lu-dark [style*="background: #FFF7ED" i] { background: #3A2A0C !important; }
+html.lu-dark [style*="background: #FEE2E2" i],
+html.lu-dark [style*="background: #FEF2F2" i],
+html.lu-dark [style*="background: #FDF2F8" i],
+html.lu-dark [style*="background: #FCE7F3" i] { background: #3D1430 !important; }
+
+/* Text */
+html.lu-dark [style*="color: #1E293B" i],
+html.lu-dark [style*="color:#1E293B" i],
+html.lu-dark [style*="color: #0F172A" i],
+html.lu-dark [style*="color: #1E1B4B" i],
+html.lu-dark [style*="color: #334155" i] {
+  color: var(--lu-d-text) !important;
+}
+html.lu-dark [style*="color: #475569" i],
+html.lu-dark [style*="color: #64748B" i],
+html.lu-dark [style*="color:#64748B" i] {
+  color: var(--lu-d-text-2) !important;
+}
+html.lu-dark [style*="color: #94A3B8" i] {
+  color: var(--lu-d-text-3) !important;
+}
+/* Keep text readable on deep status tints */
+html.lu-dark [style*="color: #065F46" i],
+html.lu-dark [style*="color: #047857" i] { color: #6EE7B7 !important; }
+html.lu-dark [style*="color: #991B1B" i],
+html.lu-dark [style*="color: #B91C1C" i] { color: #FCA5A5 !important; }
+
+/* Borders */
+html.lu-dark [style*="solid #E2E8F0" i],
+html.lu-dark [style*="solid #F1F5F9" i],
+html.lu-dark [style*="solid #CBD5E1" i],
+html.lu-dark [style*="solid #DDD6FE" i],
+html.lu-dark [style*="dashed #CBD5E1" i] {
+  border-color: var(--lu-d-border) !important;
+}
+
+/* Text inside white-on-purple buttons must stay white */
+html.lu-dark .btn-primary,
+html.lu-dark .btn-primary *,
+html.lu-dark .ongoing-continue-btn,
+html.lu-dark .hero-continue-btn-v2,
+html.lu-dark .promo-pill-btn-v2,
+html.lu-dark .sidebar-link.active,
+html.lu-dark .tab-pill-btn-flow.active,
+html.lu-dark .tab-pill-btn.active,
+html.lu-dark .profile-theme-pill-btn.active {
+  color: #FFFFFF !important;
+}
+
+/* Scrollbar */
+html.lu-dark ::-webkit-scrollbar-thumb { background: #3B2F6B; border-color: #0F0B1E; }
+
+/* ---------- Extra component surfaces ---------- */
+html.lu-dark .ai-greeting-hero-banner,
+html.lu-dark .ai-buddy-stage-wrap,
+html.lu-dark .ai-msg-card-bot,
+html.lu-dark .ai-study-plan-row,
+html.lu-dark .ai-summary-result-box,
+html.lu-dark .ai-form-card-v2,
+html.lu-dark .ai-action-btn-pill,
+html.lu-dark .ai-mic-btn,
+html.lu-dark .ai-select-styled,
+html.lu-dark .asg-summary-pill-box,
+html.lu-dark .assignment-graded-card,
+html.lu-dark .assignment-success-card,
+html.lu-dark .badge-stat-box,
+html.lu-dark .badge-detail-hero-card,
+html.lu-dark .btn-rewatch-pill,
+html.lu-dark .cert-modal-frame,
+html.lu-dark .challenge-arena-opt-btn,
+html.lu-dark .challenge-metric-strip,
+html.lu-dark .challenge-sub-chip,
+html.lu-dark .quiz-option-btn,
+html.lu-dark .quiz-timer-pill,
+html.lu-dark .subject-course-card,
+html.lu-dark .upcoming-reward-cluster,
+html.lu-dark .profile-card-left,
+html.lu-dark .progress-subject-row,
+html.lu-dark .podium-slot {
+  background: var(--lu-d-surface) !important;
+  border-color: var(--lu-d-border) !important;
+  color: var(--lu-d-text);
+}
+html.lu-dark .quiz-rule-circle:not(:has(.lu-icon-img)),
+html.lu-dark .checklist-check-circle.unchecked,
+html.lu-dark .task-check-circle.unchecked {
+  background: var(--lu-d-surface-3) !important;
+  border-color: var(--lu-d-border) !important;
+}
+html.lu-dark .quiz-option-btn.selected { background: #2A2150 !important; border-color: #7C3AED !important; }
+
+/* Logo keeps its dark-navy lettering readable on a soft light tile */
+html.lu-dark .sidebar-logo-img {
+  filter: none;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 14px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 18px -8px rgba(124, 58, 237, 0.6);
+}
+
+/* ---------- Auto-generated: component text colours for dark mode ---------- */
+html.lu-dark .ai-bottom-chat-input,
+html.lu-dark .ai-select-styled,
+html.lu-dark .ai-summary-check-row,
+html.lu-dark .asg-graded-meta-item,
+html.lu-dark .asg-label-tag,
+html.lu-dark .asg-text-input,
+html.lu-dark .badge-tile-title,
+html.lu-dark .btn-rewatch-pill,
+html.lu-dark .card-title-h3,
+html.lu-dark .challenge-arena-opt-btn,
+html.lu-dark .challenge-radio-option,
+html.lu-dark .challenge-score-display,
+html.lu-dark .challenge-topic-item,
+html.lu-dark .challenge-topic-name,
+html.lu-dark .chapter-title-text,
+html.lu-dark .chat-bubble-bot,
+html.lu-dark .hero-title-v2,
+html.lu-dark .lms-breadcrumb-nav span.crumb-active,
+html.lu-dark .logo-brand-title,
+html.lu-dark .milestone-title-text,
+html.lu-dark .my-learning-heading,
+html.lu-dark .ongoing-percent-label,
+html.lu-dark .ongoing-subject-title,
+html.lu-dark .pill-input-wrap input,
+html.lu-dark .profile-edit-input,
+html.lu-dark .prompt-chip-btn,
+html.lu-dark .quiz-modal-close-btn:hover,
+html.lu-dark .quiz-option-btn,
+html.lu-dark .quiz-question-text,
+html.lu-dark .quiz-rule-row,
+html.lu-dark .quiz-runner-option,
+html.lu-dark .quiz-type-item,
+html.lu-dark .settings-menu-item,
+html.lu-dark .subject-card-prog-val,
+html.lu-dark .subject-card-title,
+html.lu-dark .subject-card-title-flow,
+html.lu-dark .tab-pill-btn-flow:hover,
+html.lu-dark .task-name-text,
+html.lu-dark .user-name-title {
+  color: var(--lu-d-text) !important;
+}
+html.lu-dark .ai-action-btn-pill,
+html.lu-dark .ai-mic-btn,
+html.lu-dark .badge-gray,
+html.lu-dark .leaderboard-rank-badge,
+html.lu-dark .ongoing-chapter-name,
+html.lu-dark .pill-eye-toggle,
+html.lu-dark .profile-theme-pill-btn,
+html.lu-dark .progress-table th,
+html.lu-dark .subject-card-chapters-flow,
+html.lu-dark .tab-pill-btn-flow {
+  color: var(--lu-d-text-2) !important;
+}

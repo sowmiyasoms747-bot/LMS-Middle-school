@@ -70,6 +70,7 @@ export function renderProfileScreen(container, state, app) {
 
   window.lmsProfileSetTheme = function(themeName) {
     s.theme = themeName;
+    if (app.applyTheme) app.applyTheme(themeName);
     app.showToast(`Theme changed to ${themeName.charAt(0).toUpperCase() + themeName.slice(1)}`);
     renderProfileScreen(container, state, app);
   };
