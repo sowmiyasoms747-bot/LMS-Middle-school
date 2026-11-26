@@ -190,8 +190,8 @@ export function renderVideoLessonScreen(container, state, app) {
                   { title: "Worksheet", done: isComp }
                 ]).map(item => `
                   <div class="checklist-item ${item.done ? 'done' : ''}">
-                    <div class="checklist-check-circle ${item.done ? 'checked' : 'unchecked'}">
-                      ${item.done ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>` : ''}
+                    <div class="lu-plain-icon-box" style="display:flex;">
+                      ${item.done ? GRAPHICS.checkDoneIcon(22) : GRAPHICS.checkTodoIcon(22)}
                     </div>
                     <div style="flex: 1;">
                       <div style="font-size: 13.5px; font-weight: 700; color: ${item.done ? '#1E293B' : '#475569'};">

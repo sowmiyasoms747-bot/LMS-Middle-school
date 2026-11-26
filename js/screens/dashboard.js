@@ -23,7 +23,7 @@ export function renderDashboardScreen(container, state, app) {
             <!-- Left: Smiling Students with Backpacks -->
             <div class="hero-students-left-wrap">
               <img 
-                src="assets/students-clean.png" 
+                src="assets/dashboard/ui/students.png" 
                 alt="Smiling Students" 
                 class="hero-students-clean-img"
               />
@@ -41,15 +41,18 @@ export function renderDashboardScreen(container, state, app) {
               </button>
             </div>
 
+            <!-- Right: Books & Plant illustration -->
+            <div class="hero-right-books-wrap dash-hero-books">
+              <img src="assets/dashboard/ui/books_plant.png" alt="Books and plant" class="dash-hero-books-img" />
+            </div>
+
           </div>
 
           <!-- Learning Challenges Section -->
           <div class="lms-card-v2" style="margin-top: 22px;">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.15);">
-                  ${ICONS.target(20)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/learning_challenges_target.png" alt="Learning Challenges" style="width:34px;height:34px;object-fit:contain;" />
                 <div>
                   <h3 style="font-size: 16px; font-weight: 800; color: #1E293B;">Learning Challenges</h3>
                   <p style="font-size: 12px; color: var(--text-secondary); margin-top: 1px;">
@@ -66,8 +69,8 @@ export function renderDashboardScreen(container, state, app) {
               <!-- 1. Science -->
               <div class="challenge-item-card-v2" data-screen="07" data-subject="science">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-                  <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #E0F2FE 0%, #EDE9FE 100%);">
-                    ${GRAPHICS.scienceFlaskIcon(42)}
+                  <div class="challenge-icon-box-v2" style="background: #EFF6FF;">
+                    <img class="dash-ic" src="assets/dashboard/ui/science_flask.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Science</h4>
@@ -80,7 +83,7 @@ export function renderDashboardScreen(container, state, app) {
                     <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -88,7 +91,7 @@ export function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="maths">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);">
-                    ${GRAPHICS.mathsCalcIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/maths_calculator.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Maths</h4>
@@ -101,7 +104,7 @@ export function renderDashboardScreen(container, state, app) {
                     <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -109,7 +112,7 @@ export function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="social">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #D1FAE5 0%, #E0F2FE 100%);">
-                    ${GRAPHICS.socialGlobeIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/social_globe.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Social</h4>
@@ -122,7 +125,7 @@ export function renderDashboardScreen(container, state, app) {
                     <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
-                  <div class="challenge-round-arrow-btn green-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -130,7 +133,7 @@ export function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="english">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #FCE7F3 0%, #FDF2F8 100%);">
-                    ${GRAPHICS.englishBookIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/english_book.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">English</h4>
@@ -143,7 +146,7 @@ export function renderDashboardScreen(container, state, app) {
                     <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -157,9 +160,7 @@ export function renderDashboardScreen(container, state, app) {
             <div class="promo-card-v2" id="dash-quiz-promo-btn" style="background: #FFFFFF;">
               <div style="flex: 1; padding-right: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div style="color: #7C3AED;">
-                    ${ICONS.quiz(18)}
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/interactive_quiz_pencil.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Interactive Quizzes</h4>
                 </div>
                 <p style="font-size: 12.5px; color: #64748B; margin-bottom: 14px; line-height: 1.4;">
@@ -170,7 +171,7 @@ export function renderDashboardScreen(container, state, app) {
                 </button>
               </div>
               <div style="flex-shrink: 0;">
-                ${GRAPHICS.quizClipboard3D(88, 88)}
+                <img class="dash-promo-art" src="assets/dashboard/ui/interactive_quiz_clipboard.png" alt="Interactive Quizzes" style="width:88px;height:88px;object-fit:contain;" />
               </div>
             </div>
 
@@ -178,9 +179,7 @@ export function renderDashboardScreen(container, state, app) {
             <div class="promo-card-v2" id="dash-progress-promo-btn" style="background: #FFFFFF;">
               <div style="flex: 1; padding-right: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div style="color: #0284C7;">
-                    ${ICONS.progress(18)}
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/nav_progress.png" alt="" style="width:22px;height:22px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Subject Progress Insights</h4>
                 </div>
                 <p style="font-size: 12.5px; color: #64748B; margin-bottom: 14px; line-height: 1.4;">
@@ -191,7 +190,7 @@ export function renderDashboardScreen(container, state, app) {
                 </button>
               </div>
               <div style="flex-shrink: 0;">
-                ${GRAPHICS.progressChart3D(88, 88)}
+                <img class="dash-promo-art" src="assets/dashboard/ui/subject_progress_insights.png" alt="Progress Insights" style="width:88px;height:88px;object-fit:contain;" />
               </div>
             </div>
 
@@ -204,7 +203,7 @@ export function renderDashboardScreen(container, state, app) {
             <div class="achievements-card-v2" id="dash-view-achievements-btn" style="background: #FFFFFF;">
               <div class="card-header-row" style="margin-bottom: 8px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #F59E0B;">${ICONS.trophy(18)}</span>
+                  <img class="dash-ic" src="assets/dashboard/ui/achievement_trophy.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Achievement Milestones</h4>
                 </div>
                 <a class="card-view-all-link" style="color: #7C3AED; font-weight: 700; font-size: 12.5px;">View All ❯</a>
@@ -224,7 +223,7 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div class="milestone-badge-col">
-                  ${GRAPHICS.badgeQuizMaster(50)}
+                  <img class="dash-badge" src="assets/dashboard/ui/quiz_master_badge.png" alt="Quiz Master" style="width:50px;height:50px;object-fit:contain;" />
                   <div>
                     <h5 style="font-size: 11px; font-weight: 800; color: #1E293B; margin: 0; line-height: 1.2;">Quiz</h5>
                     <span style="font-size: 10px; color: #64748B;">Master</span>
@@ -232,7 +231,7 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div class="milestone-badge-col">
-                  ${GRAPHICS.badgeChapterCompleter(50)}
+                  <img class="dash-badge" src="assets/dashboard/ui/chapter_completer_badge.png" alt="Chapter Completer" style="width:50px;height:50px;object-fit:contain;" />
                   <div>
                     <h5 style="font-size: 11px; font-weight: 800; color: #1E293B; margin: 0; line-height: 1.2;">Chapter</h5>
                     <span style="font-size: 10px; color: #64748B;">Completer</span>
@@ -254,7 +253,7 @@ export function renderDashboardScreen(container, state, app) {
               <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px;">
                 <div style="flex: 1;">
                   <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px;">
-                    <span style="color: #7C3AED;">${ICONS.robot(16)}</span>
+                    <img class="dash-ic" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                     <h4 style="font-size: 16px; font-weight: 800; color: #1E1B4B; margin: 0;">AI Study Buddy</h4>
                   </div>
                   <div style="font-size: 12px; font-weight: 700; color: #7C3AED; margin-bottom: 8px;">
@@ -271,7 +270,7 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="flex-shrink: 0; cursor: pointer;" id="dash-robot-avatar-click">
-                  ${GRAPHICS.aiRobotMini3D(78, 78)}
+                  <img class="dash-robot-art" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="AI Study Buddy" style="width:78px;height:78px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -286,7 +285,7 @@ export function renderDashboardScreen(container, state, app) {
                     id="dash-qa-doubt"
                     style="background: #FAF5FF; border: 1px solid #DDD6FE; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #7C3AED; font-size: 14px;">💬</span>
+                    ${ICONS.chatBubble(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #6D28D9; line-height: 1.1;">Ask Doubt</span>
                   </button>
 
@@ -295,7 +294,7 @@ export function renderDashboardScreen(container, state, app) {
                     id="dash-qa-summarize"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #059669; font-size: 14px;">📄</span>
+                    ${ICONS.document(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Summarize</span>
                   </button>
 
@@ -304,7 +303,7 @@ export function renderDashboardScreen(container, state, app) {
                     id="dash-qa-quiz"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #D97706; font-size: 14px;">✍️</span>
+                    ${GRAPHICS.quizPencilIcon(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Practice Quiz</span>
                   </button>
 
@@ -313,7 +312,7 @@ export function renderDashboardScreen(container, state, app) {
                     id="dash-qa-plan"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #0284C7; font-size: 14px;">📅</span>
+                    ${GRAPHICS.calendarIcon(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Study Plan</span>
                   </button>
                 </div>
@@ -325,8 +324,8 @@ export function renderDashboardScreen(container, state, app) {
                     placeholder="Ask a question..." 
                     class="ai-quick-input-pill"
                   />
-                  <button class="ai-quick-send-btn" id="dash-quick-ai-btn">
-                    ${ICONS.send(14)}
+                  <button class="ai-quick-send-btn dash-send-img-btn" id="dash-quick-ai-btn" title="Send">
+                    <img class="dash-ic" src="assets/dashboard/ui/ai_send_button.png" alt="Send" style="width:34px;height:34px;object-fit:contain;" />
                   </button>
                 </div>
               </div>
@@ -346,14 +345,7 @@ export function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                </span>
+                <img class="dash-ic" src="assets/dashboard/ui/today_tasks_calendar.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Today's Tasks</h3>
               </div>
             </div>
@@ -363,7 +355,7 @@ export function renderDashboardScreen(container, state, app) {
               <!-- Task 1 (Checked Green) -->
               <div class="task-row-v2" data-screen="05">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle checked">✓</div>
+                  <img class="dash-check" src="assets/dashboard/ui/completed_check.png" alt="Done" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Watch: The Cell - Video Lesson</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -372,7 +364,7 @@ export function renderDashboardScreen(container, state, app) {
               <!-- Task 2 (Checked Green) -->
               <div class="task-row-v2" data-screen="06">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle checked">✓</div>
+                  <img class="dash-check" src="assets/dashboard/ui/completed_check.png" alt="Done" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Practice: Quick Quiz (Science)</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -381,7 +373,7 @@ export function renderDashboardScreen(container, state, app) {
               <!-- Task 3 (Unchecked Circle) -->
               <div class="task-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle unchecked"></div>
+                  <img class="dash-check" src="assets/dashboard/ui/empty_checkbox.png" alt="To do" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #475569;">Complete: Worksheet (Maths)</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -394,7 +386,7 @@ export function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">${ICONS.progress(18)}</span>
+                <img class="dash-ic" src="assets/dashboard/ui/subject_progress_insights.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Subject Progress</h3>
               </div>
             </div>
@@ -403,9 +395,7 @@ export function renderDashboardScreen(container, state, app) {
               
               <!-- Science -->
               <div class="progress-sub-row-v2" data-screen="04">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #E0F2FE;">
-                  ${GRAPHICS.scienceFlaskIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
@@ -415,9 +405,7 @@ export function renderDashboardScreen(container, state, app) {
 
               <!-- Maths -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #FEF3C7;">
-                  ${GRAPHICS.mathsCalcIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
@@ -427,9 +415,7 @@ export function renderDashboardScreen(container, state, app) {
 
               <!-- Social -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #D1FAE5;">
-                  ${GRAPHICS.socialGlobeIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/social_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
@@ -439,9 +425,7 @@ export function renderDashboardScreen(container, state, app) {
 
               <!-- English -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #EDE9FE;">
-                  ${GRAPHICS.englishBookIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/english_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
@@ -456,7 +440,7 @@ export function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">${ICONS.assignment(18)}</span>
+                <img class="dash-ic" src="assets/dashboard/ui/upcoming_tasks.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Upcoming Assignments</h3>
               </div>
             </div>
@@ -466,9 +450,7 @@ export function renderDashboardScreen(container, state, app) {
               <!-- Assignment 1 -->
               <div class="asg-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="asg-icon-box" style="background: #E0F2FE; color: #0284C7;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:32px;height:32px;object-fit:contain;" />
                   <div>
                     <div style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Cell Diagram - Science</div>
                     <div style="font-size: 11px; color: #64748B;">Due: Tomorrow</div>
@@ -480,9 +462,7 @@ export function renderDashboardScreen(container, state, app) {
               <!-- Assignment 2 -->
               <div class="asg-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="asg-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:32px;height:32px;object-fit:contain;" />
                   <div>
                     <div style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Fractions - Maths</div>
                     <div style="font-size: 11px; color: #64748B;">Due: 20 Nov</div>

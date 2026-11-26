@@ -79,7 +79,7 @@ export function renderLiveClassesScreen(container, state, app) {
                 ` : `
                   <span style="font-size: 12px; color: #64748B;">Starts in 2 hours</span>
                   <button class="btn-secondary toggle-reminder-btn" data-class-id="${cls.id}">
-                    ${cls.reminderSet ? '🔔 Reminder Set' : '🔔 Remind Me'}
+                    ${ICONS.bell(18)} ${cls.reminderSet ? 'Reminder Set' : 'Remind Me'}
                   </button>
                 `}
               </div>

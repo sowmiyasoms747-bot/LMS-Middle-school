@@ -472,3 +472,25 @@ export const ICONS = {
     </svg>
   `
 };
+
+// ==========================================================================
+// User-supplied glossy icons (assets/more icons/ui) override the line icons
+// everywhere they are used (header chips, metric tiles, option tiles...).
+// ==========================================================================
+const LU_MORE_ICON_DIR = "assets/more%20icons/ui/";
+const luMoreIcon = (file, alt) => (size = 20) =>
+  `<img class="lu-icon-img lu-glossy-icon" src="${LU_MORE_ICON_DIR}${file}.png" alt="${alt}" draggable="false" style="width:${size}px;height:${size}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
+
+Object.assign(ICONS, {
+  flame: luMoreIcon("flame", "Streak"),
+  star: luMoreIcon("star", "Points"),
+  bell: luMoreIcon("bell", "Notifications"),
+  clock: luMoreIcon("stopwatch", "Time"),
+  stopwatch: luMoreIcon("stopwatch", "Time"),
+  document: luMoreIcon("document", "Document"),
+  chatBubble: luMoreIcon("ask_doubt_bubble", "Ask a doubt"),
+  lightbulb: luMoreIcon("lightbulb", "Idea"),
+  sliders: luMoreIcon("settings_sliders", "Preferences"),
+  shield: luMoreIcon("shield", "Security"),
+  headset: luMoreIcon("headset", "Help & Support")
+});

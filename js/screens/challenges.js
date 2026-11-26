@@ -27,7 +27,7 @@ export function renderChallengesScreen(container, state, app) {
       title: "Weekly Science Challenge",
       subject: "Science",
       subjectId: "science",
-      iconType: "trophy",
+      iconType: "flask",
       questionsCount: 10,
       durationMinutes: 15,
       points: 100,
@@ -85,7 +85,7 @@ export function renderChallengesScreen(container, state, app) {
       title: "Maths Speed Challenge",
       subject: "Mathematics",
       subjectId: "maths",
-      iconType: "star",
+      iconType: "calculator",
       questionsCount: 15,
       durationMinutes: 20,
       points: 150,
@@ -371,7 +371,7 @@ export function renderChallengesScreen(container, state, app) {
         <div>
           ${ch.status === 'live' ? `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #FEE2E2; color: #DC2626; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px;">
-              <span style="font-size: 13px;">🔥</span> Live
+              ${ICONS.flame(15)} Live
             </span>
           ` : `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #F5F3FF; color: #7C3AED; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; border: 1px solid #DDD6FE;">
@@ -468,7 +468,7 @@ export function renderChallengesScreen(container, state, app) {
               <!-- Live Badge -->
               <div>
                 <span style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; color: #DC2626; font-size: 13px; font-weight: 800; padding: 6px 16px; border-radius: 999px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.12); border: 1px solid #FEE2E2;">
-                  <span style="font-size: 14px;">🔥</span> Live
+                  ${ICONS.flame(16)} Live
                 </span>
               </div>
             </div>
@@ -477,7 +477,7 @@ export function renderChallengesScreen(container, state, app) {
             <div class="challenge-metric-strip">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.questionsCount}</div>
@@ -487,7 +487,7 @@ export function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FDF2F8; color: #EC4899;">
-                  ${ICONS.clock(20)}
+                  ${ICONS.clock(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.durationMinutes}</div>
@@ -497,7 +497,7 @@ export function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.points}</div>
@@ -768,13 +768,13 @@ export function renderChallengesScreen(container, state, app) {
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⭐</span>
+              ${ICONS.star(24)}
               <span style="font-size: 15px; font-weight: 800; color: #D97706;">+100</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⏱</span>
+              ${ICONS.clock(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">02:30</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>

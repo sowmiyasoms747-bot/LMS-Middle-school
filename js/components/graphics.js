@@ -1827,3 +1827,70 @@ export const GRAPHICS = {
     }
   }
 };
+
+// ==========================================================================
+// User-supplied icon set overrides (assets/dashboard/ui + assets/MY learning/ui)
+// Every screen calls GRAPHICS.*, so swapping these here applies the
+// supplied icons across the whole website.
+// ==========================================================================
+const LU_ICON_DIR = "assets/dashboard/ui/";
+const LU_SUBJECT_DIR = "assets/MY%20learning/ui/";
+
+function luIconImg(src, w, h = w, alt = "") {
+  return `<img class="lu-icon-img" src="${src}" alt="${alt}" draggable="false" style="width:${w}px;height:${h}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
+}
+
+const luSq = (file, alt) => (size = 48) => luIconImg(LU_ICON_DIR + file, size, size, alt);
+const luRect = (file, alt) => (w = 90, h = w) => luIconImg(LU_ICON_DIR + file, w, h, alt);
+
+Object.assign(GRAPHICS, {
+  // Subjects
+  scienceFlaskIcon: luSq("science_flask.png", "Science"),
+  mathsCalcIcon: luSq("maths_calculator.png", "Maths"),
+  socialGlobeIcon: luSq("social_globe.png", "Social Science"),
+  englishBookIcon: luSq("english_book.png", "English"),
+  tamilSubjectIcon: (size = 96) => luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil"),
+  tamilLetterIcon: (size = 46) => luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil"),
+  flask3D: luRect("science_flask.png", "Science"),
+  calculator3D: luRect("maths_calculator.png", "Maths"),
+  globe3D: luRect("social_globe.png", "Social Science"),
+  bookQuill3D: luRect("english_book.png", "English"),
+
+  // Quizzes, progress, challenges
+  quizClipboard3D: luRect("interactive_quiz_clipboard.png", "Quiz"),
+  clipboardWithPencil: luSq("interactive_quiz_clipboard.png", "Quiz"),
+  progressChart3D: luRect("subject_progress_insights.png", "Progress"),
+  targetBullseye: luSq("learning_challenges_target.png", "Challenge"),
+  goldTrophy: luSq("achievement_trophy.png", "Trophy"),
+  successCheckBadge: luSq("completed_check.png", "Completed"),
+
+  // Badges
+  badgeQuizMaster: luSq("quiz_master_badge.png", "Quiz Master"),
+  badgeChapterCompleter: luSq("chapter_completer_badge.png", "Chapter Completer"),
+
+  // AI Study Buddy (aiRobotAvatarCircle reuses aiRobotMini3D)
+  aiRobot3D: luRect("ai_study_buddy_robot.png", "AI Study Buddy"),
+  aiRobotMini3D: luRect("ai_study_buddy_robot.png", "AI Study Buddy"),
+
+  // Round subject badges (assignments, small rows)
+  subjectBadgeIcon: (subjectId, size = 30) => {
+    const map = { science: "science_subject", maths: "maths_subject", social: "social_subject", english: "english_subject" };
+    if (subjectId === "tamil") return luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil");
+    return luIconImg(LU_ICON_DIR + (map[subjectId] || "upcoming_tasks") + ".png", size, size, subjectId || "Assignment");
+  },
+
+  // Status ticks
+  checkDoneIcon: luSq("completed_check.png", "Done"),
+  checkTodoIcon: luSq("empty_checkbox.png", "To do"),
+
+  // Misc supplied icons
+  calendarIcon: luSq("today_tasks_calendar.png", "Calendar"),
+  quizPencilIcon: luSq("interactive_quiz_pencil.png", "Quiz"),
+  sendButtonIcon: luSq("ai_send_button.png", "Send"),
+  profileIcon: luSq("learning_profile.png", "Profile"),
+  learningBookIcon: luSq("my_learning_book.png", "Learning"),
+
+  // Decorative books
+  sidebarBooksPlant: (w = 180, h = 140) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books"),
+  heroRightBooks: (w = 96, h = 80) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books")
+});

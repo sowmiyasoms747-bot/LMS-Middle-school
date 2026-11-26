@@ -1262,6 +1262,28 @@ const ICONS = {
   `
 };
 
+// ==========================================================================
+// User-supplied glossy icons (assets/more icons/ui) override the line icons
+// everywhere they are used (header chips, metric tiles, option tiles...).
+// ==========================================================================
+const LU_MORE_ICON_DIR = "assets/more%20icons/ui/";
+const luMoreIcon = (file, alt) => (size = 20) =>
+  `<img class="lu-icon-img lu-glossy-icon" src="${LU_MORE_ICON_DIR}${file}.png" alt="${alt}" draggable="false" style="width:${size}px;height:${size}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
+
+Object.assign(ICONS, {
+  flame: luMoreIcon("flame", "Streak"),
+  star: luMoreIcon("star", "Points"),
+  bell: luMoreIcon("bell", "Notifications"),
+  clock: luMoreIcon("stopwatch", "Time"),
+  stopwatch: luMoreIcon("stopwatch", "Time"),
+  document: luMoreIcon("document", "Document"),
+  chatBubble: luMoreIcon("ask_doubt_bubble", "Ask a doubt"),
+  lightbulb: luMoreIcon("lightbulb", "Idea"),
+  sliders: luMoreIcon("settings_sliders", "Preferences"),
+  shield: luMoreIcon("shield", "Security"),
+  headset: luMoreIcon("headset", "Help & Support")
+});
+
 // ===== Module: js/components/confetti.js =====
 // Canvas Confetti Engine for Learning Universe LMS Celebrations
 function triggerConfetti(duration = 2500) {
@@ -3184,155 +3206,72 @@ const GRAPHICS = {
   }
 };
 
-// ===== Module: js/screens/login.js =====
-// Screen 01: Login Screen (Exact Match to Reference Design)
-function renderLoginScreen(container, state, app) {
-  container.innerHTML = `
-    <div class="login-screen-view view-enter">
-      
-      <!-- Outer Soft Lavender Ambient Swirls -->
-      <div class="login-bg-ambient-blob-1"></div>
-      <div class="login-bg-ambient-blob-2"></div>
+// ==========================================================================
+// User-supplied icon set overrides (assets/dashboard/ui + assets/MY learning/ui)
+// Every screen calls GRAPHICS.*, so swapping these here applies the
+// supplied icons across the whole website.
+// ==========================================================================
+const LU_ICON_DIR = "assets/dashboard/ui/";
+const LU_SUBJECT_DIR = "assets/MY%20learning/ui/";
 
-      <!-- The Main Login Card (Matching Image 3) -->
-      <div class="login-target-card">
-        
-        <!-- Left Section: Form -->
-        <div class="login-form-pane">
-          
-          <!-- Brand Logo (Icon + Text) -->
-          <div class="login-brand-header">
-            <img src="assets/logo-clean.png" alt="Learning Universe LMS" class="login-logo-img" />
-            <div class="login-brand-text">
-              <div class="login-brand-line1">Learning</div>
-              <div class="login-brand-line2">Universe LMS</div>
-            </div>
-          </div>
-
-          <!-- Titles -->
-          <div class="login-titles">
-            <h1 class="login-main-title">Student Login</h1>
-            <h2 class="login-sub-title">Classes 6 – 8</h2>
-          </div>
-
-          <!-- Login Form with Rounded Pill Inputs -->
-          <form id="student-login-form" class="login-form">
-            
-            <!-- Student ID or Email Input -->
-            <div class="form-pill-group">
-              <div class="pill-input-wrap">
-                <span class="pill-input-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </span>
-                <input 
-                  type="text" 
-                  id="login-student-id" 
-                  placeholder="Student ID or Email" 
-                  value="sowmiya.s@learninguniverse.edu" 
-                  required
-                />
-              </div>
-            </div>
-
-            <!-- Password Input with Eye Toggle -->
-            <div class="form-pill-group">
-              <div class="pill-input-wrap">
-                <span class="pill-input-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                  </svg>
-                </span>
-                <input 
-                  type="password" 
-                  id="login-password" 
-                  placeholder="Password" 
-                  value="••••••••••••" 
-                  required
-                />
-                <button type="button" class="pill-eye-toggle" id="toggle-pwd-btn" title="Toggle password visibility">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <!-- Purple Pill Login Button -->
-            <button type="submit" class="login-pill-btn" id="submit-login-btn">
-              Login
-            </button>
-
-            <!-- Centered Forgot Password Link -->
-            <div class="login-forgot-wrap">
-              <a href="#" class="login-forgot-link" id="forgot-password-link">Forgot Password?</a>
-            </div>
-
-          </form>
-
-          <!-- Bottom Left Soft Lavender Decorative Flourish Wave -->
-          <svg class="card-bottom-left-wave" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-30 160 C20 130 40 80 110 95 C160 105 180 140 230 120 L230 160 Z" fill="#DDD6FE" fill-opacity="0.45"/>
-            <path d="M-30 160 C10 140 30 105 80 115 C130 125 150 155 190 140 L190 160 Z" fill="#C4B5FD" fill-opacity="0.35"/>
-          </svg>
-
-        </div>
-
-        <!-- Right Section: Real Students with Lavender Backdrop -->
-        <div class="login-visual-pane">
-          <div class="visual-wave-backdrop"></div>
-          
-          <img 
-            src="assets/students-clean.png" 
-            alt="Learning Universe LMS Students" 
-            class="login-students-img"
-          />
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-  // Toggle Password
-  const pwdInput = container.querySelector("#login-password");
-  const toggleBtn = container.querySelector("#toggle-pwd-btn");
-  let isShown = false;
-  toggleBtn.addEventListener("click", () => {
-    isShown = !isShown;
-    pwdInput.type = isShown ? "text" : "password";
-    toggleBtn.innerHTML = isShown ? ICONS.eyeOff(18) : ICONS.eye(18);
-  });
-
-  // Handle Form Submission
-  const form = container.querySelector("#student-login-form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    app.showToast("Welcome back, Sowmiya! Logging in...", "success");
-    setTimeout(() => {
-      app.navigateTo("02");
-    }, 350);
-  });
-
-  // Forgot password modal
-  container.querySelector("#forgot-password-link").addEventListener("click", (e) => {
-    e.preventDefault();
-    app.showModal(`
-      <div style="text-align: center; padding: 14px;">
-        <div style="font-size: 38px; margin-bottom: 8px;">🔑</div>
-        <h3 style="font-size: 19px; font-weight: 800; color: #1E1B4B; margin-bottom: 8px;">Password Assistance</h3>
-        <p style="font-size: 13.5px; color: #64748B; margin-bottom: 20px; line-height: 1.5;">
-          For students in Classes 6 – 8, please contact your class teacher <strong>Ms. Revathi</strong> or verify via your parent's registered mobile number / email.
-        </p>
-        <button class="btn-primary" onclick="window.closeLmsModal()">Got It!</button>
-      </div>
-    `);
-  });
+function luIconImg(src, w, h = w, alt = "") {
+  return `<img class="lu-icon-img" src="${src}" alt="${alt}" draggable="false" style="width:${w}px;height:${h}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
 }
+
+const luSq = (file, alt) => (size = 48) => luIconImg(LU_ICON_DIR + file, size, size, alt);
+const luRect = (file, alt) => (w = 90, h = w) => luIconImg(LU_ICON_DIR + file, w, h, alt);
+
+Object.assign(GRAPHICS, {
+  // Subjects
+  scienceFlaskIcon: luSq("science_flask.png", "Science"),
+  mathsCalcIcon: luSq("maths_calculator.png", "Maths"),
+  socialGlobeIcon: luSq("social_globe.png", "Social Science"),
+  englishBookIcon: luSq("english_book.png", "English"),
+  tamilSubjectIcon: (size = 96) => luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil"),
+  tamilLetterIcon: (size = 46) => luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil"),
+  flask3D: luRect("science_flask.png", "Science"),
+  calculator3D: luRect("maths_calculator.png", "Maths"),
+  globe3D: luRect("social_globe.png", "Social Science"),
+  bookQuill3D: luRect("english_book.png", "English"),
+
+  // Quizzes, progress, challenges
+  quizClipboard3D: luRect("interactive_quiz_clipboard.png", "Quiz"),
+  clipboardWithPencil: luSq("interactive_quiz_clipboard.png", "Quiz"),
+  progressChart3D: luRect("subject_progress_insights.png", "Progress"),
+  targetBullseye: luSq("learning_challenges_target.png", "Challenge"),
+  goldTrophy: luSq("achievement_trophy.png", "Trophy"),
+  successCheckBadge: luSq("completed_check.png", "Completed"),
+
+  // Badges
+  badgeQuizMaster: luSq("quiz_master_badge.png", "Quiz Master"),
+  badgeChapterCompleter: luSq("chapter_completer_badge.png", "Chapter Completer"),
+
+  // AI Study Buddy (aiRobotAvatarCircle reuses aiRobotMini3D)
+  aiRobot3D: luRect("ai_study_buddy_robot.png", "AI Study Buddy"),
+  aiRobotMini3D: luRect("ai_study_buddy_robot.png", "AI Study Buddy"),
+
+  // Round subject badges (assignments, small rows)
+  subjectBadgeIcon: (subjectId, size = 30) => {
+    const map = { science: "science_subject", maths: "maths_subject", social: "social_subject", english: "english_subject" };
+    if (subjectId === "tamil") return luIconImg(LU_SUBJECT_DIR + "tamil.png", size, size, "Tamil");
+    return luIconImg(LU_ICON_DIR + (map[subjectId] || "upcoming_tasks") + ".png", size, size, subjectId || "Assignment");
+  },
+
+  // Status ticks
+  checkDoneIcon: luSq("completed_check.png", "Done"),
+  checkTodoIcon: luSq("empty_checkbox.png", "To do"),
+
+  // Misc supplied icons
+  calendarIcon: luSq("today_tasks_calendar.png", "Calendar"),
+  quizPencilIcon: luSq("interactive_quiz_pencil.png", "Quiz"),
+  sendButtonIcon: luSq("ai_send_button.png", "Send"),
+  profileIcon: luSq("learning_profile.png", "Profile"),
+  learningBookIcon: luSq("my_learning_book.png", "Learning"),
+
+  // Decorative books
+  sidebarBooksPlant: (w = 180, h = 140) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books"),
+  heroRightBooks: (w = 96, h = 80) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books")
+});
 
 // ===== Module: js/screens/dashboard.js =====
 // Screen 02: Dashboard (Home) - Exact Match to Reference Design (Image 1)
@@ -3356,7 +3295,7 @@ function renderDashboardScreen(container, state, app) {
             <!-- Left: Smiling Students with Backpacks -->
             <div class="hero-students-left-wrap">
               <img 
-                src="assets/students-clean.png" 
+                src="assets/dashboard/ui/students.png" 
                 alt="Smiling Students" 
                 class="hero-students-clean-img"
               />
@@ -3374,15 +3313,18 @@ function renderDashboardScreen(container, state, app) {
               </button>
             </div>
 
+            <!-- Right: Books & Plant illustration -->
+            <div class="hero-right-books-wrap dash-hero-books">
+              <img src="assets/dashboard/ui/books_plant.png" alt="Books and plant" class="dash-hero-books-img" />
+            </div>
+
           </div>
 
           <!-- Learning Challenges Section -->
           <div class="lms-card-v2" style="margin-top: 22px;">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 32px; height: 32px; border-radius: 50%; background: #EDE9FE; color: #7C3AED; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.15);">
-                  ${ICONS.target(20)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/learning_challenges_target.png" alt="Learning Challenges" style="width:34px;height:34px;object-fit:contain;" />
                 <div>
                   <h3 style="font-size: 16px; font-weight: 800; color: #1E293B;">Learning Challenges</h3>
                   <p style="font-size: 12px; color: var(--text-secondary); margin-top: 1px;">
@@ -3399,8 +3341,8 @@ function renderDashboardScreen(container, state, app) {
               <!-- 1. Science -->
               <div class="challenge-item-card-v2" data-screen="07" data-subject="science">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-                  <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #E0F2FE 0%, #EDE9FE 100%);">
-                    ${GRAPHICS.scienceFlaskIcon(42)}
+                  <div class="challenge-icon-box-v2" style="background: #EFF6FF;">
+                    <img class="dash-ic" src="assets/dashboard/ui/science_flask.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Science</h4>
@@ -3413,7 +3355,7 @@ function renderDashboardScreen(container, state, app) {
                     <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -3421,7 +3363,7 @@ function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="maths">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);">
-                    ${GRAPHICS.mathsCalcIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/maths_calculator.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Maths</h4>
@@ -3434,7 +3376,7 @@ function renderDashboardScreen(container, state, app) {
                     <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -3442,7 +3384,7 @@ function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="social">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #D1FAE5 0%, #E0F2FE 100%);">
-                    ${GRAPHICS.socialGlobeIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/social_globe.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">Social</h4>
@@ -3455,7 +3397,7 @@ function renderDashboardScreen(container, state, app) {
                     <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
-                  <div class="challenge-round-arrow-btn green-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -3463,7 +3405,7 @@ function renderDashboardScreen(container, state, app) {
               <div class="challenge-item-card-v2" data-screen="07" data-subject="english">
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
                   <div class="challenge-icon-box-v2" style="background: linear-gradient(135deg, #FCE7F3 0%, #FDF2F8 100%);">
-                    ${GRAPHICS.englishBookIcon(42)}
+                    <img class="dash-ic" src="assets/dashboard/ui/english_book.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
                   </div>
                   <div>
                     <h4 style="font-size: 14px; font-weight: 800; color: #1E293B;">English</h4>
@@ -3476,7 +3418,7 @@ function renderDashboardScreen(container, state, app) {
                     <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
-                  <div class="challenge-round-arrow-btn">${ICONS.chevronSmall(11, '#FFFFFF')}</div>
+                  <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -3490,9 +3432,7 @@ function renderDashboardScreen(container, state, app) {
             <div class="promo-card-v2" id="dash-quiz-promo-btn" style="background: #FFFFFF;">
               <div style="flex: 1; padding-right: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div style="color: #7C3AED;">
-                    ${ICONS.quiz(18)}
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/interactive_quiz_pencil.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Interactive Quizzes</h4>
                 </div>
                 <p style="font-size: 12.5px; color: #64748B; margin-bottom: 14px; line-height: 1.4;">
@@ -3503,7 +3443,7 @@ function renderDashboardScreen(container, state, app) {
                 </button>
               </div>
               <div style="flex-shrink: 0;">
-                ${GRAPHICS.quizClipboard3D(88, 88)}
+                <img class="dash-promo-art" src="assets/dashboard/ui/interactive_quiz_clipboard.png" alt="Interactive Quizzes" style="width:88px;height:88px;object-fit:contain;" />
               </div>
             </div>
 
@@ -3511,9 +3451,7 @@ function renderDashboardScreen(container, state, app) {
             <div class="promo-card-v2" id="dash-progress-promo-btn" style="background: #FFFFFF;">
               <div style="flex: 1; padding-right: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                  <div style="color: #0284C7;">
-                    ${ICONS.progress(18)}
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/nav_progress.png" alt="" style="width:22px;height:22px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Subject Progress Insights</h4>
                 </div>
                 <p style="font-size: 12.5px; color: #64748B; margin-bottom: 14px; line-height: 1.4;">
@@ -3524,7 +3462,7 @@ function renderDashboardScreen(container, state, app) {
                 </button>
               </div>
               <div style="flex-shrink: 0;">
-                ${GRAPHICS.progressChart3D(88, 88)}
+                <img class="dash-promo-art" src="assets/dashboard/ui/subject_progress_insights.png" alt="Progress Insights" style="width:88px;height:88px;object-fit:contain;" />
               </div>
             </div>
 
@@ -3537,7 +3475,7 @@ function renderDashboardScreen(container, state, app) {
             <div class="achievements-card-v2" id="dash-view-achievements-btn" style="background: #FFFFFF;">
               <div class="card-header-row" style="margin-bottom: 8px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="color: #F59E0B;">${ICONS.trophy(18)}</span>
+                  <img class="dash-ic" src="assets/dashboard/ui/achievement_trophy.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                   <h4 style="font-size: 15px; font-weight: 800; color: #1E1B4B;">Achievement Milestones</h4>
                 </div>
                 <a class="card-view-all-link" style="color: #7C3AED; font-weight: 700; font-size: 12.5px;">View All ❯</a>
@@ -3557,7 +3495,7 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div class="milestone-badge-col">
-                  ${GRAPHICS.badgeQuizMaster(50)}
+                  <img class="dash-badge" src="assets/dashboard/ui/quiz_master_badge.png" alt="Quiz Master" style="width:50px;height:50px;object-fit:contain;" />
                   <div>
                     <h5 style="font-size: 11px; font-weight: 800; color: #1E293B; margin: 0; line-height: 1.2;">Quiz</h5>
                     <span style="font-size: 10px; color: #64748B;">Master</span>
@@ -3565,7 +3503,7 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div class="milestone-badge-col">
-                  ${GRAPHICS.badgeChapterCompleter(50)}
+                  <img class="dash-badge" src="assets/dashboard/ui/chapter_completer_badge.png" alt="Chapter Completer" style="width:50px;height:50px;object-fit:contain;" />
                   <div>
                     <h5 style="font-size: 11px; font-weight: 800; color: #1E293B; margin: 0; line-height: 1.2;">Chapter</h5>
                     <span style="font-size: 10px; color: #64748B;">Completer</span>
@@ -3587,7 +3525,7 @@ function renderDashboardScreen(container, state, app) {
               <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px;">
                 <div style="flex: 1;">
                   <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px;">
-                    <span style="color: #7C3AED;">${ICONS.robot(16)}</span>
+                    <img class="dash-ic" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                     <h4 style="font-size: 16px; font-weight: 800; color: #1E1B4B; margin: 0;">AI Study Buddy</h4>
                   </div>
                   <div style="font-size: 12px; font-weight: 700; color: #7C3AED; margin-bottom: 8px;">
@@ -3604,7 +3542,7 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="flex-shrink: 0; cursor: pointer;" id="dash-robot-avatar-click">
-                  ${GRAPHICS.aiRobotMini3D(78, 78)}
+                  <img class="dash-robot-art" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="AI Study Buddy" style="width:78px;height:78px;object-fit:contain;" />
                 </div>
               </div>
 
@@ -3619,7 +3557,7 @@ function renderDashboardScreen(container, state, app) {
                     id="dash-qa-doubt"
                     style="background: #FAF5FF; border: 1px solid #DDD6FE; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #7C3AED; font-size: 14px;">💬</span>
+                    ${ICONS.chatBubble(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #6D28D9; line-height: 1.1;">Ask Doubt</span>
                   </button>
 
@@ -3628,7 +3566,7 @@ function renderDashboardScreen(container, state, app) {
                     id="dash-qa-summarize"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #059669; font-size: 14px;">📄</span>
+                    ${ICONS.document(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Summarize</span>
                   </button>
 
@@ -3637,7 +3575,7 @@ function renderDashboardScreen(container, state, app) {
                     id="dash-qa-quiz"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #D97706; font-size: 14px;">✍️</span>
+                    ${GRAPHICS.quizPencilIcon(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Practice Quiz</span>
                   </button>
 
@@ -3646,7 +3584,7 @@ function renderDashboardScreen(container, state, app) {
                     id="dash-qa-plan"
                     style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 6px 4px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px;"
                   >
-                    <span style="color: #0284C7; font-size: 14px;">📅</span>
+                    ${GRAPHICS.calendarIcon(18)}
                     <span style="font-size: 10px; font-weight: 700; color: #475569; line-height: 1.1;">Study Plan</span>
                   </button>
                 </div>
@@ -3658,8 +3596,8 @@ function renderDashboardScreen(container, state, app) {
                     placeholder="Ask a question..." 
                     class="ai-quick-input-pill"
                   />
-                  <button class="ai-quick-send-btn" id="dash-quick-ai-btn">
-                    ${ICONS.send(14)}
+                  <button class="ai-quick-send-btn dash-send-img-btn" id="dash-quick-ai-btn" title="Send">
+                    <img class="dash-ic" src="assets/dashboard/ui/ai_send_button.png" alt="Send" style="width:34px;height:34px;object-fit:contain;" />
                   </button>
                 </div>
               </div>
@@ -3679,14 +3617,7 @@ function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                </span>
+                <img class="dash-ic" src="assets/dashboard/ui/today_tasks_calendar.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Today's Tasks</h3>
               </div>
             </div>
@@ -3696,7 +3627,7 @@ function renderDashboardScreen(container, state, app) {
               <!-- Task 1 (Checked Green) -->
               <div class="task-row-v2" data-screen="05">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle checked">✓</div>
+                  <img class="dash-check" src="assets/dashboard/ui/completed_check.png" alt="Done" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Watch: The Cell - Video Lesson</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -3705,7 +3636,7 @@ function renderDashboardScreen(container, state, app) {
               <!-- Task 2 (Checked Green) -->
               <div class="task-row-v2" data-screen="06">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle checked">✓</div>
+                  <img class="dash-check" src="assets/dashboard/ui/completed_check.png" alt="Done" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Practice: Quick Quiz (Science)</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -3714,7 +3645,7 @@ function renderDashboardScreen(container, state, app) {
               <!-- Task 3 (Unchecked Circle) -->
               <div class="task-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="task-check-circle unchecked"></div>
+                  <img class="dash-check" src="assets/dashboard/ui/empty_checkbox.png" alt="To do" style="width:22px;height:22px;object-fit:contain;" />
                   <span style="font-size: 12.5px; font-weight: 700; color: #475569;">Complete: Worksheet (Maths)</span>
                 </div>
                 <span style="color: #94A3B8; font-size: 12px;">❯</span>
@@ -3727,7 +3658,7 @@ function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">${ICONS.progress(18)}</span>
+                <img class="dash-ic" src="assets/dashboard/ui/subject_progress_insights.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Subject Progress</h3>
               </div>
             </div>
@@ -3736,9 +3667,7 @@ function renderDashboardScreen(container, state, app) {
               
               <!-- Science -->
               <div class="progress-sub-row-v2" data-screen="04">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #E0F2FE;">
-                  ${GRAPHICS.scienceFlaskIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
@@ -3748,9 +3677,7 @@ function renderDashboardScreen(container, state, app) {
 
               <!-- Maths -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #FEF3C7;">
-                  ${GRAPHICS.mathsCalcIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
@@ -3760,9 +3687,7 @@ function renderDashboardScreen(container, state, app) {
 
               <!-- Social -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #D1FAE5;">
-                  ${GRAPHICS.socialGlobeIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/social_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
@@ -3772,9 +3697,7 @@ function renderDashboardScreen(container, state, app) {
 
               <!-- English -->
               <div class="progress-sub-row-v2" data-screen="03">
-                <div style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: #EDE9FE;">
-                  ${GRAPHICS.englishBookIcon(22)}
-                </div>
+                <img class="dash-ic" src="assets/dashboard/ui/english_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
                 <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
                   <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
@@ -3789,7 +3712,7 @@ function renderDashboardScreen(container, state, app) {
           <div class="widget-card-v2">
             <div class="card-header-row" style="margin-bottom: 14px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #7C3AED;">${ICONS.assignment(18)}</span>
+                <img class="dash-ic" src="assets/dashboard/ui/upcoming_tasks.png" alt="" style="width:24px;height:24px;object-fit:contain;" />
                 <h3 style="font-size: 15px; font-weight: 800; color: #1E293B;">Upcoming Assignments</h3>
               </div>
             </div>
@@ -3799,9 +3722,7 @@ function renderDashboardScreen(container, state, app) {
               <!-- Assignment 1 -->
               <div class="asg-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="asg-icon-box" style="background: #E0F2FE; color: #0284C7;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:32px;height:32px;object-fit:contain;" />
                   <div>
                     <div style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Cell Diagram - Science</div>
                     <div style="font-size: 11px; color: #64748B;">Due: Tomorrow</div>
@@ -3813,9 +3734,7 @@ function renderDashboardScreen(container, state, app) {
               <!-- Assignment 2 -->
               <div class="asg-row-v2" data-screen="08">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <div class="asg-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/></svg>
-                  </div>
+                  <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:32px;height:32px;object-fit:contain;" />
                   <div>
                     <div style="font-size: 12.5px; font-weight: 700; color: #1E293B;">Fractions - Maths</div>
                     <div style="font-size: 11px; color: #64748B;">Due: 20 Nov</div>
@@ -3940,7 +3859,21 @@ function renderSubjectsScreen(container, state, app) {
   const { subjects, ongoingChapters, finishedChapters } = state;
   let activeTab = state.myLearningActiveTab || "all"; // "all", "in-progress", "completed"
 
+  // Subject icons supplied in assets/MY learning (cropped copies in /ui)
+  const SUBJECT_ICON_IMAGES = {
+    flask: "science",
+    calculator: "maths",
+    globe: "social",
+    book: "english",
+    tamil: "tamil",
+    tamilLetter: "tamil"
+  };
+
   function getGraphic(type, size = 96) {
+    const imgName = SUBJECT_ICON_IMAGES[type];
+    if (imgName) {
+      return `<img class="subject-icon-img" src="assets/MY%20learning/ui/${imgName}.png" alt="${imgName}" style="width:${size}px;height:${size}px;object-fit:contain;" />`;
+    }
     switch (type) {
       case "flask": return GRAPHICS.scienceFlaskIcon(size);
       case "calculator": return GRAPHICS.mathsCalcIcon(size);
@@ -4234,7 +4167,7 @@ function renderChapterListScreen(container, state, app) {
         </div>
 
         <!-- Subject Hero Banner -->
-        <div class="subject-hero-banner" style="background: ${currentSubject.id === 'science' ? 'linear-gradient(135deg, #1E1B4B 0%, #312E81 100%)' : currentSubject.bgGradient};">
+        <div class="subject-hero-banner" ${currentSubject.id === 'science' ? '' : `style="background: ${currentSubject.bgGradient};"`}>
           <div style="display: flex; align-items: center; gap: 24px;">
             <div style="background: rgba(255,255,255,0.15); padding: 14px; border-radius: var(--radius-xl); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
               ${GRAPHICS.getSubjectIcon(currentSubject.iconType, 70)}
@@ -4289,7 +4222,7 @@ function renderChapterListScreen(container, state, app) {
               let badgeHtml = '';
 
               if (ch.status === 'completed') {
-                iconHtml = `<div class="chapter-status-dot" style="background: #ECFDF5; color: #059669;">${ICONS.checkCircle(20)}</div>`;
+                iconHtml = `<div class="chapter-status-dot lu-plain-icon-box">${GRAPHICS.checkDoneIcon(28)}</div>`;
                 badgeHtml = `
                   <span class="completed-status-pill" style="font-size: 12px; padding: 4px 14px;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -4304,7 +4237,7 @@ function renderChapterListScreen(container, state, app) {
                   </span>
                 `;
               } else {
-                iconHtml = `<div class="chapter-status-dot" style="background: #F1F5F9; color: #94A3B8;">${ICONS.clock(18)}</div>`;
+                iconHtml = `<div class="chapter-status-dot lu-plain-icon-box">${GRAPHICS.checkTodoIcon(28)}</div>`;
                 badgeHtml = `<span class="badge-status badge-gray" style="font-size: 12px; padding: 5px 14px;">Not Started</span>`;
               }
 
@@ -4603,8 +4536,8 @@ function renderVideoLessonScreen(container, state, app) {
                   { title: "Worksheet", done: isComp }
                 ]).map(item => `
                   <div class="checklist-item ${item.done ? 'done' : ''}">
-                    <div class="checklist-check-circle ${item.done ? 'checked' : 'unchecked'}">
-                      ${item.done ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>` : ''}
+                    <div class="lu-plain-icon-box" style="display:flex;">
+                      ${item.done ? GRAPHICS.checkDoneIcon(22) : GRAPHICS.checkTodoIcon(22)}
                     </div>
                     <div style="flex: 1;">
                       <div style="font-size: 13.5px; font-weight: 700; color: ${item.done ? '#1E293B' : '#475569'};">
@@ -5317,7 +5250,7 @@ function renderQuizScreen(container, state, app) {
             <div class="challenge-metric-strip">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.questionsCount}</div>
@@ -5327,7 +5260,7 @@ function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FDF2F8; color: #EC4899;">
-                  ${ICONS.clock(20)}
+                  ${ICONS.clock(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.durationMinutes}</div>
@@ -5337,7 +5270,7 @@ function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.points}</div>
@@ -5457,17 +5390,17 @@ function renderQuizScreen(container, state, app) {
               <h2 style="font-size: 20px; font-weight: 800; color: #1E293B; margin: 0 0 20px;">Before You Start</h2>
               
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">⏱</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.clock(30)}</div>
                 <span>10 Questions</span>
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">⏱</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.clock(30)}</div>
                 <span>15 Minutes (Timed)</span>
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle" style="color: #F59E0B;">⭐</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.star(30)}</div>
                 <span>100 Points (10 per question)</span>
               </div>
 
@@ -5738,13 +5671,13 @@ function renderQuizScreen(container, state, app) {
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⭐</span>
+              ${ICONS.star(24)}
               <span style="font-size: 15px; font-weight: 800; color: #D97706;">+${q.pointsEarned || 80}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⏱</span>
+              ${ICONS.clock(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${q.timeTakenText || "02:15"}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>
@@ -5845,7 +5778,7 @@ function renderChallengesScreen(container, state, app) {
       title: "Weekly Science Challenge",
       subject: "Science",
       subjectId: "science",
-      iconType: "trophy",
+      iconType: "flask",
       questionsCount: 10,
       durationMinutes: 15,
       points: 100,
@@ -5903,7 +5836,7 @@ function renderChallengesScreen(container, state, app) {
       title: "Maths Speed Challenge",
       subject: "Mathematics",
       subjectId: "maths",
-      iconType: "star",
+      iconType: "calculator",
       questionsCount: 15,
       durationMinutes: 20,
       points: 150,
@@ -6189,7 +6122,7 @@ function renderChallengesScreen(container, state, app) {
         <div>
           ${ch.status === 'live' ? `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #FEE2E2; color: #DC2626; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px;">
-              <span style="font-size: 13px;">🔥</span> Live
+              ${ICONS.flame(15)} Live
             </span>
           ` : `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #F5F3FF; color: #7C3AED; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; border: 1px solid #DDD6FE;">
@@ -6286,7 +6219,7 @@ function renderChallengesScreen(container, state, app) {
               <!-- Live Badge -->
               <div>
                 <span style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; color: #DC2626; font-size: 13px; font-weight: 800; padding: 6px 16px; border-radius: 999px; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.12); border: 1px solid #FEE2E2;">
-                  <span style="font-size: 14px;">🔥</span> Live
+                  ${ICONS.flame(16)} Live
                 </span>
               </div>
             </div>
@@ -6295,7 +6228,7 @@ function renderChallengesScreen(container, state, app) {
             <div class="challenge-metric-strip">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.questionsCount}</div>
@@ -6305,7 +6238,7 @@ function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FDF2F8; color: #EC4899;">
-                  ${ICONS.clock(20)}
+                  ${ICONS.clock(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.durationMinutes}</div>
@@ -6315,7 +6248,7 @@ function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.points}</div>
@@ -6586,13 +6519,13 @@ function renderChallengesScreen(container, state, app) {
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⭐</span>
+              ${ICONS.star(24)}
               <span style="font-size: 15px; font-weight: 800; color: #D97706;">+100</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⏱</span>
+              ${ICONS.clock(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">02:30</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>
@@ -7122,8 +7055,8 @@ function renderAssignmentsScreen(container, state, app) {
         
         <!-- Left: Document Icon in Rounded Purple Box + Title + Subtitle -->
         <div class="ongoing-left-meta" style="min-width: 320px;">
-          <div class="ongoing-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-            ${(ICONS.document || ICONS.assignment)(24)}
+          <div class="ongoing-icon-box lu-plain-icon-box">
+            ${GRAPHICS.subjectBadgeIcon(asg.subjectId, 38)}
           </div>
           <div class="ongoing-text-wrap">
             <h3 style="font-size: 15.5px; font-weight: 800; color: #1E293B; margin: 0;">${asg.title}</h3>
@@ -7182,8 +7115,8 @@ function renderAssignmentsScreen(container, state, app) {
             <!-- Top Row: Icon + Title/Chapter + Status Badge -->
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
               <div style="display: flex; align-items: center; gap: 16px;">
-                <div class="ongoing-icon-box" style="width: 56px; height: 56px; background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(30)}
+                <div class="ongoing-icon-box lu-plain-icon-box" style="width: 56px; height: 56px;">
+                  ${GRAPHICS.subjectBadgeIcon(asg.subjectId, 52)}
                 </div>
                 <div>
                   <h2 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 4px;">${asg.title}</h2>
@@ -7223,7 +7156,7 @@ function renderAssignmentsScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Total Marks</div>
@@ -7890,7 +7823,7 @@ function renderProgressScreen(container, state, app) {
             <div class="progress-metrics-triple-grid">
               
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #ECFDF5; color: #10B981;">✔</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkDoneIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Completed</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">28 / 40 Chapters</div>
@@ -7898,7 +7831,7 @@ function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #EFF6FF; color: #3B82F6;">⏱</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${ICONS.clock(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">In Progress</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">8 Chapters</div>
@@ -7906,7 +7839,7 @@ function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #F5F3FF; color: #7C3AED;">📄</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkTodoIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Not Started</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">4 Chapters</div>
@@ -8013,7 +7946,7 @@ function renderProgressScreen(container, state, app) {
             <div class="progress-metrics-triple-grid">
               
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #ECFDF5; color: #10B981;">✔</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkDoneIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Completed</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.completedChapters} Chapters</div>
@@ -8021,7 +7954,7 @@ function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #EFF6FF; color: #3B82F6;">⏱</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${ICONS.clock(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">In Progress</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.inProgressChapters} Chapters</div>
@@ -8029,7 +7962,7 @@ function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #F5F3FF; color: #7C3AED;">📄</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkTodoIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Not Started</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.notStartedChapters} Chapter</div>
@@ -9578,7 +9511,7 @@ function renderAiBuddyScreen(container, state, app) {
           title="Send Doubt"
           onclick="const el = document.getElementById('ai-bottom-input'); if(el && el.value.trim()){ window.lmsAiAskDoubt(el.value); el.value = ''; }"
         >
-          ${ICONS.send ? ICONS.send(18) : '➔'}
+          ${GRAPHICS.sendButtonIcon(38)}
         </button>
       </div>
     `;
@@ -9613,7 +9546,7 @@ function renderAiBuddyScreen(container, state, app) {
           <!-- Option 1: Ask a Doubt -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('ask_doubt')">
             <div class="ai-option-icon-box" style="background: #F3E8FF; color: #7C3AED;">
-              ${ICONS.chatBubble ? ICONS.chatBubble(24) : '💬'}
+              ${ICONS.chatBubble ? ICONS.chatBubble(40) : '💬'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Ask a Doubt</div>
@@ -9624,7 +9557,7 @@ function renderAiBuddyScreen(container, state, app) {
           <!-- Option 2: Explain Concept -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('ask_doubt')">
             <div class="ai-option-icon-box" style="background: #FEF3C7; color: #D97706;">
-              ${ICONS.lightbulb ? ICONS.lightbulb(24) : '💡'}
+              ${ICONS.lightbulb ? ICONS.lightbulb(40) : '💡'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Explain Concept</div>
@@ -9635,7 +9568,7 @@ function renderAiBuddyScreen(container, state, app) {
           <!-- Option 3: Summarize a Chapter -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('summarize')">
             <div class="ai-option-icon-box" style="background: #DCFCE7; color: #059669;">
-              ${ICONS.document ? ICONS.document(24) : '📄'}
+              ${ICONS.document ? ICONS.document(40) : '📄'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Summarize a Chapter</div>
@@ -9645,8 +9578,8 @@ function renderAiBuddyScreen(container, state, app) {
 
           <!-- Option 4: Generate Practice Quiz -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('quiz')">
-            <div class="ai-option-icon-box" style="background: #F3E8FF; color: #7C3AED;">
-              ${ICONS.quiz ? ICONS.quiz(24) : '✍️'}
+            <div class="ai-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.quizPencilIcon(40)}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Generate Practice Quiz</div>
@@ -9656,8 +9589,8 @@ function renderAiBuddyScreen(container, state, app) {
 
           <!-- Option 5: Create Study Plan -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('study_plan')">
-            <div class="ai-option-icon-box" style="background: #E0F2FE; color: #0284C7;">
-              ${ICONS.calendar ? ICONS.calendar(24) : '📅'}
+            <div class="ai-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.calendarIcon(40)}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Create Study Plan</div>
@@ -9668,7 +9601,7 @@ function renderAiBuddyScreen(container, state, app) {
           <!-- Option 6: Revise for Exam -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('revise')">
             <div class="ai-option-icon-box" style="background: #FFEDD5; color: #EA580C;">
-              ${ICONS.star ? ICONS.star(24) : '⭐'}
+              ${ICONS.star ? ICONS.star(40) : '⭐'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Revise for Exam</div>
@@ -10302,7 +10235,7 @@ function renderLiveClassesScreen(container, state, app) {
                 ` : `
                   <span style="font-size: 12px; color: #64748B;">Starts in 2 hours</span>
                   <button class="btn-secondary toggle-reminder-btn" data-class-id="${cls.id}">
-                    ${cls.reminderSet ? '🔔 Reminder Set' : '🔔 Remind Me'}
+                    ${ICONS.bell(18)} ${cls.reminderSet ? 'Reminder Set' : 'Remind Me'}
                   </button>
                 `}
               </div>
@@ -10507,7 +10440,7 @@ function renderProfileScreen(container, state, app) {
   window.lmsConfirmLogout = function() {
     app.showToast("Logged out successfully. See you soon! 👋");
     setTimeout(() => {
-      app.navigateTo("00"); // Return to Login Screen
+      app.navigateTo("02"); // No login screen: return to Dashboard
     }, 600);
   };
 
@@ -10589,8 +10522,8 @@ function renderProfileScreen(container, state, app) {
           
           <!-- 1. My Details -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('edit_profile')">
-            <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.user ? ICONS.user(28) : '👤'}
+            <div class="profile-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.profileIcon(48)}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">My Details</div>
             <span style="font-size: 12.5px; color: #64748B;">Personal info & contacts</span>
@@ -10598,8 +10531,8 @@ function renderProfileScreen(container, state, app) {
 
           <!-- 2. Academic Info -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('academic')">
-            <div class="profile-option-icon-box" style="background: #EFF6FF; color: #2563EB;">
-              ${ICONS.book ? ICONS.book(28) : '🎓'}
+            <div class="profile-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.learningBookIcon(48)}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Academic Info</div>
             <span style="font-size: 12.5px; color: #64748B;">School, section & year</span>
@@ -10608,7 +10541,7 @@ function renderProfileScreen(container, state, app) {
           <!-- 3. Preferences -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('preferences')">
             <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.sliders ? ICONS.sliders(28) : '⚙️'}
+              ${ICONS.sliders ? ICONS.sliders(48) : '⚙️'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Preferences</div>
             <span style="font-size: 12.5px; color: #64748B;">Theme, language & sync</span>
@@ -10617,7 +10550,7 @@ function renderProfileScreen(container, state, app) {
           <!-- 4. Security -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('security')">
             <div class="profile-option-icon-box" style="background: #EDE9FE; color: #6D28D9;">
-              ${ICONS.shield ? ICONS.shield(28) : '🛡️'}
+              ${ICONS.shield ? ICONS.shield(48) : '🛡️'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Security</div>
             <span style="font-size: 12.5px; color: #64748B;">Password, OTP & devices</span>
@@ -10626,7 +10559,7 @@ function renderProfileScreen(container, state, app) {
           <!-- 5. Notifications -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('notifications')">
             <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.bell ? ICONS.bell(28) : '🔔'}
+              ${ICONS.bell ? ICONS.bell(48) : '🔔'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Notifications</div>
             <span style="font-size: 12.5px; color: #64748B;">Alerts & reminder settings</span>
@@ -10635,7 +10568,7 @@ function renderProfileScreen(container, state, app) {
           <!-- 6. Help & Support -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('help')">
             <div class="profile-option-icon-box" style="background: #E0F2FE; color: #0284C7;">
-              ${ICONS.headset ? ICONS.headset(28) : '🎧'}
+              ${ICONS.headset ? ICONS.headset(48) : '🎧'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Help & Support</div>
             <span style="font-size: 12.5px; color: #64748B;">FAQs, teacher desk & feedback</span>
@@ -11137,7 +11070,7 @@ function renderProfileScreen(container, state, app) {
               onclick="appInstance.showToast('Terms & Conditions: Standard Academic Learning Usage.');"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">📄</span>
+                ${ICONS.document(24)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Terms & Conditions</span>
               </div>
               <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -11197,7 +11130,6 @@ class LMSApp {
     this.tourTimer = null;
 
     this.screensConfig = [
-      { id: "01", name: "Login", title: "01 Login", fn: renderLoginScreen, isStandalone: true },
       { id: "02", name: "Dashboard", title: "02 Dashboard (Home)", fn: renderDashboardScreen, sidebarNav: "home" },
       { id: "03", name: "My Learning", title: "03 My Learning – Subjects", fn: renderSubjectsScreen, sidebarNav: "mylearning" },
       { id: "04", name: "Chapter List", title: "04 Subject – Chapter List", fn: renderChapterListScreen, sidebarNav: "mylearning" },
@@ -11288,66 +11220,62 @@ class LMSApp {
           
           <!-- Brand Logo -->
           <a class="sidebar-logo" id="sidebar-brand-btn" style="padding: 10px 14px 22px 10px; display: flex; align-items: center; gap: 10px;">
-            <img src="assets/logo-clean.png" alt="Logo" style="height: 40px; width: auto; object-fit: contain;" />
-            <div class="logo-text-wrap">
-              <span class="logo-brand-title" style="font-size: 15px; font-weight: 800; color: #1E1B4B; line-height: 1.15;">Learning</span>
-              <span class="logo-brand-sub" style="font-size: 14.5px; font-weight: 800; color: #1E1B4B; line-height: 1.15;">Universe LMS</span>
-            </div>
+            <img src="assets/dashboard/ui/logo.png" alt="Learning Universe LMS" class="sidebar-logo-img" />
           </a>
 
           <!-- Nav Items -->
           <ul class="sidebar-nav-list">
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="home" data-target-screen="02">
-                ${ICONS.home(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_home.png" alt="" />
                 <span>Home</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="mylearning" data-target-screen="03">
-                ${ICONS.book(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_my_learning.png" alt="" />
                 <span>My Learning</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="challenges" data-target-screen="07">
-                ${ICONS.target(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_challenges.png" alt="" />
                 <span>Challenges</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="quizzes" data-target-screen="06">
-                ${ICONS.quiz(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_quizzes.png" alt="" />
                 <span>Quizzes</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="assignments" data-target-screen="08">
-                ${ICONS.assignment(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_assignments.png" alt="" />
                 <span>Assignments</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="progress" data-target-screen="09">
-                ${ICONS.progress(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_progress.png" alt="" />
                 <span>Progress</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="achievements" data-target-screen="10">
-                ${ICONS.trophy(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_achievements.png" alt="" />
                 <span>Achievements</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="aibuddy" data-target-screen="11">
-                ${ICONS.robot(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="" />
                 <span>AI Study Buddy</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="profile" data-target-screen="13">
-                ${ICONS.user(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/learning_profile.png" alt="" />
                 <span>Profile</span>
               </button>
             </li>
@@ -11389,20 +11317,20 @@ class LMSApp {
               
               <!-- 7 Day Streak Pill -->
               <div class="stat-pill stat-pill-streak" id="header-streak-pill" title="7 Day Active Streak!">
-                ${ICONS.flame(16)}
+                ${ICONS.flame(20)}
                 <span id="header-streak-text">7 Day Streak</span>
               </div>
 
               <!-- 240 Points Pill -->
               <div class="stat-pill stat-pill-points" id="header-points-pill" title="Total Reward Points">
-                ${ICONS.star(16)}
+                ${ICONS.star(20)}
                 <span id="header-points-text">${this.state.student.points} Points</span>
               </div>
 
               <!-- Notifications Bell -->
               <div class="stat-pill" id="header-bell-btn" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 7px 10px;" title="Notifications">
                 <span style="position: relative; display: flex;">
-                  ${ICONS.bell(18)}
+                  ${ICONS.bell(24)}
                   <span style="position: absolute; top: -2px; right: -2px; width: 7px; height: 7px; background: #EF4444; border-radius: 50%;"></span>
                 </span>
               </div>
@@ -11523,8 +11451,12 @@ class LMSApp {
 
   // Navigate to any of the 13 screens
   navigateTo(screenId) {
-    const config = this.screensConfig.find(s => s.id === screenId);
-    if (!config) return;
+    let config = this.screensConfig.find(s => s.id === screenId);
+    if (!config) {
+      // Unknown or removed screen (e.g. old #01 login link) -> fall back to Dashboard
+      screenId = "02";
+      config = this.screensConfig.find(s => s.id === screenId);
+    }
 
     this.currentScreen = screenId;
     try {
@@ -11592,7 +11524,7 @@ class LMSApp {
     const bc = document.getElementById("lms-global-breadcrumb");
     if (!bc) return;
 
-    if (screenId === "02" || screenId === "01" || screenId === "04") {
+    if (screenId === "02" || screenId === "04") {
       bc.style.display = "none";
       bc.innerHTML = "";
       return;

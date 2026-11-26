@@ -20,7 +20,7 @@ export function renderChapterListScreen(container, state, app) {
         </div>
 
         <!-- Subject Hero Banner -->
-        <div class="subject-hero-banner" style="background: ${currentSubject.id === 'science' ? 'linear-gradient(135deg, #1E1B4B 0%, #312E81 100%)' : currentSubject.bgGradient};">
+        <div class="subject-hero-banner" ${currentSubject.id === 'science' ? '' : `style="background: ${currentSubject.bgGradient};"`}>
           <div style="display: flex; align-items: center; gap: 24px;">
             <div style="background: rgba(255,255,255,0.15); padding: 14px; border-radius: var(--radius-xl); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
               ${GRAPHICS.getSubjectIcon(currentSubject.iconType, 70)}
@@ -75,7 +75,7 @@ export function renderChapterListScreen(container, state, app) {
               let badgeHtml = '';
 
               if (ch.status === 'completed') {
-                iconHtml = `<div class="chapter-status-dot" style="background: #ECFDF5; color: #059669;">${ICONS.checkCircle(20)}</div>`;
+                iconHtml = `<div class="chapter-status-dot lu-plain-icon-box">${GRAPHICS.checkDoneIcon(28)}</div>`;
                 badgeHtml = `
                   <span class="completed-status-pill" style="font-size: 12px; padding: 4px 14px;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -90,7 +90,7 @@ export function renderChapterListScreen(container, state, app) {
                   </span>
                 `;
               } else {
-                iconHtml = `<div class="chapter-status-dot" style="background: #F1F5F9; color: #94A3B8;">${ICONS.clock(18)}</div>`;
+                iconHtml = `<div class="chapter-status-dot lu-plain-icon-box">${GRAPHICS.checkTodoIcon(28)}</div>`;
                 badgeHtml = `<span class="badge-status badge-gray" style="font-size: 12px; padding: 5px 14px;">Not Started</span>`;
               }
 
