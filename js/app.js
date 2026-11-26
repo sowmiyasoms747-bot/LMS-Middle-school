@@ -48,6 +48,12 @@ class LMSApp {
   }
 
   init() {
+    // Restore saved theme (Light / Dark / System) before first paint
+    let savedTheme = "light";
+    try { savedTheme = localStorage.getItem("lu-theme") || "light"; } catch (e) {}
+    this.state.student.theme = savedTheme;
+    this.applyTheme(savedTheme);
+
     this.renderFlowNavigator();
     this.renderAppShell();
     this.navigateTo(this.currentScreen);
@@ -537,6 +543,26 @@ class LMSApp {
         index = (index + 1) % this.screensConfig.length;
         this.navigateTo(this.screensConfig[index].id);
       }, 4000);
+    }
+  }
+
+  // Apply Light / Dark / System theme to the whole app
+  applyTheme(theme) {
+    const root = document.documentElement;
+    const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    const isDark = theme === "dark" || (theme === "system" && mq && mq.matches);
+    root.classList.toggle("lu-dark", !!isDark);
+    root.setAttribute("data-theme", theme);
+    try { localStorage.setItem("lu-theme", theme); } catch (e) {}
+
+    // Follow the OS setting live while "System" is selected
+    if (mq && !this._themeMqBound) {
+      this._themeMqBound = true;
+      const onChange = () => {
+        if ((this.state.student.theme || "light") === "system") this.applyTheme("system");
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
     }
   }
 
