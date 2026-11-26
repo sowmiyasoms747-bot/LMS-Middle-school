@@ -180,16 +180,6 @@ class LMSApp {
             </li>
           </ul>
 
-          <!-- Sidebar Bottom Knowledge Tree Illustration (Matching Image 4) -->
-          <div class="sidebar-bottom-illustration" title="Learning Universe - Tree of Knowledge">
-            <img 
-              src="assets/knowledge-tree.png" 
-              alt="Tree of Knowledge" 
-              class="sidebar-bottom-img"
-              onerror="this.onerror=null; this.parentElement.innerHTML = GRAPHICS.sidebarBooksPlant(220, 150);"
-            />
-          </div>
-
         </aside>
 
         <!-- Main Viewport Area -->
