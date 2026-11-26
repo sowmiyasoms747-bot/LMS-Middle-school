@@ -6,7 +6,6 @@ files_order = [
     'js/components/icons.js',
     'js/components/confetti.js',
     'js/components/graphics.js',
-    'js/screens/login.js',
     'js/screens/dashboard.js',
     'js/screens/subjects.js',
     'js/screens/chapterList.js',

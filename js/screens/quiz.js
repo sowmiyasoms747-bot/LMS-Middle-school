@@ -572,7 +572,7 @@ export function renderQuizScreen(container, state, app) {
             <div class="challenge-metric-strip">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.questionsCount}</div>
@@ -582,7 +582,7 @@ export function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FDF2F8; color: #EC4899;">
-                  ${ICONS.clock(20)}
+                  ${ICONS.clock(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.durationMinutes}</div>
@@ -592,7 +592,7 @@ export function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.points}</div>
@@ -712,17 +712,17 @@ export function renderQuizScreen(container, state, app) {
               <h2 style="font-size: 20px; font-weight: 800; color: #1E293B; margin: 0 0 20px;">Before You Start</h2>
               
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">⏱</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.clock(30)}</div>
                 <span>10 Questions</span>
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">⏱</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.clock(30)}</div>
                 <span>15 Minutes (Timed)</span>
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle" style="color: #F59E0B;">⭐</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.star(30)}</div>
                 <span>100 Points (10 per question)</span>
               </div>
 
@@ -993,13 +993,13 @@ export function renderQuizScreen(container, state, app) {
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⭐</span>
+              ${ICONS.star(24)}
               <span style="font-size: 15px; font-weight: 800; color: #D97706;">+${q.pointsEarned || 80}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">⏱</span>
+              ${ICONS.clock(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${q.timeTakenText || "02:15"}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>

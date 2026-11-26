@@ -360,8 +360,8 @@ export function renderAssignmentsScreen(container, state, app) {
         
         <!-- Left: Document Icon in Rounded Purple Box + Title + Subtitle -->
         <div class="ongoing-left-meta" style="min-width: 320px;">
-          <div class="ongoing-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-            ${(ICONS.document || ICONS.assignment)(24)}
+          <div class="ongoing-icon-box lu-plain-icon-box">
+            ${GRAPHICS.subjectBadgeIcon(asg.subjectId, 38)}
           </div>
           <div class="ongoing-text-wrap">
             <h3 style="font-size: 15.5px; font-weight: 800; color: #1E293B; margin: 0;">${asg.title}</h3>
@@ -420,8 +420,8 @@ export function renderAssignmentsScreen(container, state, app) {
             <!-- Top Row: Icon + Title/Chapter + Status Badge -->
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
               <div style="display: flex; align-items: center; gap: 16px;">
-                <div class="ongoing-icon-box" style="width: 56px; height: 56px; background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.document || ICONS.assignment)(30)}
+                <div class="ongoing-icon-box lu-plain-icon-box" style="width: 56px; height: 56px;">
+                  ${GRAPHICS.subjectBadgeIcon(asg.subjectId, 52)}
                 </div>
                 <div>
                   <h2 style="font-size: 22px; font-weight: 800; color: #1E293B; margin: 0 0 4px;">${asg.title}</h2>
@@ -461,7 +461,7 @@ export function renderAssignmentsScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #FFFBEB; color: #D97706;">
-                  ${ICONS.star(20)}
+                  ${ICONS.star(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Total Marks</div>

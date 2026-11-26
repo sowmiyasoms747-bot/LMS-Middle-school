@@ -8,7 +8,21 @@ export function renderSubjectsScreen(container, state, app) {
   const { subjects, ongoingChapters, finishedChapters } = state;
   let activeTab = state.myLearningActiveTab || "all"; // "all", "in-progress", "completed"
 
+  // Subject icons supplied in assets/MY learning (cropped copies in /ui)
+  const SUBJECT_ICON_IMAGES = {
+    flask: "science",
+    calculator: "maths",
+    globe: "social",
+    book: "english",
+    tamil: "tamil",
+    tamilLetter: "tamil"
+  };
+
   function getGraphic(type, size = 96) {
+    const imgName = SUBJECT_ICON_IMAGES[type];
+    if (imgName) {
+      return `<img class="subject-icon-img" src="assets/MY%20learning/ui/${imgName}.png" alt="${imgName}" style="width:${size}px;height:${size}px;object-fit:contain;" />`;
+    }
     switch (type) {
       case "flask": return GRAPHICS.scienceFlaskIcon(size);
       case "calculator": return GRAPHICS.mathsCalcIcon(size);

@@ -329,7 +329,7 @@ export function renderAiBuddyScreen(container, state, app) {
           title="Send Doubt"
           onclick="const el = document.getElementById('ai-bottom-input'); if(el && el.value.trim()){ window.lmsAiAskDoubt(el.value); el.value = ''; }"
         >
-          ${ICONS.send ? ICONS.send(18) : '➔'}
+          ${GRAPHICS.sendButtonIcon(38)}
         </button>
       </div>
     `;
@@ -364,7 +364,7 @@ export function renderAiBuddyScreen(container, state, app) {
           <!-- Option 1: Ask a Doubt -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('ask_doubt')">
             <div class="ai-option-icon-box" style="background: #F3E8FF; color: #7C3AED;">
-              ${ICONS.chatBubble ? ICONS.chatBubble(24) : '💬'}
+              ${ICONS.chatBubble ? ICONS.chatBubble(40) : '💬'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Ask a Doubt</div>
@@ -375,7 +375,7 @@ export function renderAiBuddyScreen(container, state, app) {
           <!-- Option 2: Explain Concept -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('ask_doubt')">
             <div class="ai-option-icon-box" style="background: #FEF3C7; color: #D97706;">
-              ${ICONS.lightbulb ? ICONS.lightbulb(24) : '💡'}
+              ${ICONS.lightbulb ? ICONS.lightbulb(40) : '💡'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Explain Concept</div>
@@ -386,7 +386,7 @@ export function renderAiBuddyScreen(container, state, app) {
           <!-- Option 3: Summarize a Chapter -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('summarize')">
             <div class="ai-option-icon-box" style="background: #DCFCE7; color: #059669;">
-              ${ICONS.document ? ICONS.document(24) : '📄'}
+              ${ICONS.document ? ICONS.document(40) : '📄'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Summarize a Chapter</div>
@@ -396,8 +396,8 @@ export function renderAiBuddyScreen(container, state, app) {
 
           <!-- Option 4: Generate Practice Quiz -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('quiz')">
-            <div class="ai-option-icon-box" style="background: #F3E8FF; color: #7C3AED;">
-              ${ICONS.quiz ? ICONS.quiz(24) : '✍️'}
+            <div class="ai-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.quizPencilIcon(40)}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Generate Practice Quiz</div>
@@ -407,8 +407,8 @@ export function renderAiBuddyScreen(container, state, app) {
 
           <!-- Option 5: Create Study Plan -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('study_plan')">
-            <div class="ai-option-icon-box" style="background: #E0F2FE; color: #0284C7;">
-              ${ICONS.calendar ? ICONS.calendar(24) : '📅'}
+            <div class="ai-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.calendarIcon(40)}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Create Study Plan</div>
@@ -419,7 +419,7 @@ export function renderAiBuddyScreen(container, state, app) {
           <!-- Option 6: Revise for Exam -->
           <div class="ai-option-tile-card" onclick="window.lmsAiSetView('revise')">
             <div class="ai-option-icon-box" style="background: #FFEDD5; color: #EA580C;">
-              ${ICONS.star ? ICONS.star(24) : '⭐'}
+              ${ICONS.star ? ICONS.star(40) : '⭐'}
             </div>
             <div>
               <div style="font-size: 15.5px; font-weight: 800; color: #1E293B;">Revise for Exam</div>

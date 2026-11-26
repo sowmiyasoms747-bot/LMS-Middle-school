@@ -12,6 +12,7 @@
 // 10. Logout -> Confirm & Exit Modal (Cancel, Logout -> Login Screen 00)
 
 import { ICONS } from '../components/icons.js';
+import { GRAPHICS } from '../components/graphics.js';
 import { triggerConfetti } from '../components/confetti.js';
 
 export function renderProfileScreen(container, state, app) {
@@ -132,7 +133,7 @@ export function renderProfileScreen(container, state, app) {
   window.lmsConfirmLogout = function() {
     app.showToast("Logged out successfully. See you soon! 👋");
     setTimeout(() => {
-      app.navigateTo("00"); // Return to Login Screen
+      app.navigateTo("02"); // No login screen: return to Dashboard
     }, 600);
   };
 
@@ -214,8 +215,8 @@ export function renderProfileScreen(container, state, app) {
           
           <!-- 1. My Details -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('edit_profile')">
-            <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.user ? ICONS.user(28) : '👤'}
+            <div class="profile-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.profileIcon(48)}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">My Details</div>
             <span style="font-size: 12.5px; color: #64748B;">Personal info & contacts</span>
@@ -223,8 +224,8 @@ export function renderProfileScreen(container, state, app) {
 
           <!-- 2. Academic Info -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('academic')">
-            <div class="profile-option-icon-box" style="background: #EFF6FF; color: #2563EB;">
-              ${ICONS.book ? ICONS.book(28) : '🎓'}
+            <div class="profile-option-icon-box lu-plain-icon-box">
+              ${GRAPHICS.learningBookIcon(48)}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Academic Info</div>
             <span style="font-size: 12.5px; color: #64748B;">School, section & year</span>
@@ -233,7 +234,7 @@ export function renderProfileScreen(container, state, app) {
           <!-- 3. Preferences -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('preferences')">
             <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.sliders ? ICONS.sliders(28) : '⚙️'}
+              ${ICONS.sliders ? ICONS.sliders(48) : '⚙️'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Preferences</div>
             <span style="font-size: 12.5px; color: #64748B;">Theme, language & sync</span>
@@ -242,7 +243,7 @@ export function renderProfileScreen(container, state, app) {
           <!-- 4. Security -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('security')">
             <div class="profile-option-icon-box" style="background: #EDE9FE; color: #6D28D9;">
-              ${ICONS.shield ? ICONS.shield(28) : '🛡️'}
+              ${ICONS.shield ? ICONS.shield(48) : '🛡️'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Security</div>
             <span style="font-size: 12.5px; color: #64748B;">Password, OTP & devices</span>
@@ -251,7 +252,7 @@ export function renderProfileScreen(container, state, app) {
           <!-- 5. Notifications -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('notifications')">
             <div class="profile-option-icon-box" style="background: #FAF5FF; color: #7C3AED;">
-              ${ICONS.bell ? ICONS.bell(28) : '🔔'}
+              ${ICONS.bell ? ICONS.bell(48) : '🔔'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Notifications</div>
             <span style="font-size: 12.5px; color: #64748B;">Alerts & reminder settings</span>
@@ -260,7 +261,7 @@ export function renderProfileScreen(container, state, app) {
           <!-- 6. Help & Support -->
           <div class="profile-option-tile-card" onclick="window.lmsProfileSetView('help')">
             <div class="profile-option-icon-box" style="background: #E0F2FE; color: #0284C7;">
-              ${ICONS.headset ? ICONS.headset(28) : '🎧'}
+              ${ICONS.headset ? ICONS.headset(48) : '🎧'}
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #1E293B;">Help & Support</div>
             <span style="font-size: 12.5px; color: #64748B;">FAQs, teacher desk & feedback</span>
@@ -762,7 +763,7 @@ export function renderProfileScreen(container, state, app) {
               onclick="appInstance.showToast('Terms & Conditions: Standard Academic Learning Usage.');"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">📄</span>
+                ${ICONS.document(24)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Terms & Conditions</span>
               </div>
               <span style="font-size: 16px; color: #94A3B8;">❯</span>

@@ -5,7 +5,6 @@ import { ICONS } from './components/icons.js';
 import { triggerConfetti } from './components/confetti.js';
 
 // Screens
-import { renderLoginScreen } from './screens/login.js';
 import { renderDashboardScreen } from './screens/dashboard.js';
 import { renderSubjectsScreen } from './screens/subjects.js';
 import { renderChapterListScreen } from './screens/chapterList.js';
@@ -30,7 +29,6 @@ class LMSApp {
     this.tourTimer = null;
 
     this.screensConfig = [
-      { id: "01", name: "Login", title: "01 Login", fn: renderLoginScreen, isStandalone: true },
       { id: "02", name: "Dashboard", title: "02 Dashboard (Home)", fn: renderDashboardScreen, sidebarNav: "home" },
       { id: "03", name: "My Learning", title: "03 My Learning – Subjects", fn: renderSubjectsScreen, sidebarNav: "mylearning" },
       { id: "04", name: "Chapter List", title: "04 Subject – Chapter List", fn: renderChapterListScreen, sidebarNav: "mylearning" },
@@ -121,66 +119,62 @@ class LMSApp {
           
           <!-- Brand Logo -->
           <a class="sidebar-logo" id="sidebar-brand-btn" style="padding: 10px 14px 22px 10px; display: flex; align-items: center; gap: 10px;">
-            <img src="assets/logo-clean.png" alt="Logo" style="height: 40px; width: auto; object-fit: contain;" />
-            <div class="logo-text-wrap">
-              <span class="logo-brand-title" style="font-size: 15px; font-weight: 800; color: #1E1B4B; line-height: 1.15;">Learning</span>
-              <span class="logo-brand-sub" style="font-size: 14.5px; font-weight: 800; color: #1E1B4B; line-height: 1.15;">Universe LMS</span>
-            </div>
+            <img src="assets/dashboard/ui/logo.png" alt="Learning Universe LMS" class="sidebar-logo-img" />
           </a>
 
           <!-- Nav Items -->
           <ul class="sidebar-nav-list">
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="home" data-target-screen="02">
-                ${ICONS.home(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_home.png" alt="" />
                 <span>Home</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="mylearning" data-target-screen="03">
-                ${ICONS.book(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_my_learning.png" alt="" />
                 <span>My Learning</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="challenges" data-target-screen="07">
-                ${ICONS.target(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_challenges.png" alt="" />
                 <span>Challenges</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="quizzes" data-target-screen="06">
-                ${ICONS.quiz(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_quizzes.png" alt="" />
                 <span>Quizzes</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="assignments" data-target-screen="08">
-                ${ICONS.assignment(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_assignments.png" alt="" />
                 <span>Assignments</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="progress" data-target-screen="09">
-                ${ICONS.progress(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_progress.png" alt="" />
                 <span>Progress</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="achievements" data-target-screen="10">
-                ${ICONS.trophy(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/nav_achievements.png" alt="" />
                 <span>Achievements</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="aibuddy" data-target-screen="11">
-                ${ICONS.robot(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/ai_study_buddy_robot.png" alt="" />
                 <span>AI Study Buddy</span>
               </button>
             </li>
             <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="profile" data-target-screen="13">
-                ${ICONS.user(18)}
+                <img class="sidebar-nav-img" src="assets/dashboard/ui/learning_profile.png" alt="" />
                 <span>Profile</span>
               </button>
             </li>
@@ -222,20 +216,20 @@ class LMSApp {
               
               <!-- 7 Day Streak Pill -->
               <div class="stat-pill stat-pill-streak" id="header-streak-pill" title="7 Day Active Streak!">
-                ${ICONS.flame(16)}
+                ${ICONS.flame(20)}
                 <span id="header-streak-text">7 Day Streak</span>
               </div>
 
               <!-- 240 Points Pill -->
               <div class="stat-pill stat-pill-points" id="header-points-pill" title="Total Reward Points">
-                ${ICONS.star(16)}
+                ${ICONS.star(20)}
                 <span id="header-points-text">${this.state.student.points} Points</span>
               </div>
 
               <!-- Notifications Bell -->
               <div class="stat-pill" id="header-bell-btn" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 7px 10px;" title="Notifications">
                 <span style="position: relative; display: flex;">
-                  ${ICONS.bell(18)}
+                  ${ICONS.bell(24)}
                   <span style="position: absolute; top: -2px; right: -2px; width: 7px; height: 7px; background: #EF4444; border-radius: 50%;"></span>
                 </span>
               </div>
@@ -356,8 +350,12 @@ class LMSApp {
 
   // Navigate to any of the 13 screens
   navigateTo(screenId) {
-    const config = this.screensConfig.find(s => s.id === screenId);
-    if (!config) return;
+    let config = this.screensConfig.find(s => s.id === screenId);
+    if (!config) {
+      // Unknown or removed screen (e.g. old #01 login link) -> fall back to Dashboard
+      screenId = "02";
+      config = this.screensConfig.find(s => s.id === screenId);
+    }
 
     this.currentScreen = screenId;
     try {
@@ -425,7 +423,7 @@ class LMSApp {
     const bc = document.getElementById("lms-global-breadcrumb");
     if (!bc) return;
 
-    if (screenId === "02" || screenId === "01" || screenId === "04") {
+    if (screenId === "02" || screenId === "04") {
       bc.style.display = "none";
       bc.innerHTML = "";
       return;

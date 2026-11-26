@@ -255,7 +255,7 @@ export function renderProgressScreen(container, state, app) {
             <div class="progress-metrics-triple-grid">
               
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #ECFDF5; color: #10B981;">✔</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkDoneIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Completed</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">28 / 40 Chapters</div>
@@ -263,7 +263,7 @@ export function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #EFF6FF; color: #3B82F6;">⏱</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${ICONS.clock(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">In Progress</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">8 Chapters</div>
@@ -271,7 +271,7 @@ export function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #F5F3FF; color: #7C3AED;">📄</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkTodoIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Not Started</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">4 Chapters</div>
@@ -378,7 +378,7 @@ export function renderProgressScreen(container, state, app) {
             <div class="progress-metrics-triple-grid">
               
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #ECFDF5; color: #10B981;">✔</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkDoneIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Completed</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.completedChapters} Chapters</div>
@@ -386,7 +386,7 @@ export function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #EFF6FF; color: #3B82F6;">⏱</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${ICONS.clock(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">In Progress</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.inProgressChapters} Chapters</div>
@@ -394,7 +394,7 @@ export function renderProgressScreen(container, state, app) {
               </div>
 
               <div class="progress-metric-box">
-                <div class="progress-metric-icon-circle" style="background: #F5F3FF; color: #7C3AED;">📄</div>
+                <div class="progress-metric-icon-circle lu-plain-icon-box">${GRAPHICS.checkTodoIcon(34)}</div>
                 <div>
                   <div style="font-size: 12px; color: #64748B; font-weight: 700;">Not Started</div>
                   <div style="font-size: 15px; font-weight: 900; color: #1E293B; margin-top: 2px;">${subj.notStartedChapters} Chapter</div>
