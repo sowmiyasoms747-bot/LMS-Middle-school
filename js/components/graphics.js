@@ -1894,3 +1894,15 @@ Object.assign(GRAPHICS, {
   sidebarBooksPlant: (w = 180, h = 140) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books"),
   heroRightBooks: (w = 96, h = 80) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books")
 });
+
+// Badges, certificate, crown (assets/more icons/ui)
+const LU_MORE_DIR = "assets/more%20icons/ui/";
+const luMore = (file, alt) => (size = 54) => luIconImg(LU_MORE_DIR + file + ".png", size, size, alt);
+Object.assign(GRAPHICS, {
+  badgeConsistentLearner: luMore("badge_consistent_learner", "Consistent Learner"),
+  badgeAssignmentStar: luMore("badge_assignment_star", "Assignment Star"),
+  badgeQuickLearner: luMore("badge_quick_learner", "Quick Learner"),
+  badgeSubjectExplorer: luMore("badge_subject_explorer", "Subject Explorer"),
+  certificateMedal: luMore("certificate", "Certificate"),
+  goldenCrown: luMore("crown", "Crown")
+});

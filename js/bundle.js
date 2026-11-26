@@ -1281,7 +1281,8 @@ Object.assign(ICONS, {
   lightbulb: luMoreIcon("lightbulb", "Idea"),
   sliders: luMoreIcon("settings_sliders", "Preferences"),
   shield: luMoreIcon("shield", "Security"),
-  headset: luMoreIcon("headset", "Help & Support")
+  headset: luMoreIcon("headset", "Help & Support"),
+  video: luMoreIcon("video_camera", "Video")
 });
 
 // ===== Module: js/components/confetti.js =====
@@ -3271,6 +3272,18 @@ Object.assign(GRAPHICS, {
   // Decorative books
   sidebarBooksPlant: (w = 180, h = 140) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books"),
   heroRightBooks: (w = 96, h = 80) => luIconImg(LU_ICON_DIR + "books_plant.png", w, h, "Books")
+});
+
+// Badges, certificate, crown (assets/more icons/ui)
+const LU_MORE_DIR = "assets/more%20icons/ui/";
+const luMore = (file, alt) => (size = 54) => luIconImg(LU_MORE_DIR + file + ".png", size, size, alt);
+Object.assign(GRAPHICS, {
+  badgeConsistentLearner: luMore("badge_consistent_learner", "Consistent Learner"),
+  badgeAssignmentStar: luMore("badge_assignment_star", "Assignment Star"),
+  badgeQuickLearner: luMore("badge_quick_learner", "Quick Learner"),
+  badgeSubjectExplorer: luMore("badge_subject_explorer", "Subject Explorer"),
+  certificateMedal: luMore("certificate", "Certificate"),
+  goldenCrown: luMore("crown", "Crown")
 });
 
 // ===== Module: js/screens/dashboard.js =====
@@ -10225,7 +10238,7 @@ function renderLiveClassesScreen(container, state, app) {
                 ${cls.status === 'live' ? `
                   <span style="font-size: 12px; color: #059669; font-weight: 700;">👥 ${cls.attendees} Classmates joined</span>
                   <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 18px;">
-                    Join Class ${ICONS.video(16)}
+                    Join Class <span class="lu-btn-icon-chip">${ICONS.video(18)}</span>
                   </button>
                 ` : cls.status === 'recording' ? `
                   <span style="font-size: 12px; color: #64748B;">Duration: ${cls.duration}</span>
@@ -11280,16 +11293,6 @@ class LMSApp {
               </button>
             </li>
           </ul>
-
-          <!-- Sidebar Bottom Knowledge Tree Illustration (Matching Image 4) -->
-          <div class="sidebar-bottom-illustration" title="Learning Universe - Tree of Knowledge">
-            <img 
-              src="assets/knowledge-tree.png" 
-              alt="Tree of Knowledge" 
-              class="sidebar-bottom-img"
-              onerror="this.onerror=null; this.parentElement.innerHTML = GRAPHICS.sidebarBooksPlant(220, 150);"
-            />
-          </div>
 
         </aside>
 

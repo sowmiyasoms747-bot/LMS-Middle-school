@@ -492,5 +492,6 @@ Object.assign(ICONS, {
   lightbulb: luMoreIcon("lightbulb", "Idea"),
   sliders: luMoreIcon("settings_sliders", "Preferences"),
   shield: luMoreIcon("shield", "Security"),
-  headset: luMoreIcon("headset", "Help & Support")
+  headset: luMoreIcon("headset", "Help & Support"),
+  video: luMoreIcon("video_camera", "Video")
 });

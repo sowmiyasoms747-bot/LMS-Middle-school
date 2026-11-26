@@ -633,3 +633,15 @@ h1, h2, h3, h4,
 /* Header chips with glossy icons */
 .stat-pill .lu-glossy-icon { filter: drop-shadow(0 2px 4px rgba(30, 27, 75, 0.15)); }
 #header-bell-btn { padding: 5px 8px !important; }
+
+/* Glossy icon inside a solid purple button */
+.lu-btn-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border-radius: 7px;
+  padding: 2px 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
