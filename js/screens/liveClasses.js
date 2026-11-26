@@ -69,7 +69,7 @@ export function renderLiveClassesScreen(container, state, app) {
                 ${cls.status === 'live' ? `
                   <span style="font-size: 12px; color: #059669; font-weight: 700;">👥 ${cls.attendees} Classmates joined</span>
                   <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 18px;">
-                    Join Class ${ICONS.video(16)}
+                    Join Class <span class="lu-btn-icon-chip">${ICONS.video(18)}</span>
                   </button>
                 ` : cls.status === 'recording' ? `
                   <span style="font-size: 12px; color: #64748B;">Duration: ${cls.duration}</span>
