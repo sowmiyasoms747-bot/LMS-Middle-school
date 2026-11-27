@@ -11627,6 +11627,12 @@ class LMSApp {
               </button>
             </li>
             <li class="sidebar-nav-item">
+              <button class="sidebar-link" data-nav="liveclasses" data-target-screen="12">
+                <img class="sidebar-nav-img" src="assets/more%20icons/ui/video_camera.png" alt="" />
+                <span>Live Classes</span>
+              </button>
+            </li>
+            <li class="sidebar-nav-item">
               <button class="sidebar-link" data-nav="profile" data-target-screen="13">
                 <img class="sidebar-nav-img" src="assets/dashboard/ui/learning_profile.png" alt="" />
                 <span>Profile</span>
