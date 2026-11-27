@@ -47,7 +47,7 @@ export function renderLiveClassesScreen(container, state, app) {
               <div>
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
                   <span class="badge-status ${cls.status === 'live' ? 'badge-emerald' : 'badge-purple'}">
-                    ${cls.status === 'live' ? '🔴 Live Now' : cls.statusLabel}
+                    ${cls.status === 'live' ? ICONS.liveDot(12) + ' Live Now' : cls.statusLabel}
                   </span>
                   <span style="font-size: 12.5px; color: var(--text-muted); font-weight: 600;">${cls.subject}</span>
                 </div>
@@ -67,8 +67,8 @@ export function renderLiveClassesScreen(container, state, app) {
 
               <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;">
                 ${cls.status === 'live' ? `
-                  <span style="font-size: 12px; color: #059669; font-weight: 700;">👥 ${cls.attendees} Classmates joined</span>
-                  <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 18px;">
+                  <span style="font-size: 12px; color: #059669; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">${ICONS.classmates(22)} ${cls.attendees} joined</span>
+                  <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 16px; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px;">
                     Join Class <span class="lu-btn-icon-chip">${ICONS.video(18)}</span>
                   </button>
                 ` : cls.status === 'recording' ? `
@@ -117,7 +117,7 @@ export function renderLiveClassesScreen(container, state, app) {
           <div style="padding: 10px; max-width: 500px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 18px; font-weight: 800; color: #1E293B;">🔴 Science - The Cell (Live Class)</h3>
+                <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; display: flex; align-items: center; gap: 8px;">${ICONS.liveDot(16)} Science - The Cell (Live Class)</h3>
                 <span style="font-size: 12.5px; color: #059669; font-weight: 700;">Host: Ms. Revathi • Biology Dept</span>
               </div>
               <span class="badge-status badge-purple">39 Students</span>

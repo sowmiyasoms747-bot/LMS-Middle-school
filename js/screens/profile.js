@@ -428,7 +428,7 @@ export function renderProfileScreen(container, state, app) {
           ${academicFields.map(f => `
             <div class="profile-setting-row-card">
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${f.icon}</span>
+                ${ICONS.fromEmoji(f.icon, 26)}
                 <span style="font-size: 15px; font-weight: 700; color: #1E293B;">
                   ${f.label}
                 </span>
@@ -556,7 +556,7 @@ export function renderProfileScreen(container, state, app) {
             onclick="appInstance.showToast('Password reset link sent to parent email 📧');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">🔑</span>
+              ${ICONS.key(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Change Password</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -569,7 +569,7 @@ export function renderProfileScreen(container, state, app) {
             onclick="appInstance.showModal('<div style=\\'padding:20px; text-align:center;\\'><h3>Recent Login Activity</h3><p style=\\'color:#64748B; font-size:13px;\\'>Last active: Today at 3:45 PM (Windows / Chrome)<br>Location: Chennai, Tamil Nadu</p><button class=\\'btn-primary\\' onclick=\\'window.closeLmsModal()\\'>OK</button></div>');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">💻</span>
+              ${ICONS.devices(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Login Activity</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -578,7 +578,7 @@ export function renderProfileScreen(container, state, app) {
           <!-- Two-Factor Verification (OTP) -->
           <div class="profile-setting-row-card">
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">🛡️</span>
+              ${ICONS.shield(26)}
               <div>
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Two-Factor Verification (OTP)</span>
                 <div style="font-size: 12px; color: #64748B;">Requires OTP code on parent mobile at login</div>
@@ -602,7 +602,7 @@ export function renderProfileScreen(container, state, app) {
             onclick="appInstance.showToast('You are currently logged in on 1 trusted device (School Laptop).');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">📱</span>
+              ${ICONS.devices(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Manage Devices</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -637,7 +637,7 @@ export function renderProfileScreen(container, state, app) {
           ${notifRows.map(r => `
             <div class="profile-setting-row-card">
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${r.icon}</span>
+                ${ICONS.fromEmoji(r.icon, 26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">
                   ${r.label}
                 </span>
@@ -705,7 +705,7 @@ export function renderProfileScreen(container, state, app) {
               id="help-item-${i}"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${h.icon}</span>
+                ${ICONS.fromEmoji(h.icon, 26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">
                   ${h.label}
                 </span>
@@ -776,7 +776,7 @@ export function renderProfileScreen(container, state, app) {
               onclick="appInstance.showToast('Privacy Policy: Strict Student Data Protection & Safety Compliant.');"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">🛡️</span>
+                ${ICONS.shield(26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Privacy Policy</span>
               </div>
               <span style="font-size: 16px; color: #94A3B8;">❯</span>

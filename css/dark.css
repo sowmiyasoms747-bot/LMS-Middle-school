@@ -427,3 +427,12 @@ html.lu-dark .subject-card-chapters-flow,
 html.lu-dark .tab-pill-btn-flow {
   color: var(--lu-d-text-2) !important;
 }
+
+/* Glossy progress bar tracks in dark mode */
+html.lu-dark .lu-bar-track,
+html.lu-dark .subject-card-prog-track,
+html.lu-dark .ongoing-bar-track,
+html.lu-dark .custom-progress-track {
+  background: linear-gradient(180deg, #241D44 0%, #2E2656 50%, #262047 100%) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04);
+}

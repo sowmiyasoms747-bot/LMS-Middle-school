@@ -243,7 +243,7 @@ export function renderAssignmentsScreen(container, state, app) {
     const q = activeAsg || assignmentsCatalog[0];
     app.showModal(`
       <div style="padding: 10px;">
-        <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 6px;">📄 Submission Details</h3>
+        <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">${ICONS.document(24)} Submission Details</h3>
         <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">${q.title} • ${q.chapter}</p>
         
         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 13px;">
@@ -375,13 +375,13 @@ export function renderAssignmentsScreen(container, state, app) {
         <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 180px;">
           ${isPending ? `
             <span class="assignment-status-pill asg-status-pending">Pending</span>
-            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${asg.dueMeta}</span>
+            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           ` : isSubmitted ? `
             <span class="assignment-status-pill asg-status-submitted">Submitted</span>
-            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${asg.dueMeta}</span>
+            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           ` : `
             <span class="assignment-status-pill asg-status-graded">Graded</span>
-            <span style="font-size: 13px; color: #1E293B; font-weight: 800;">${asg.dueMeta}</span>
+            <span style="font-size: 13px; color: #1E293B; font-weight: 800;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           `}
         </div>
 
@@ -441,7 +441,7 @@ export function renderAssignmentsScreen(container, state, app) {
             <div class="challenge-metric-strip" style="grid-template-columns: repeat(3, 1fr);">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.calendar || ICONS.clock)(20)}
+                  ${(ICONS.calendar || ICONS.clock)(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Due Date</div>
@@ -451,7 +451,7 @@ export function renderAssignmentsScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #EFF6FF; color: #2563EB;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Total Questions</div>
@@ -483,9 +483,7 @@ export function renderAssignmentsScreen(container, state, app) {
                 <div>
                   ${asg.instructions.map(inst => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span style="font-size: 14px; font-weight: 600; color: #334155;">${inst}</span>
                     </div>
                   `).join('')}
@@ -553,7 +551,7 @@ export function renderAssignmentsScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 29:45 -->
             <div id="asg-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="asg-timer-display">${formatTimer(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="asg-timer-display">${formatTimer(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -590,7 +588,7 @@ export function renderAssignmentsScreen(container, state, app) {
 
                 <!-- File Attachment Box -->
                 <div style="margin-top: 8px; padding: 12px 16px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.appInstance.showToast('📄 Worksheet scan attached: The_Cell_Diagram.pdf');">
-                  <span style="font-size: 20px;">📎</span>
+                  ${ICONS.document(24)}
                   <div style="font-size: 12.5px; color: #64748B;">
                     <strong style="color: #7C3AED;">Attach handwritten file</strong> (Optional: PDF, PNG up to 10 MB)
                   </div>

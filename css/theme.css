@@ -645,3 +645,76 @@ h1, h2, h3, h4,
   margin-left: 4px;
   vertical-align: middle;
 }
+
+/* ==========================================================================
+   Glossy 3D progress bars (matches supplied progress-bar artwork)
+   Fill keeps its real percentage width; colour family is picked from the
+   bar's own colour so subject colours stay consistent everywhere.
+   ========================================================================== */
+.lu-bar-track,
+.subject-card-prog-track,
+.ongoing-bar-track,
+.custom-progress-track {
+  height: 10px !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+  background: linear-gradient(180deg, #C3CBE8 0%, #D6DDF5 40%, #D9E0F6 70%, #C9D1EC 100%) !important;
+  box-shadow: inset 0 1px 2px rgba(40, 50, 110, 0.22), 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.lu-bar-fill,
+.subject-card-prog-bar,
+.ongoing-bar-fill,
+.custom-progress-bar {
+  position: relative;
+  height: 100%;
+  border-radius: 999px !important;
+  box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.18), 1px 0 3px rgba(0, 0, 0, 0.12);
+  --lu-bar-violet: linear-gradient(180deg, #9A6BFB 0%, #8050F7 30%, #6930F5 60%, #4A0CE8 100%);
+  background: var(--lu-bar-violet);
+}
+
+/* Shine along the top of every fill */
+.lu-bar-fill::after,
+.subject-card-prog-bar::after,
+.ongoing-bar-fill::after,
+.custom-progress-bar::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 12%;
+  height: 34%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+/* Colour families */
+.lu-bar-fill[style*="#0284C7" i], .lu-bar-fill[style*="#3B82F6" i], .lu-bar-fill[style*="#38BDF8" i], .lu-bar-fill[style*="#0EA5E9" i], .lu-bar-fill[style*="#2563EB" i],
+.subject-theme-science .subject-card-prog-bar {
+  background: linear-gradient(180deg, #40BCFC 0%, #0A8DF5 30%, #007BFA 60%, #004DE4 100%) !important;
+}
+.lu-bar-fill[style*="#F59E0B" i], .lu-bar-fill[style*="#F97316" i], .lu-bar-fill[style*="#FBBF24" i], .lu-bar-fill[style*="#D97706" i],
+.subject-theme-maths .subject-card-prog-bar {
+  background: linear-gradient(180deg, #FFC35E 0%, #FDA22A 30%, #FC9002 60%, #DF6200 100%) !important;
+}
+.lu-bar-fill[style*="#10B981" i], .lu-bar-fill[style*="#34D399" i], .lu-bar-fill[style*="#059669" i], .lu-bar-fill[style*="#22C55E" i],
+.subject-theme-social .subject-card-prog-bar {
+  background: linear-gradient(180deg, #7CE06B 0%, #4CC434 30%, #34B71C 60%, #1E7C02 100%) !important;
+}
+.lu-bar-fill[style*="#7C3AED" i], .lu-bar-fill[style*="#9333EA" i], .lu-bar-fill[style*="#6D28D9" i],
+.subject-theme-tamil .subject-card-prog-bar,
+.ongoing-bar-fill, .custom-progress-bar {
+  background: linear-gradient(180deg, #9A6BFB 0%, #8050F7 30%, #6930F5 60%, #4A0CE8 100%) !important;
+}
+.lu-bar-fill[style*="#8B5CF6" i], .lu-bar-fill[style*="#6366F1" i], .lu-bar-fill[style*="#4F46E5" i] {
+  background: linear-gradient(180deg, #8A80FC 0%, #6C5FFA 30%, #5B4FF9 60%, #3427F5 100%) !important;
+}
+.lu-bar-fill[style*="#EC4899" i], .lu-bar-fill[style*="#F43F5E" i], .lu-bar-fill[style*="#DB2777" i],
+.subject-theme-english .subject-card-prog-bar {
+  background: linear-gradient(180deg, #FF94CB 0%, #F660AE 30%, #EC4899 60%, #BE185D 100%) !important;
+}
+/* Not-started rows stay neutral */
+.lu-bar-fill[style*="#CBD5E1" i] { background: #B8C1DD !important; box-shadow: none; }
+.lu-bar-fill[style*="#CBD5E1" i]::after { display: none; }

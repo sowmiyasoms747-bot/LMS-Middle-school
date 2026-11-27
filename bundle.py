@@ -4,6 +4,7 @@ import os
 files_order = [
     'js/data/lmsData.js',
     'js/data/quizQuestions.js',
+    'js/data/challengeQuestions.js',
     'js/components/icons.js',
     'js/components/confetti.js',
     'js/components/graphics.js',

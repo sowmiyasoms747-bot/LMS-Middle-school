@@ -300,7 +300,7 @@ export function renderAiBuddyScreen(container, state, app) {
           </h1>
         </div>
         <div class="stat-pill stat-pill-points" style="font-size: 13px; padding: 6px 14px;">
-          🤖 24×7 AI Tutor Active
+          ${ICONS.robot(20)} 24×7 AI Tutor Active
         </div>
       </div>
     `;
@@ -834,8 +834,8 @@ export function renderAiBuddyScreen(container, state, app) {
           </div>
 
           <!-- Progress Bar -->
-          <div style="height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden; margin-bottom: 20px;">
-            <div style="width: ${pct}%; height: 100%; background: #10B981; border-radius: 999px; transition: width 0.3s ease;"></div>
+          <div class="lu-bar-track" style="height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden; margin-bottom: 20px;">
+            <div class="lu-bar-fill" style="width: ${pct}%; height: 100%; background: #10B981; border-radius: 999px; transition: width 0.3s ease;"></div>
           </div>
 
           <!-- Daily Checklist Rows -->

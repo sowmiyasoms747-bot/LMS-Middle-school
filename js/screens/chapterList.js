@@ -115,7 +115,7 @@ export function renderChapterListScreen(container, state, app) {
         ` : `
           <!-- Resources / Practice / Notes Tab Mock -->
           <div class="lms-card" style="text-align: center; padding: 48px 24px;">
-            <div style="font-size: 36px; margin-bottom: 12px;">📁</div>
+            <div style="margin-bottom: 12px;">${ICONS.document(48)}</div>
             <h3 style="font-size: 18px; font-weight: 800; color: #1E293B;">
               ${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} for ${currentSubject.title}
             </h3>
