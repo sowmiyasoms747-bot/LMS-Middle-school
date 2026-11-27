@@ -495,3 +495,47 @@ Object.assign(ICONS, {
   headset: luMoreIcon("headset", "Help & Support"),
   video: luMoreIcon("video_camera", "Video")
 });
+
+// More supplied icons (assets/dashboard/ui) for the remaining outline icons
+const LU_DASH_ICON_DIR = "assets/dashboard/ui/";
+const luDashIcon = (file, alt) => (size = 20) =>
+  `<img class="lu-icon-img lu-glossy-icon" src="${LU_DASH_ICON_DIR}${file}.png" alt="${alt}" draggable="false" style="width:${size}px;height:${size}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
+
+Object.assign(ICONS, {
+  target: luDashIcon("learning_challenges_target", "Target"),
+  trophy: luDashIcon("achievement_trophy", "Trophy"),
+  calendar: luDashIcon("today_tasks_calendar", "Calendar"),
+  clipboard: luDashIcon("interactive_quiz_clipboard", "Clipboard"),
+  assignment: luDashIcon("nav_assignments", "Assignment"),
+  quiz: luDashIcon("nav_quizzes", "Quiz"),
+  book: luDashIcon("my_learning_book", "Book"),
+  chart: luDashIcon("nav_progress", "Progress"),
+  barChart: luDashIcon("nav_progress", "Progress"),
+  progress: luDashIcon("nav_progress", "Progress"),
+  checkCircle: luDashIcon("completed_check", "Done"),
+  robot: luDashIcon("ai_study_buddy_robot", "AI Study Buddy"),
+  user: luDashIcon("learning_profile", "Profile"),
+  home: luDashIcon("nav_home", "Home"),
+  send: luDashIcon("ai_send_button", "Send")
+});
+
+// Swap a known emoji for its supplied icon (unknown emoji are kept as text)
+const LU_EMOJI_ICON_MAP = {
+  "📅": "calendar", "🏆": "trophy", "⏰": "clock", "⏱": "clock", "⏱️": "clock",
+  "⭐": "star", "📢": "bell", "🔔": "bell", "📄": "document", "📝": "document",
+  "❓": "chatBubble", "💬": "chatBubble", "🛡️": "shield", "🛡": "shield",
+  "🎯": "target", "📖": "book", "📚": "book", "🔥": "flame", "💡": "lightbulb",
+  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard"
+};
+ICONS.fromEmoji = function (emoji, size = 20) {
+  const key = LU_EMOJI_ICON_MAP[emoji];
+  if (key && ICONS[key]) return ICONS[key](size);
+  return `<span style="font-size:${Math.round(size * 0.85)}px;line-height:1;">${emoji}</span>`;
+};
+ICONS.withIcons = function (text, size = 14) {
+  let out = String(text || "");
+  Object.keys(LU_EMOJI_ICON_MAP).sort((a, b) => b.length - a.length).forEach(e => {
+    if (out.indexOf(e) !== -1) out = out.split(e).join(ICONS.fromEmoji(e, size));
+  });
+  return out;
+};

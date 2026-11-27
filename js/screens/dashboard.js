@@ -262,10 +262,10 @@ export function renderDashboardScreen(container, state, app) {
 
                   <!-- Checklist items -->
                   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 11px; color: #475569; font-weight: 600; margin-bottom: 8px;">
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Ask Questions</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Get Instant Answers</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Explain Concepts Simply</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Practice & Revise</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Ask Questions</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Get Instant Answers</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Explain Concepts Simply</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Practice & Revise</div>
                   </div>
                 </div>
 

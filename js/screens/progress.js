@@ -420,8 +420,8 @@ export function renderProgressScreen(container, state, app) {
                     
                     <!-- Left: Status Icon Circle + Chapter Name -->
                     <div style="display: flex; align-items: center; gap: 14px; min-width: 300px;">
-                      <div style="width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isCompleted ? 'background: #ECFDF5; color: #10B981;' : isInProgress ? 'background: #EFF6FF; color: #3B82F6;' : 'background: #F1F5F9; color: #94A3B8;'}">
-                        ${isCompleted ? '✔' : isInProgress ? '▶' : '○'}
+                      <div class="${isInProgress ? '' : 'lu-plain-icon-box'}" style="width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isCompleted ? 'background: #ECFDF5; color: #10B981;' : isInProgress ? 'background: #EFF6FF; color: #3B82F6;' : 'background: #F1F5F9; color: #94A3B8;'}">
+                        ${isCompleted ? GRAPHICS.checkDoneIcon(28) : isInProgress ? '▶' : GRAPHICS.checkTodoIcon(28)}
                       </div>
                       <span style="font-size: 14.5px; font-weight: 800; color: #1E293B;">${ch.title}</span>
                     </div>
@@ -524,8 +524,8 @@ export function renderProgressScreen(container, state, app) {
                 <div class="ongoing-chapter-row" style="padding: 14px 24px;">
                   
                   <div style="display: flex; align-items: center; gap: 14px;">
-                    <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isComp ? 'background: #ECFDF5; color: #10B981;' : 'background: #F1F5F9; color: #94A3B8;'}">
-                      ${isComp ? '✔' : t.icon === 'play' ? '▶' : '○'}
+                    <div class="${!isComp && t.icon === 'play' ? '' : 'lu-plain-icon-box'}" style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isComp ? 'background: #ECFDF5; color: #10B981;' : 'background: #F1F5F9; color: #94A3B8;'}">
+                      ${isComp ? GRAPHICS.checkDoneIcon(26) : t.icon === 'play' ? '▶' : GRAPHICS.checkTodoIcon(26)}
                     </div>
                     <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${t.name}</span>
                   </div>

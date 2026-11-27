@@ -300,7 +300,7 @@ export function renderAiBuddyScreen(container, state, app) {
           </h1>
         </div>
         <div class="stat-pill stat-pill-points" style="font-size: 13px; padding: 6px 14px;">
-          🤖 24×7 AI Tutor Active
+          ${ICONS.robot(20)} 24×7 AI Tutor Active
         </div>
       </div>
     `;

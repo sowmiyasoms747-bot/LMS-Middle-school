@@ -875,6 +875,73 @@ const QUIZ_QUESTION_BANK = {
   ]
 };
 
+// ===== Module: js/data/challengeQuestions.js =====
+// Challenge Question Bank for Learning Challenges (Classes 6-8)
+// Each challenge has exactly as many questions as its "questionsCount".
+// correct = index of the right option (0-based).
+const CHALLENGE_QUESTION_BANK = {
+  // Weekly Science Challenge – mixed chapters (10)
+  "ch-sci-weekly": [
+    { text: "What is the basic structural and functional unit of all living organisms?", options: ["Tissue", "Cell", "Organ", "Nucleus"], correct: 1, explanation: "The cell is the basic unit of life." },
+    { text: "Which process do green plants use to make food using sunlight?", options: ["Respiration", "Photosynthesis", "Transpiration", "Fermentation"], correct: 1, explanation: "Photosynthesis uses sunlight, water and carbon dioxide to make food." },
+    { text: "Which part of the cell controls all the activities?", options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"], correct: 1, explanation: "The nucleus is the control centre of the cell." },
+    { text: "Which mode of heat transfer needs no medium and can travel through a vacuum?", options: ["Conduction", "Convection", "Radiation", "Insulation"], correct: 2, explanation: "Heat from the Sun reaches us by radiation through empty space." },
+    { text: "Which of the following turns blue litmus paper red?", options: ["Baking Soda", "Hydrochloric Acid", "Soap Solution", "Distilled Water"], correct: 1, explanation: "Acids turn blue litmus red." },
+    { text: "Plants like Cuscuta (Amarbel) that take food from other plants are called:", options: ["Autotrophs", "Parasites", "Saprotrophs", "Insectivorous"], correct: 1, explanation: "Cuscuta is a parasite that grows on a host plant." },
+    { text: "The normal human body temperature is:", options: ["37 °C", "40 °C", "32 °C", "100 °C"], correct: 0, explanation: "Normal body temperature is about 37 °C (98.6 °F)." },
+    { text: "Which substance turns red litmus paper blue?", options: ["Lemon juice", "Vinegar", "Lime water", "Orange juice"], correct: 2, explanation: "Lime water is a base, and bases turn red litmus blue." },
+    { text: "Tiny pores on the surface of leaves are called:", options: ["Stomata", "Veins", "Roots", "Petals"], correct: 0, explanation: "Stomata allow gases to move in and out of the leaf." },
+    { text: "Woollen clothes keep us warm in winter because wool is a:", options: ["Good conductor of heat", "Poor conductor of heat", "Source of heat", "Reflector of light"], correct: 1, explanation: "Wool traps air, and air is a poor conductor of heat." }
+  ],
+
+  // Maths Speed Challenge (15)
+  "ch-math-speed": [
+    { text: "What is the sum of 3/4 and 2/3?", options: ["5/7", "17/12 (or 1 5/12)", "1", "6/12"], correct: 1, explanation: "9/12 + 8/12 = 17/12." },
+    { text: "Evaluate: (−15) + (−28) = ?", options: ["−43", "43", "−13", "13"], correct: 0, explanation: "Adding two negatives: −(15 + 28) = −43." },
+    { text: "What is (−6) × (−7)?", options: ["−42", "42", "−13", "13"], correct: 1, explanation: "Negative × negative = positive: 42." },
+    { text: "What is 0.25 written as a fraction?", options: ["1/2", "1/4", "2/5", "1/25"], correct: 1, explanation: "0.25 = 25/100 = 1/4." },
+    { text: "Solve: x + 7 = 15", options: ["x = 7", "x = 8", "x = 22", "x = 15"], correct: 1, explanation: "x = 15 − 7 = 8." },
+    { text: "What is 2.5 × 4?", options: ["8", "10", "6.5", "1"], correct: 1, explanation: "2.5 × 4 = 10." },
+    { text: "What is the value of 2³?", options: ["6", "8", "9", "5"], correct: 1, explanation: "2 × 2 × 2 = 8." },
+    { text: "What is 15% of 200?", options: ["15", "30", "20", "45"], correct: 1, explanation: "15/100 × 200 = 30." },
+    { text: "The sum of the angles of a triangle is:", options: ["90°", "180°", "270°", "360°"], correct: 1, explanation: "The angles of any triangle add up to 180°." },
+    { text: "What is (−36) ÷ 4?", options: ["9", "−9", "−8", "8"], correct: 1, explanation: "Negative ÷ positive = negative: −9." },
+    { text: "Solve: 3y = 21", options: ["y = 6", "y = 7", "y = 18", "y = 24"], correct: 1, explanation: "y = 21 ÷ 3 = 7." },
+    { text: "What is 1.2 + 0.85?", options: ["2.05", "1.97", "2.5", "1.105"], correct: 0, explanation: "Line up the decimal points: 1.20 + 0.85 = 2.05." },
+    { text: "The perimeter of a square of side 6 cm is:", options: ["12 cm", "24 cm", "36 cm", "18 cm"], correct: 1, explanation: "Perimeter = 4 × side = 4 × 6 = 24 cm." },
+    { text: "The ratio 12 : 18 in simplest form is:", options: ["2 : 3", "3 : 2", "4 : 6", "6 : 9"], correct: 0, explanation: "Divide both by 6: 2 : 3." },
+    { text: "What is the area of a rectangle 8 cm long and 5 cm wide?", options: ["13 cm²", "26 cm²", "40 cm²", "45 cm²"], correct: 2, explanation: "Area = length × breadth = 8 × 5 = 40 cm²." }
+  ],
+
+  // Social Science Challenge (10)
+  "ch-soc-env": [
+    { text: "Which layer of the Earth do we live on?", options: ["Mantle", "Core", "Crust", "Outer core"], correct: 2, explanation: "We live on the crust, the thin outermost layer." },
+    { text: "Rocks formed by the cooling of molten magma are called:", options: ["Sedimentary rocks", "Igneous rocks", "Metamorphic rocks", "Fossil rocks"], correct: 1, explanation: "Igneous rocks form when molten magma cools and becomes solid." },
+    { text: "Which gas layer protects us from harmful ultraviolet rays of the Sun?", options: ["Oxygen", "Ozone", "Nitrogen", "Carbon dioxide"], correct: 1, explanation: "The ozone layer absorbs harmful UV rays." },
+    { text: "The layer of the atmosphere closest to the Earth is the:", options: ["Stratosphere", "Mesosphere", "Troposphere", "Thermosphere"], correct: 2, explanation: "Almost all weather happens in the troposphere." },
+    { text: "A sudden shaking of the Earth's surface is called a(n):", options: ["Volcano", "Earthquake", "Tsunami", "Landslide"], correct: 1, explanation: "An earthquake is caused by movement of the Earth's plates." },
+    { text: "The process by which water changes into water vapour is called:", options: ["Condensation", "Evaporation", "Precipitation", "Freezing"], correct: 1, explanation: "Heat from the Sun causes evaporation." },
+    { text: "Which is the largest ocean in the world?", options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"], correct: 2, explanation: "The Pacific Ocean is the largest and deepest ocean." },
+    { text: "The periodic rise and fall of sea water twice a day is called:", options: ["Waves", "Tides", "Currents", "Floods"], correct: 1, explanation: "Tides are caused mainly by the Moon's gravitational pull." },
+    { text: "Forests whose trees shed their leaves in a particular season are called:", options: ["Evergreen forests", "Deciduous forests", "Grasslands", "Desert vegetation"], correct: 1, explanation: "Deciduous (monsoon) trees shed their leaves in the dry season." },
+    { text: "Which instrument is used to measure air pressure?", options: ["Thermometer", "Barometer", "Rain gauge", "Anemometer"], correct: 1, explanation: "A barometer measures atmospheric pressure." }
+  ],
+
+  // English Grammar Challenge (10)
+  "ch-eng-gram": [
+    { text: "Identify the noun: \"The happy boy played in the garden.\"", options: ["happy", "played", "garden", "in"], correct: 2, explanation: "\"Garden\" is the name of a place, so it is a noun." },
+    { text: "Choose the correct article: \"___ elephant is a big animal.\"", options: ["A", "An", "The", "No article"], correct: 1, explanation: "Use \"an\" before words beginning with a vowel sound." },
+    { text: "Which word is an adjective? \"She wore a beautiful dress.\"", options: ["She", "wore", "beautiful", "dress"], correct: 2, explanation: "\"Beautiful\" describes the dress, so it is an adjective." },
+    { text: "Choose the correct preposition: \"The book is ___ the table.\"", options: ["on", "at", "of", "for"], correct: 0, explanation: "\"On\" shows the book is resting on the surface of the table." },
+    { text: "Pick the correct plural of \"child\".", options: ["childs", "childes", "children", "childrens"], correct: 2, explanation: "\"Child\" has an irregular plural: \"children\"." },
+    { text: "Identify the adverb: \"He ran quickly to school.\"", options: ["He", "ran", "quickly", "school"], correct: 2, explanation: "\"Quickly\" tells us how he ran, so it is an adverb." },
+    { text: "Choose the correct pronoun: \"___ are going to the park.\"", options: ["Me", "Us", "We", "Our"], correct: 2, explanation: "\"We\" is the subject pronoun." },
+    { text: "Which sentence is correct?", options: ["She don't like apples.", "She doesn't like apples.", "She not like apples.", "She doesn't likes apples."], correct: 1, explanation: "With \"she\", use \"doesn't\" + the base verb \"like\"." },
+    { text: "Find the conjunction: \"I was tired, but I finished my work.\"", options: ["tired", "but", "finished", "work"], correct: 1, explanation: "\"But\" joins two contrasting ideas, so it is a conjunction." },
+    { text: "What is the opposite (antonym) of \"brave\"?", options: ["bold", "cowardly", "strong", "fearless"], correct: 1, explanation: "\"Cowardly\" is the opposite of \"brave\"." }
+  ]
+};
+
 // ===== Module: js/components/icons.js =====
 // Reusable Crisp SVG Icons for Learning Universe LMS
 const ICONS = {
@@ -1372,6 +1439,50 @@ Object.assign(ICONS, {
   headset: luMoreIcon("headset", "Help & Support"),
   video: luMoreIcon("video_camera", "Video")
 });
+
+// More supplied icons (assets/dashboard/ui) for the remaining outline icons
+const LU_DASH_ICON_DIR = "assets/dashboard/ui/";
+const luDashIcon = (file, alt) => (size = 20) =>
+  `<img class="lu-icon-img lu-glossy-icon" src="${LU_DASH_ICON_DIR}${file}.png" alt="${alt}" draggable="false" style="width:${size}px;height:${size}px;object-fit:contain;display:inline-block;vertical-align:middle;flex-shrink:0;" />`;
+
+Object.assign(ICONS, {
+  target: luDashIcon("learning_challenges_target", "Target"),
+  trophy: luDashIcon("achievement_trophy", "Trophy"),
+  calendar: luDashIcon("today_tasks_calendar", "Calendar"),
+  clipboard: luDashIcon("interactive_quiz_clipboard", "Clipboard"),
+  assignment: luDashIcon("nav_assignments", "Assignment"),
+  quiz: luDashIcon("nav_quizzes", "Quiz"),
+  book: luDashIcon("my_learning_book", "Book"),
+  chart: luDashIcon("nav_progress", "Progress"),
+  barChart: luDashIcon("nav_progress", "Progress"),
+  progress: luDashIcon("nav_progress", "Progress"),
+  checkCircle: luDashIcon("completed_check", "Done"),
+  robot: luDashIcon("ai_study_buddy_robot", "AI Study Buddy"),
+  user: luDashIcon("learning_profile", "Profile"),
+  home: luDashIcon("nav_home", "Home"),
+  send: luDashIcon("ai_send_button", "Send")
+});
+
+// Swap a known emoji for its supplied icon (unknown emoji are kept as text)
+const LU_EMOJI_ICON_MAP = {
+  "📅": "calendar", "🏆": "trophy", "⏰": "clock", "⏱": "clock", "⏱️": "clock",
+  "⭐": "star", "📢": "bell", "🔔": "bell", "📄": "document", "📝": "document",
+  "❓": "chatBubble", "💬": "chatBubble", "🛡️": "shield", "🛡": "shield",
+  "🎯": "target", "📖": "book", "📚": "book", "🔥": "flame", "💡": "lightbulb",
+  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard"
+};
+ICONS.fromEmoji = function (emoji, size = 20) {
+  const key = LU_EMOJI_ICON_MAP[emoji];
+  if (key && ICONS[key]) return ICONS[key](size);
+  return `<span style="font-size:${Math.round(size * 0.85)}px;line-height:1;">${emoji}</span>`;
+};
+ICONS.withIcons = function (text, size = 14) {
+  let out = String(text || "");
+  Object.keys(LU_EMOJI_ICON_MAP).sort((a, b) => b.length - a.length).forEach(e => {
+    if (out.indexOf(e) !== -1) out = out.split(e).join(ICONS.fromEmoji(e, size));
+  });
+  return out;
+};
 
 // ===== Module: js/components/confetti.js =====
 // Canvas Confetti Engine for Learning Universe LMS Celebrations
@@ -3635,10 +3746,10 @@ function renderDashboardScreen(container, state, app) {
 
                   <!-- Checklist items -->
                   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 11px; color: #475569; font-weight: 600; margin-bottom: 8px;">
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Ask Questions</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Get Instant Answers</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Explain Concepts Simply</div>
-                    <div><span style="color: #10B981; font-weight: 800;">✔</span> Practice & Revise</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Ask Questions</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Get Instant Answers</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Explain Concepts Simply</div>
+                    <div>${GRAPHICS.checkDoneIcon(13)} Practice & Revise</div>
                   </div>
                 </div>
 
@@ -4363,7 +4474,7 @@ function renderChapterListScreen(container, state, app) {
         ` : `
           <!-- Resources / Practice / Notes Tab Mock -->
           <div class="lms-card" style="text-align: center; padding: 48px 24px;">
-            <div style="font-size: 36px; margin-bottom: 12px;">📁</div>
+            <div style="margin-bottom: 12px;">${ICONS.document(48)}</div>
             <h3 style="font-size: 18px; font-weight: 800; color: #1E293B;">
               ${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} for ${currentSubject.title}
             </h3>
@@ -5438,7 +5549,7 @@ function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #E0F2FE; color: #0284C7;">
-                  ${(ICONS.barChart || ICONS.progress)(20)}
+                  ${(ICONS.barChart || ICONS.progress)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.difficulty}</div>
@@ -5456,9 +5567,7 @@ function renderQuizScreen(container, state, app) {
                 <div>
                   ${q.topics.map(t => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span>${t}</span>
                     </div>
                   `).join('')}
@@ -5473,15 +5582,15 @@ function renderQuizScreen(container, state, app) {
                 <h3 style="font-size: 16.5px; font-weight: 800; color: #1E293B; margin: 0 0 16px;">Question Types</h3>
                 <div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">🔲</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${GRAPHICS.checkTodoIcon(26)}</div>
                     <span>MCQ</span>
                   </div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">☑</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${GRAPHICS.checkDoneIcon(26)}</div>
                     <span>True / False</span>
                   </div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">📝</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${ICONS.document(26)}</div>
                     <span>Short Answer</span>
                   </div>
                 </div>
@@ -5625,7 +5734,7 @@ function renderQuizScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 14:32 -->
             <div id="quiz-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="quiz-timer-display">${formatTimer(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="quiz-timer-display">${formatTimer(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -5835,7 +5944,7 @@ function renderQuizScreen(container, state, app) {
           <div class="challenge-result-stats-row">
             
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">🎯</span>
+              ${ICONS.target(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${q.scorePct || "80%"}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Accuracy</span>
             </div>
@@ -5930,6 +6039,8 @@ function renderChallengesScreen(container, state, app) {
   let activeChallenge = state.selectedChallenge || null;
   let qIndex = 0;
   let userAnswers = {};
+  let challengeStartedAt = Date.now();
+  let lastChallengeResult = null;
   let timerInterval = null;
   let timeLeftSeconds = 14 * 60 + 32; // 14:32 countdown like in image
 
@@ -6105,6 +6216,56 @@ function renderChallengesScreen(container, state, app) {
     }
   }
 
+  // Attach full question banks
+  challengesCatalog.forEach(c => {
+    const bank = CHALLENGE_QUESTION_BANK[c.id];
+    if (bank && bank.length) {
+      c.questions = bank;
+      c.questionsCount = bank.length;
+    }
+  });
+
+  function getCurrentChallenge() {
+    const id = (activeChallenge && activeChallenge.id) || (state.selectedChallenge && state.selectedChallenge.id);
+    return challengesCatalog.find(c => c.id === id) || activeChallenge || challengesCatalog[0];
+  }
+
+  function getChallengeQuestions() {
+    const ch = getCurrentChallenge();
+    return CHALLENGE_QUESTION_BANK[ch.id] || (ch.questions && ch.questions.length ? ch.questions : CHALLENGE_QUESTION_BANK["ch-sci-weekly"]);
+  }
+
+  function startChallengeRun() {
+    const ch = getCurrentChallenge();
+    activeChallenge = ch;
+    state.selectedChallenge = ch;
+    qIndex = 0;
+    userAnswers = {};
+    timeLeftSeconds = (ch.durationMinutes || 15) * 60;
+    challengeStartedAt = Date.now();
+    lastChallengeResult = null;
+    view = "runner";
+    render();
+  }
+
+  function finishChallenge() {
+    const ch = getCurrentChallenge();
+    const questions = getChallengeQuestions();
+    let correct = 0;
+    questions.forEach((qq, i) => { if (userAnswers[i] === qq.correct) correct++; });
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+    const points = Math.round(((ch.points || total * 10) * correct) / total);
+    const usedSec = Math.max(1, Math.round((Date.now() - challengeStartedAt) / 1000));
+    lastChallengeResult = { correct, total, pct, points, timeText: formatTime(Math.min(usedSec, 99 * 60 + 59)), answers: Object.assign({}, userAnswers) };
+    ch.completed = true;
+    ch.scoreText = correct + " / " + total;
+    state.student.points += points;
+    if (app.updateHeaderStats) app.updateHeaderStats();
+    view = "result";
+    render();
+  }
+
   function formatTime(totalSec) {
     const m = Math.floor(totalSec / 60);
     const s = totalSec % 60;
@@ -6121,11 +6282,7 @@ function renderChallengesScreen(container, state, app) {
   };
 
   window.lmsStartChallenge = function() {
-    qIndex = 2; // Default to Question 3 of 10 to match reference image
-    userAnswers = { 2: 1 }; // Default select "Nucleus"
-    timeLeftSeconds = 14 * 60 + 32;
-    view = "runner";
-    render();
+    startChallengeRun();
   };
 
   window.lmsBackToChallenges = function() {
@@ -6288,7 +6445,7 @@ function renderChallengesScreen(container, state, app) {
             </span>
           ` : `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #F5F3FF; color: #7C3AED; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; border: 1px solid #DDD6FE;">
-              <span style="font-size: 12px;">📅</span> Upcoming
+              ${ICONS.calendar(14)} Upcoming
             </span>
           `}
         </div>
@@ -6420,7 +6577,7 @@ function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #EDE9FE; color: #6D28D9;">
-                  ${ICONS.target(20)}
+                  ${ICONS.target(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.attempts}</div>
@@ -6438,9 +6595,7 @@ function renderChallengesScreen(container, state, app) {
                 <div>
                   ${ch.topics.map(topic => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span>${topic}</span>
                     </div>
                   `).join('')}
@@ -6478,11 +6633,7 @@ function renderChallengesScreen(container, state, app) {
 
     // Bind Start Challenge button -> Starts Question Runner (Image 2 Screen 4)
     container.querySelector("#start-challenge-btn")?.addEventListener("click", () => {
-      qIndex = 2; // Default to Question 3 of 10 to match the exact question shown in the user's reference image!
-      userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
-      timeLeftSeconds = 14 * 60 + 32;
-      view = "runner";
-      render();
+      startChallengeRun();
     });
   }
 
@@ -6490,21 +6641,16 @@ function renderChallengesScreen(container, state, app) {
   // VIEW 3: Take Challenge / Question Runner (Matches 2nd Image, Screen 4)
   // =========================================================================
   function renderRunnerView() {
-    const ch = activeChallenge || state.selectedChallenge || challengesCatalog[0];
+    const ch = getCurrentChallenge();
     activeChallenge = ch;
     state.selectedChallenge = ch;
-    const questions = ch.questions && ch.questions.length ? ch.questions : [
-      {
-        num: 3,
-        text: "Which part of the cell controls all the activities?",
-        options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"],
-        correct: 1,
-        illustration: "cell"
-      }
-    ];
+    const questions = getChallengeQuestions();
+    if (qIndex >= questions.length) qIndex = questions.length - 1;
 
     const currentQ = questions[qIndex] || questions[0];
-    const totalQuestions = 10; // 10 questions as shown in reference
+    const totalQuestions = questions.length;
+    const isLastQuestion = qIndex === totalQuestions - 1;
+    const answeredCount = questions.filter((_, i) => userAnswers[i] !== undefined).length;
     const progressPercent = Math.round(((qIndex + 1) / totalQuestions) * 100);
 
     container.innerHTML = `
@@ -6520,7 +6666,7 @@ function renderChallengesScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 14:32 -->
             <div id="runner-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="timer-display">${formatTime(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="timer-display">${formatTime(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -6529,6 +6675,7 @@ function renderChallengesScreen(container, state, app) {
           <div>
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
+              <span style="float: right; color: #7C3AED;">${answeredCount} / ${totalQuestions} answered</span>
             </div>
             <div class="lu-bar-track" style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
               <div class="lu-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
@@ -6569,7 +6716,7 @@ function renderChallengesScreen(container, state, app) {
               <div style="width: 260px; display: flex; align-items: center; justify-content: center; position: relative;">
                 <div style="position: absolute; width: 200px; height: 160px; background: radial-gradient(circle, #F3E8FF 0%, rgba(243, 232, 255, 0) 70%); filter: blur(8px);"></div>
                 <div style="position: relative; z-index: 2; transform: scale(0.9); filter: drop-shadow(0 10px 24px rgba(124, 58, 237, 0.2));">
-                  ${GRAPHICS.cell3D(260, 200, "nucleus")}
+                  ${ch.subjectId === "science" || !ch.subjectId ? GRAPHICS.cell3D(260, 200, "nucleus") : GRAPHICS.getSubjectIcon(({ maths: "calculator", social: "globe", english: "book", tamil: "tamil" })[ch.subjectId] || "flask", 150)}
                 </div>
               </div>
 
@@ -6582,7 +6729,7 @@ function renderChallengesScreen(container, state, app) {
               </button>
 
               <button id="runner-next-btn" class="ongoing-continue-btn" style="padding: 10px 32px; font-size: 14.5px;">
-                ${qIndex === questions.length - 1 ? 'Submit Challenge →' : 'Next ›'}
+                ${isLastQuestion ? 'Submit Challenge ✓' : 'Next ›'}
               </button>
             </div>
 
@@ -6598,6 +6745,10 @@ function renderChallengesScreen(container, state, app) {
         timeLeftSeconds--;
         const el = document.getElementById("timer-display");
         if (el) el.innerText = formatTime(timeLeftSeconds);
+        if (timeLeftSeconds === 0 && view === "runner") {
+          app.showToast("Time is up! Your challenge has been submitted.");
+          finishChallenge();
+        }
       }
     }, 1000);
 
@@ -6626,15 +6777,23 @@ function renderChallengesScreen(container, state, app) {
 
     // Bind Next / Submit button -> Transitions to Result Screen (Image 2 Screen 5)
     container.querySelector("#runner-next-btn")?.addEventListener("click", () => {
-      if (qIndex < questions.length - 1) {
+      if (userAnswers[qIndex] === undefined) {
+        app.showToast("Please choose an answer to continue.");
+        return;
+      }
+      if (!isLastQuestion) {
         qIndex++;
         render();
-      } else {
-        // Award points and show result
-        state.student.points += 100;
-        view = "result";
-        render();
+        return;
       }
+      const firstUnanswered = questions.findIndex((_, i) => userAnswers[i] === undefined);
+      if (firstUnanswered !== -1) {
+        app.showToast("Please answer Question " + (firstUnanswered + 1) + " before submitting.");
+        qIndex = firstUnanswered;
+        render();
+        return;
+      }
+      finishChallenge();
     });
   }
 
@@ -6642,6 +6801,9 @@ function renderChallengesScreen(container, state, app) {
   // VIEW 4: Challenge Result (Matches 2nd Image, Screen 5)
   // =========================================================================
   function renderResultView() {
+    const resultCh = getCurrentChallenge();
+    const R = lastChallengeResult || { correct: 8, total: 10, pct: 80, points: resultCh.points || 100, timeText: "02:30", answers: null };
+
     // Trigger celebratory confetti burst!
     triggerConfetti();
 
@@ -6665,30 +6827,30 @@ function renderChallengesScreen(container, state, app) {
           </div>
 
           <!-- Great Job! Heading -->
-          <h2 style="font-size: 26px; font-weight: 900; color: #10B981; margin: 0 0 6px;">Great Job!</h2>
+          <h2 style="font-size: 26px; font-weight: 900; color: ${R.pct < 50 ? '#F59E0B' : '#10B981'}; margin: 0 0 6px;">${R.pct >= 80 ? 'Great Job!' : R.pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h2>
           <div style="font-size: 14px; color: #64748B; font-weight: 600;">You Scored</div>
 
-          <!-- Score Display 8 / 10 -->
-          <div class="challenge-score-display">8 / 10</div>
+          <!-- Score Display -->
+          <div class="challenge-score-display">${R.correct} / ${R.total}</div>
 
           <!-- 3 Stat Tiles (Accuracy, Points Earned, Time Taken) -->
           <div class="challenge-result-stats-row">
             
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">🎯</span>
-              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">80%</span>
+              ${ICONS.target(24)}
+              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${R.pct}%</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Accuracy</span>
             </div>
 
             <div class="challenge-result-stat-box">
               ${ICONS.star(24)}
-              <span style="font-size: 15px; font-weight: 800; color: #D97706;">+100</span>
+              <span style="font-size: 15px; font-weight: 800; color: #D97706;">+${R.points}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
               ${ICONS.clock(24)}
-              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">02:30</span>
+              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${R.timeText}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>
 
@@ -6719,15 +6881,26 @@ function renderChallengesScreen(container, state, app) {
 
     // Bind View Answers button
     container.querySelector("#view-answers-btn")?.addEventListener("click", () => {
-      app.showModal(`
-        <div style="padding: 8px;">
-          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review</h3>
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q3. Which part of the cell controls all the activities?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Nucleus (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">The nucleus acts as the command center containing the cell's genetic code (DNA).</div>
+      const reviewQs = getChallengeQuestions();
+      const given = (R.answers) || userAnswers;
+      const rows = reviewQs.map((qq, i) => {
+        const ans = given[i];
+        const ok = ans === qq.correct;
+        const yourText = ans === undefined ? "Not answered" : qq.options[ans];
+        return `
+          <div style="background: ${ok ? '#F0FDF4' : '#FEF2F2'}; border: 1.5px solid ${ok ? '#10B981' : '#F87171'}; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
+            <div style="font-weight: 700; font-size: 13.5px; color: ${ok ? '#065F46' : '#991B1B'};">Q${i + 1}. ${qq.text}</div>
+            <div style="font-size: 13px; color: ${ok ? '#047857' : '#B91C1C'}; margin-top: 4px;"><strong>Your Answer:</strong> ${ok ? '✔' : '✘'} ${yourText} ${ok ? '(Correct)' : ''}</div>
+            ${ok ? '' : `<div style="font-size: 13px; color: #047857; margin-top: 2px;"><strong>Correct Answer:</strong> ${qq.options[qq.correct]}</div>`}
+            <div style="font-size: 12px; color: #475569; margin-top: 6px;">${qq.explanation || ''}</div>
           </div>
-          <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700;" onclick="window.closeLmsModal()">
+        `;
+      }).join('');
+      app.showModal(`
+        <div style="padding: 8px; max-height: 70vh; overflow-y: auto;">
+          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – ${resultCh.title}</h3>
+          ${rows}
+          <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700; margin-top: 10px;" onclick="window.closeLmsModal()">
             Done
           </button>
         </div>
@@ -6776,7 +6949,7 @@ function renderChallengesScreen(container, state, app) {
 
             <!-- Rank 1: Karthik R. (Center, Elevated with Crown) -->
             <div class="podium-slot podium-slot-1">
-              <div class="podium-crown">👑</div>
+              <div class="podium-crown">${GRAPHICS.goldenCrown(30)}</div>
               <div class="podium-badge-number badge-rank-1">1</div>
               <div style="width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #78350F; border: 3px solid #FFFFFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
                 KR
@@ -7100,7 +7273,7 @@ function renderAssignmentsScreen(container, state, app) {
     const q = activeAsg || assignmentsCatalog[0];
     app.showModal(`
       <div style="padding: 10px;">
-        <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 6px;">📄 Submission Details</h3>
+        <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">${ICONS.document(24)} Submission Details</h3>
         <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">${q.title} • ${q.chapter}</p>
         
         <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px; margin-bottom: 14px; font-size: 13px;">
@@ -7232,13 +7405,13 @@ function renderAssignmentsScreen(container, state, app) {
         <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 180px;">
           ${isPending ? `
             <span class="assignment-status-pill asg-status-pending">Pending</span>
-            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${asg.dueMeta}</span>
+            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           ` : isSubmitted ? `
             <span class="assignment-status-pill asg-status-submitted">Submitted</span>
-            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${asg.dueMeta}</span>
+            <span style="font-size: 12px; color: #64748B; font-weight: 600;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           ` : `
             <span class="assignment-status-pill asg-status-graded">Graded</span>
-            <span style="font-size: 13px; color: #1E293B; font-weight: 800;">${asg.dueMeta}</span>
+            <span style="font-size: 13px; color: #1E293B; font-weight: 800;">${ICONS.withIcons(asg.dueMeta, 14)}</span>
           `}
         </div>
 
@@ -7298,7 +7471,7 @@ function renderAssignmentsScreen(container, state, app) {
             <div class="challenge-metric-strip" style="grid-template-columns: repeat(3, 1fr);">
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #F5F3FF; color: #7C3AED;">
-                  ${(ICONS.calendar || ICONS.clock)(20)}
+                  ${(ICONS.calendar || ICONS.clock)(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Due Date</div>
@@ -7308,7 +7481,7 @@ function renderAssignmentsScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #EFF6FF; color: #2563EB;">
-                  ${(ICONS.document || ICONS.assignment)(20)}
+                  ${(ICONS.document || ICONS.assignment)(28)}
                 </div>
                 <div>
                   <div style="font-size: 11.5px; color: #64748B; font-weight: 600;">Total Questions</div>
@@ -7340,9 +7513,7 @@ function renderAssignmentsScreen(container, state, app) {
                 <div>
                   ${asg.instructions.map(inst => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span style="font-size: 14px; font-weight: 600; color: #334155;">${inst}</span>
                     </div>
                   `).join('')}
@@ -7410,7 +7581,7 @@ function renderAssignmentsScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 29:45 -->
             <div id="asg-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="asg-timer-display">${formatTimer(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="asg-timer-display">${formatTimer(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -7447,7 +7618,7 @@ function renderAssignmentsScreen(container, state, app) {
 
                 <!-- File Attachment Box -->
                 <div style="margin-top: 8px; padding: 12px 16px; background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 14px; display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.appInstance.showToast('📄 Worksheet scan attached: The_Cell_Diagram.pdf');">
-                  <span style="font-size: 20px;">📎</span>
+                  ${ICONS.document(24)}
                   <div style="font-size: 12.5px; color: #64748B;">
                     <strong style="color: #7C3AED;">Attach handwritten file</strong> (Optional: PDF, PNG up to 10 MB)
                   </div>
@@ -8150,8 +8321,8 @@ function renderProgressScreen(container, state, app) {
                     
                     <!-- Left: Status Icon Circle + Chapter Name -->
                     <div style="display: flex; align-items: center; gap: 14px; min-width: 300px;">
-                      <div style="width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isCompleted ? 'background: #ECFDF5; color: #10B981;' : isInProgress ? 'background: #EFF6FF; color: #3B82F6;' : 'background: #F1F5F9; color: #94A3B8;'}">
-                        ${isCompleted ? '✔' : isInProgress ? '▶' : '○'}
+                      <div class="${isInProgress ? '' : 'lu-plain-icon-box'}" style="width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isCompleted ? 'background: #ECFDF5; color: #10B981;' : isInProgress ? 'background: #EFF6FF; color: #3B82F6;' : 'background: #F1F5F9; color: #94A3B8;'}">
+                        ${isCompleted ? GRAPHICS.checkDoneIcon(28) : isInProgress ? '▶' : GRAPHICS.checkTodoIcon(28)}
                       </div>
                       <span style="font-size: 14.5px; font-weight: 800; color: #1E293B;">${ch.title}</span>
                     </div>
@@ -8254,8 +8425,8 @@ function renderProgressScreen(container, state, app) {
                 <div class="ongoing-chapter-row" style="padding: 14px 24px;">
                   
                   <div style="display: flex; align-items: center; gap: 14px;">
-                    <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isComp ? 'background: #ECFDF5; color: #10B981;' : 'background: #F1F5F9; color: #94A3B8;'}">
-                      ${isComp ? '✔' : t.icon === 'play' ? '▶' : '○'}
+                    <div class="${!isComp && t.icon === 'play' ? '' : 'lu-plain-icon-box'}" style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; ${isComp ? 'background: #ECFDF5; color: #10B981;' : 'background: #F1F5F9; color: #94A3B8;'}">
+                      ${isComp ? GRAPHICS.checkDoneIcon(26) : t.icon === 'play' ? '▶' : GRAPHICS.checkTodoIcon(26)}
                     </div>
                     <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${t.name}</span>
                   </div>
@@ -8626,7 +8797,7 @@ function renderAchievementsScreen(container, state, app) {
       status: "Locked",
       earned: false,
       category: "Challenges",
-      iconRenderer: (size) => `<div style="width:${size}px; height:${size}px; border-radius:50%; background:#F1F5F9; display:flex; align-items:center; justify-content:center; font-size:${size*0.5}px; border:2px dashed #CBD5E1;">🎯</div>`
+      iconRenderer: (size) => `<div style="width:${size}px; height:${size}px; border-radius:50%; background:#F1F5F9; display:flex; align-items:center; justify-content:center; font-size:${size*0.5}px; border:2px dashed #CBD5E1;"><span style="filter: grayscale(1); opacity: 0.55; display: inline-flex;">${ICONS.target(Math.round(size * 0.55))}</span></div>`
     }
   };
 
@@ -9644,7 +9815,7 @@ function renderAiBuddyScreen(container, state, app) {
           </h1>
         </div>
         <div class="stat-pill stat-pill-points" style="font-size: 13px; padding: 6px 14px;">
-          🤖 24×7 AI Tutor Active
+          ${ICONS.robot(20)} 24×7 AI Tutor Active
         </div>
       </div>
     `;
@@ -10897,7 +11068,7 @@ function renderProfileScreen(container, state, app) {
           ${academicFields.map(f => `
             <div class="profile-setting-row-card">
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${f.icon}</span>
+                ${ICONS.fromEmoji(f.icon, 26)}
                 <span style="font-size: 15px; font-weight: 700; color: #1E293B;">
                   ${f.label}
                 </span>
@@ -11047,7 +11218,7 @@ function renderProfileScreen(container, state, app) {
           <!-- Two-Factor Verification (OTP) -->
           <div class="profile-setting-row-card">
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">🛡️</span>
+              ${ICONS.shield(26)}
               <div>
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Two-Factor Verification (OTP)</span>
                 <div style="font-size: 12px; color: #64748B;">Requires OTP code on parent mobile at login</div>
@@ -11106,7 +11277,7 @@ function renderProfileScreen(container, state, app) {
           ${notifRows.map(r => `
             <div class="profile-setting-row-card">
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${r.icon}</span>
+                ${ICONS.fromEmoji(r.icon, 26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">
                   ${r.label}
                 </span>
@@ -11174,7 +11345,7 @@ function renderProfileScreen(container, state, app) {
               id="help-item-${i}"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">${h.icon}</span>
+                ${ICONS.fromEmoji(h.icon, 26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">
                   ${h.label}
                 </span>
@@ -11245,7 +11416,7 @@ function renderProfileScreen(container, state, app) {
               onclick="appInstance.showToast('Privacy Policy: Strict Student Data Protection & Safety Compliant.');"
             >
               <div style="display: flex; align-items: center; gap: 14px;">
-                <span style="font-size: 20px;">🛡️</span>
+                ${ICONS.shield(26)}
                 <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Privacy Policy</span>
               </div>
               <span style="font-size: 16px; color: #94A3B8;">❯</span>

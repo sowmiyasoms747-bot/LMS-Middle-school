@@ -8,6 +8,7 @@
 // 6. Completed Tab in Challenges List
 
 import { ICONS } from '../components/icons.js';
+import { CHALLENGE_QUESTION_BANK } from '../data/challengeQuestions.js';
 import { GRAPHICS } from '../components/graphics.js';
 import { triggerConfetti } from '../components/confetti.js';
 
@@ -17,6 +18,8 @@ export function renderChallengesScreen(container, state, app) {
   let activeChallenge = state.selectedChallenge || null;
   let qIndex = 0;
   let userAnswers = {};
+  let challengeStartedAt = Date.now();
+  let lastChallengeResult = null;
   let timerInterval = null;
   let timeLeftSeconds = 14 * 60 + 32; // 14:32 countdown like in image
 
@@ -192,6 +195,56 @@ export function renderChallengesScreen(container, state, app) {
     }
   }
 
+  // Attach full question banks
+  challengesCatalog.forEach(c => {
+    const bank = CHALLENGE_QUESTION_BANK[c.id];
+    if (bank && bank.length) {
+      c.questions = bank;
+      c.questionsCount = bank.length;
+    }
+  });
+
+  function getCurrentChallenge() {
+    const id = (activeChallenge && activeChallenge.id) || (state.selectedChallenge && state.selectedChallenge.id);
+    return challengesCatalog.find(c => c.id === id) || activeChallenge || challengesCatalog[0];
+  }
+
+  function getChallengeQuestions() {
+    const ch = getCurrentChallenge();
+    return CHALLENGE_QUESTION_BANK[ch.id] || (ch.questions && ch.questions.length ? ch.questions : CHALLENGE_QUESTION_BANK["ch-sci-weekly"]);
+  }
+
+  function startChallengeRun() {
+    const ch = getCurrentChallenge();
+    activeChallenge = ch;
+    state.selectedChallenge = ch;
+    qIndex = 0;
+    userAnswers = {};
+    timeLeftSeconds = (ch.durationMinutes || 15) * 60;
+    challengeStartedAt = Date.now();
+    lastChallengeResult = null;
+    view = "runner";
+    render();
+  }
+
+  function finishChallenge() {
+    const ch = getCurrentChallenge();
+    const questions = getChallengeQuestions();
+    let correct = 0;
+    questions.forEach((qq, i) => { if (userAnswers[i] === qq.correct) correct++; });
+    const total = questions.length;
+    const pct = Math.round((correct / total) * 100);
+    const points = Math.round(((ch.points || total * 10) * correct) / total);
+    const usedSec = Math.max(1, Math.round((Date.now() - challengeStartedAt) / 1000));
+    lastChallengeResult = { correct, total, pct, points, timeText: formatTime(Math.min(usedSec, 99 * 60 + 59)), answers: Object.assign({}, userAnswers) };
+    ch.completed = true;
+    ch.scoreText = correct + " / " + total;
+    state.student.points += points;
+    if (app.updateHeaderStats) app.updateHeaderStats();
+    view = "result";
+    render();
+  }
+
   function formatTime(totalSec) {
     const m = Math.floor(totalSec / 60);
     const s = totalSec % 60;
@@ -208,11 +261,7 @@ export function renderChallengesScreen(container, state, app) {
   };
 
   window.lmsStartChallenge = function() {
-    qIndex = 2; // Default to Question 3 of 10 to match reference image
-    userAnswers = { 2: 1 }; // Default select "Nucleus"
-    timeLeftSeconds = 14 * 60 + 32;
-    view = "runner";
-    render();
+    startChallengeRun();
   };
 
   window.lmsBackToChallenges = function() {
@@ -375,7 +424,7 @@ export function renderChallengesScreen(container, state, app) {
             </span>
           ` : `
             <span style="display: inline-flex; align-items: center; gap: 6px; background: #F5F3FF; color: #7C3AED; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; border: 1px solid #DDD6FE;">
-              <span style="font-size: 12px;">📅</span> Upcoming
+              ${ICONS.calendar(14)} Upcoming
             </span>
           `}
         </div>
@@ -507,7 +556,7 @@ export function renderChallengesScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #EDE9FE; color: #6D28D9;">
-                  ${ICONS.target(20)}
+                  ${ICONS.target(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${ch.attempts}</div>
@@ -525,9 +574,7 @@ export function renderChallengesScreen(container, state, app) {
                 <div>
                   ${ch.topics.map(topic => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span>${topic}</span>
                     </div>
                   `).join('')}
@@ -565,11 +612,7 @@ export function renderChallengesScreen(container, state, app) {
 
     // Bind Start Challenge button -> Starts Question Runner (Image 2 Screen 4)
     container.querySelector("#start-challenge-btn")?.addEventListener("click", () => {
-      qIndex = 2; // Default to Question 3 of 10 to match the exact question shown in the user's reference image!
-      userAnswers = { 2: 1 }; // Default select "Nucleus" matching reference image
-      timeLeftSeconds = 14 * 60 + 32;
-      view = "runner";
-      render();
+      startChallengeRun();
     });
   }
 
@@ -577,21 +620,16 @@ export function renderChallengesScreen(container, state, app) {
   // VIEW 3: Take Challenge / Question Runner (Matches 2nd Image, Screen 4)
   // =========================================================================
   function renderRunnerView() {
-    const ch = activeChallenge || state.selectedChallenge || challengesCatalog[0];
+    const ch = getCurrentChallenge();
     activeChallenge = ch;
     state.selectedChallenge = ch;
-    const questions = ch.questions && ch.questions.length ? ch.questions : [
-      {
-        num: 3,
-        text: "Which part of the cell controls all the activities?",
-        options: ["Cell Wall", "Nucleus", "Chloroplast", "Mitochondria"],
-        correct: 1,
-        illustration: "cell"
-      }
-    ];
+    const questions = getChallengeQuestions();
+    if (qIndex >= questions.length) qIndex = questions.length - 1;
 
     const currentQ = questions[qIndex] || questions[0];
-    const totalQuestions = 10; // 10 questions as shown in reference
+    const totalQuestions = questions.length;
+    const isLastQuestion = qIndex === totalQuestions - 1;
+    const answeredCount = questions.filter((_, i) => userAnswers[i] !== undefined).length;
     const progressPercent = Math.round(((qIndex + 1) / totalQuestions) * 100);
 
     container.innerHTML = `
@@ -607,7 +645,7 @@ export function renderChallengesScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 14:32 -->
             <div id="runner-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="timer-display">${formatTime(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="timer-display">${formatTime(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -616,6 +654,7 @@ export function renderChallengesScreen(container, state, app) {
           <div>
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
+              <span style="float: right; color: #7C3AED;">${answeredCount} / ${totalQuestions} answered</span>
             </div>
             <div class="lu-bar-track" style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
               <div class="lu-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
@@ -656,7 +695,7 @@ export function renderChallengesScreen(container, state, app) {
               <div style="width: 260px; display: flex; align-items: center; justify-content: center; position: relative;">
                 <div style="position: absolute; width: 200px; height: 160px; background: radial-gradient(circle, #F3E8FF 0%, rgba(243, 232, 255, 0) 70%); filter: blur(8px);"></div>
                 <div style="position: relative; z-index: 2; transform: scale(0.9); filter: drop-shadow(0 10px 24px rgba(124, 58, 237, 0.2));">
-                  ${GRAPHICS.cell3D(260, 200, "nucleus")}
+                  ${ch.subjectId === "science" || !ch.subjectId ? GRAPHICS.cell3D(260, 200, "nucleus") : GRAPHICS.getSubjectIcon(({ maths: "calculator", social: "globe", english: "book", tamil: "tamil" })[ch.subjectId] || "flask", 150)}
                 </div>
               </div>
 
@@ -669,7 +708,7 @@ export function renderChallengesScreen(container, state, app) {
               </button>
 
               <button id="runner-next-btn" class="ongoing-continue-btn" style="padding: 10px 32px; font-size: 14.5px;">
-                ${qIndex === questions.length - 1 ? 'Submit Challenge →' : 'Next ›'}
+                ${isLastQuestion ? 'Submit Challenge ✓' : 'Next ›'}
               </button>
             </div>
 
@@ -685,6 +724,10 @@ export function renderChallengesScreen(container, state, app) {
         timeLeftSeconds--;
         const el = document.getElementById("timer-display");
         if (el) el.innerText = formatTime(timeLeftSeconds);
+        if (timeLeftSeconds === 0 && view === "runner") {
+          app.showToast("Time is up! Your challenge has been submitted.");
+          finishChallenge();
+        }
       }
     }, 1000);
 
@@ -713,15 +756,23 @@ export function renderChallengesScreen(container, state, app) {
 
     // Bind Next / Submit button -> Transitions to Result Screen (Image 2 Screen 5)
     container.querySelector("#runner-next-btn")?.addEventListener("click", () => {
-      if (qIndex < questions.length - 1) {
+      if (userAnswers[qIndex] === undefined) {
+        app.showToast("Please choose an answer to continue.");
+        return;
+      }
+      if (!isLastQuestion) {
         qIndex++;
         render();
-      } else {
-        // Award points and show result
-        state.student.points += 100;
-        view = "result";
-        render();
+        return;
       }
+      const firstUnanswered = questions.findIndex((_, i) => userAnswers[i] === undefined);
+      if (firstUnanswered !== -1) {
+        app.showToast("Please answer Question " + (firstUnanswered + 1) + " before submitting.");
+        qIndex = firstUnanswered;
+        render();
+        return;
+      }
+      finishChallenge();
     });
   }
 
@@ -729,6 +780,9 @@ export function renderChallengesScreen(container, state, app) {
   // VIEW 4: Challenge Result (Matches 2nd Image, Screen 5)
   // =========================================================================
   function renderResultView() {
+    const resultCh = getCurrentChallenge();
+    const R = lastChallengeResult || { correct: 8, total: 10, pct: 80, points: resultCh.points || 100, timeText: "02:30", answers: null };
+
     // Trigger celebratory confetti burst!
     triggerConfetti();
 
@@ -752,30 +806,30 @@ export function renderChallengesScreen(container, state, app) {
           </div>
 
           <!-- Great Job! Heading -->
-          <h2 style="font-size: 26px; font-weight: 900; color: #10B981; margin: 0 0 6px;">Great Job!</h2>
+          <h2 style="font-size: 26px; font-weight: 900; color: ${R.pct < 50 ? '#F59E0B' : '#10B981'}; margin: 0 0 6px;">${R.pct >= 80 ? 'Great Job!' : R.pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h2>
           <div style="font-size: 14px; color: #64748B; font-weight: 600;">You Scored</div>
 
-          <!-- Score Display 8 / 10 -->
-          <div class="challenge-score-display">8 / 10</div>
+          <!-- Score Display -->
+          <div class="challenge-score-display">${R.correct} / ${R.total}</div>
 
           <!-- 3 Stat Tiles (Accuracy, Points Earned, Time Taken) -->
           <div class="challenge-result-stats-row">
             
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">🎯</span>
-              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">80%</span>
+              ${ICONS.target(24)}
+              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${R.pct}%</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Accuracy</span>
             </div>
 
             <div class="challenge-result-stat-box">
               ${ICONS.star(24)}
-              <span style="font-size: 15px; font-weight: 800; color: #D97706;">+100</span>
+              <span style="font-size: 15px; font-weight: 800; color: #D97706;">+${R.points}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Points Earned</span>
             </div>
 
             <div class="challenge-result-stat-box">
               ${ICONS.clock(24)}
-              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">02:30</span>
+              <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${R.timeText}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Time Taken</span>
             </div>
 
@@ -806,15 +860,26 @@ export function renderChallengesScreen(container, state, app) {
 
     // Bind View Answers button
     container.querySelector("#view-answers-btn")?.addEventListener("click", () => {
-      app.showModal(`
-        <div style="padding: 8px;">
-          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review</h3>
-          <div style="background: #F0FDF4; border: 1.5px solid #10B981; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="font-weight: 700; font-size: 13.5px; color: #065F46;">Q3. Which part of the cell controls all the activities?</div>
-            <div style="font-size: 13px; color: #047857; margin-top: 4px;"><strong>Your Answer:</strong> ✔ Nucleus (Correct)</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 6px;">The nucleus acts as the command center containing the cell's genetic code (DNA).</div>
+      const reviewQs = getChallengeQuestions();
+      const given = (R.answers) || userAnswers;
+      const rows = reviewQs.map((qq, i) => {
+        const ans = given[i];
+        const ok = ans === qq.correct;
+        const yourText = ans === undefined ? "Not answered" : qq.options[ans];
+        return `
+          <div style="background: ${ok ? '#F0FDF4' : '#FEF2F2'}; border: 1.5px solid ${ok ? '#10B981' : '#F87171'}; border-radius: 14px; padding: 14px; margin-bottom: 12px;">
+            <div style="font-weight: 700; font-size: 13.5px; color: ${ok ? '#065F46' : '#991B1B'};">Q${i + 1}. ${qq.text}</div>
+            <div style="font-size: 13px; color: ${ok ? '#047857' : '#B91C1C'}; margin-top: 4px;"><strong>Your Answer:</strong> ${ok ? '✔' : '✘'} ${yourText} ${ok ? '(Correct)' : ''}</div>
+            ${ok ? '' : `<div style="font-size: 13px; color: #047857; margin-top: 2px;"><strong>Correct Answer:</strong> ${qq.options[qq.correct]}</div>`}
+            <div style="font-size: 12px; color: #475569; margin-top: 6px;">${qq.explanation || ''}</div>
           </div>
-          <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700;" onclick="window.closeLmsModal()">
+        `;
+      }).join('');
+      app.showModal(`
+        <div style="padding: 8px; max-height: 70vh; overflow-y: auto;">
+          <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; margin-bottom: 14px;">Answer Review – ${resultCh.title}</h3>
+          ${rows}
+          <button class="btn-primary" style="width: 100%; border-radius: 999px; padding: 10px 0; font-weight: 700; margin-top: 10px;" onclick="window.closeLmsModal()">
             Done
           </button>
         </div>
@@ -863,7 +928,7 @@ export function renderChallengesScreen(container, state, app) {
 
             <!-- Rank 1: Karthik R. (Center, Elevated with Crown) -->
             <div class="podium-slot podium-slot-1">
-              <div class="podium-crown">👑</div>
+              <div class="podium-crown">${GRAPHICS.goldenCrown(30)}</div>
               <div class="podium-badge-number badge-rank-1">1</div>
               <div style="width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #78350F; border: 3px solid #FFFFFF; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 8px;">
                 KR

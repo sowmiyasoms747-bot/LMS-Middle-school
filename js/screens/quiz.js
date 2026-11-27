@@ -660,7 +660,7 @@ export function renderQuizScreen(container, state, app) {
 
               <div class="challenge-metric-item">
                 <div class="challenge-metric-icon-box" style="background: #E0F2FE; color: #0284C7;">
-                  ${(ICONS.barChart || ICONS.progress)(20)}
+                  ${(ICONS.barChart || ICONS.progress)(28)}
                 </div>
                 <div>
                   <div style="font-size: 16px; font-weight: 800; color: #1E293B;">${q.difficulty}</div>
@@ -678,9 +678,7 @@ export function renderQuizScreen(container, state, app) {
                 <div>
                   ${q.topics.map(t => `
                     <div class="challenge-topic-item">
-                      <div class="challenge-check-icon">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
+                      <div class="challenge-check-icon lu-plain-icon-box">${GRAPHICS.checkDoneIcon(22)}</div>
                       <span>${t}</span>
                     </div>
                   `).join('')}
@@ -695,15 +693,15 @@ export function renderQuizScreen(container, state, app) {
                 <h3 style="font-size: 16.5px; font-weight: 800; color: #1E293B; margin: 0 0 16px;">Question Types</h3>
                 <div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">🔲</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${GRAPHICS.checkTodoIcon(26)}</div>
                     <span>MCQ</span>
                   </div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">☑</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${GRAPHICS.checkDoneIcon(26)}</div>
                     <span>True / False</span>
                   </div>
                   <div class="quiz-type-item">
-                    <div class="quiz-type-box">📝</div>
+                    <div class="quiz-type-box lu-plain-icon-box">${ICONS.document(26)}</div>
                     <span>Short Answer</span>
                   </div>
                 </div>
@@ -847,7 +845,7 @@ export function renderQuizScreen(container, state, app) {
 
             <!-- Countdown Timer matching image 14:32 -->
             <div id="quiz-timer-pill" style="display: inline-flex; align-items: center; gap: 6px; background: #FFFFFF; border: 1.5px solid #FEE2E2; padding: 6px 16px; border-radius: 999px; font-size: 14px; font-weight: 800; color: #DC2626; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);">
-              <span>⏰</span> <span id="quiz-timer-display">${formatTimer(timeLeftSeconds)}</span>
+              ${ICONS.clock(18)} <span id="quiz-timer-display">${formatTimer(timeLeftSeconds)}</span>
             </div>
 
           </div>
@@ -1057,7 +1055,7 @@ export function renderQuizScreen(container, state, app) {
           <div class="challenge-result-stats-row">
             
             <div class="challenge-result-stat-box">
-              <span style="font-size: 20px;">🎯</span>
+              ${ICONS.target(24)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">${q.scorePct || "80%"}</span>
               <span style="font-size: 11.5px; color: #64748B; font-weight: 600;">Accuracy</span>
             </div>
