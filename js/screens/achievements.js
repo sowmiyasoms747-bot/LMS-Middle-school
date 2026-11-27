@@ -520,8 +520,8 @@ export function renderAchievementsScreen(container, state, app) {
             <div style="font-size: 13.5px; font-weight: 800; color: #1E293B; margin-bottom: 6px;">
               7 / 10 Chapters
             </div>
-            <div style="width: 170px; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
-              <div style="width: 70%; height: 100%; background: #10B981; border-radius: 999px;"></div>
+            <div class="lu-bar-track" style="width: 170px; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
+              <div class="lu-bar-fill" style="width: 70%; height: 100%; background: #10B981; border-radius: 999px;"></div>
             </div>
           </div>
         </div>
@@ -593,8 +593,8 @@ export function renderAchievementsScreen(container, state, app) {
 
               <!-- Progress bar & ratio -->
               <div style="display: flex; align-items: center; gap: 14px; min-width: 220px;">
-                <div style="flex: 1; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
-                  <div style="width: ${pct}%; height: 100%; background: ${m.completed ? '#10B981' : '#7C3AED'}; border-radius: 999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
+                  <div class="lu-bar-fill" style="width: ${pct}%; height: 100%; background: ${m.completed ? '#10B981' : '#7C3AED'}; border-radius: 999px;"></div>
                 </div>
                 <span style="font-size: 13.5px; font-weight: 800; color: #1E293B; min-width: 44px; text-align: right;">
                   ${m.current} / ${m.total}

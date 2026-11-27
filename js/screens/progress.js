@@ -28,7 +28,7 @@ export function renderProgressScreen(container, state, app) {
       inProgressChapters: 2,
       notStartedChapters: 1,
       totalChapters: 12,
-      barColor: "#7C3AED",
+      barColor: "#0284C7",
       lightBg: "#E0F2FE",
       iconType: "flask",
       statusLabel: "Good",
@@ -305,8 +305,8 @@ export function renderProgressScreen(container, state, app) {
                   </div>
 
                   <!-- Middle: Rounded Horizontal Progress Bar -->
-                  <div style="flex: 1; height: 10px; background: #F1F5F9; border-radius: 999px; overflow: hidden; margin: 0 16px;">
-                    <div style="width: ${subj.progress}%; height: 100%; background: ${subj.barColor}; border-radius: 999px; transition: width 0.4s ease;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 10px; background: #F1F5F9; border-radius: 999px; overflow: hidden; margin: 0 16px;">
+                    <div class="lu-bar-fill" style="width: ${subj.progress}%; height: 100%; background: ${subj.barColor}; border-radius: 999px; transition: width 0.4s ease;"></div>
                   </div>
 
                   <!-- Right: Percentage Value -->
@@ -429,8 +429,8 @@ export function renderProgressScreen(container, state, app) {
                     <!-- Middle: Progress Bar -->
                     <div style="display: flex; align-items: center; gap: 14px; width: 220px;">
                       <span style="font-size: 13.5px; font-weight: 800; color: #1E293B; width: 42px; text-align: right;">${ch.progress}%</span>
-                      <div style="flex: 1; height: 8px; background: #F1F5F9; border-radius: 999px; overflow: hidden;">
-                        <div style="width: ${ch.progress}%; height: 100%; background: ${barColor}; border-radius: 999px;"></div>
+                      <div class="lu-bar-track" style="flex: 1; height: 8px; background: #F1F5F9; border-radius: 999px; overflow: hidden;">
+                        <div class="lu-bar-fill" style="width: ${ch.progress}%; height: 100%; background: ${barColor}; border-radius: 999px;"></div>
                       </div>
                     </div>
 
@@ -510,7 +510,7 @@ export function renderProgressScreen(container, state, app) {
               
               <!-- Horizontal Golden Track -->
               <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 999px; overflow: hidden;">
-                <div style="width: ${ch.progress}%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 999px;"></div>
+                <div class="lu-bar-fill" style="width: ${ch.progress}%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 999px;"></div>
               </div>
             </div>
 

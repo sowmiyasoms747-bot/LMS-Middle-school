@@ -3452,8 +3452,8 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -3473,8 +3473,8 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -3494,8 +3494,8 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -3515,8 +3515,8 @@ function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -3770,8 +3770,8 @@ function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="04">
                 <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">72%</span>
               </div>
@@ -3780,8 +3780,8 @@ function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">68%</span>
               </div>
@@ -3790,8 +3790,8 @@ function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/social_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">62%</span>
               </div>
@@ -3800,8 +3800,8 @@ function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/english_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">78%</span>
               </div>
@@ -5636,8 +5636,8 @@ function renderQuizScreen(container, state, app) {
               Question ${qIndex + 1} of ${totalQuestions}
               <span style="float: right; color: #7C3AED;">${answeredCount} / ${totalQuestions} answered</span>
             </div>
-            <div style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
-              <div style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
+            <div class="lu-bar-track" style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
+              <div class="lu-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
             </div>
           </div>
         </div>
@@ -6530,8 +6530,8 @@ function renderChallengesScreen(container, state, app) {
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
             </div>
-            <div style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
-              <div style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
+            <div class="lu-bar-track" style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
+              <div class="lu-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
             </div>
           </div>
         </div>
@@ -7758,7 +7758,7 @@ function renderProgressScreen(container, state, app) {
       inProgressChapters: 2,
       notStartedChapters: 1,
       totalChapters: 12,
-      barColor: "#7C3AED",
+      barColor: "#0284C7",
       lightBg: "#E0F2FE",
       iconType: "flask",
       statusLabel: "Good",
@@ -8035,8 +8035,8 @@ function renderProgressScreen(container, state, app) {
                   </div>
 
                   <!-- Middle: Rounded Horizontal Progress Bar -->
-                  <div style="flex: 1; height: 10px; background: #F1F5F9; border-radius: 999px; overflow: hidden; margin: 0 16px;">
-                    <div style="width: ${subj.progress}%; height: 100%; background: ${subj.barColor}; border-radius: 999px; transition: width 0.4s ease;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 10px; background: #F1F5F9; border-radius: 999px; overflow: hidden; margin: 0 16px;">
+                    <div class="lu-bar-fill" style="width: ${subj.progress}%; height: 100%; background: ${subj.barColor}; border-radius: 999px; transition: width 0.4s ease;"></div>
                   </div>
 
                   <!-- Right: Percentage Value -->
@@ -8159,8 +8159,8 @@ function renderProgressScreen(container, state, app) {
                     <!-- Middle: Progress Bar -->
                     <div style="display: flex; align-items: center; gap: 14px; width: 220px;">
                       <span style="font-size: 13.5px; font-weight: 800; color: #1E293B; width: 42px; text-align: right;">${ch.progress}%</span>
-                      <div style="flex: 1; height: 8px; background: #F1F5F9; border-radius: 999px; overflow: hidden;">
-                        <div style="width: ${ch.progress}%; height: 100%; background: ${barColor}; border-radius: 999px;"></div>
+                      <div class="lu-bar-track" style="flex: 1; height: 8px; background: #F1F5F9; border-radius: 999px; overflow: hidden;">
+                        <div class="lu-bar-fill" style="width: ${ch.progress}%; height: 100%; background: ${barColor}; border-radius: 999px;"></div>
                       </div>
                     </div>
 
@@ -8240,7 +8240,7 @@ function renderProgressScreen(container, state, app) {
               
               <!-- Horizontal Golden Track -->
               <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 999px; overflow: hidden;">
-                <div style="width: ${ch.progress}%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 999px;"></div>
+                <div class="lu-bar-fill" style="width: ${ch.progress}%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 999px;"></div>
               </div>
             </div>
 
@@ -9041,8 +9041,8 @@ function renderAchievementsScreen(container, state, app) {
             <div style="font-size: 13.5px; font-weight: 800; color: #1E293B; margin-bottom: 6px;">
               7 / 10 Chapters
             </div>
-            <div style="width: 170px; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
-              <div style="width: 70%; height: 100%; background: #10B981; border-radius: 999px;"></div>
+            <div class="lu-bar-track" style="width: 170px; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
+              <div class="lu-bar-fill" style="width: 70%; height: 100%; background: #10B981; border-radius: 999px;"></div>
             </div>
           </div>
         </div>
@@ -9114,8 +9114,8 @@ function renderAchievementsScreen(container, state, app) {
 
               <!-- Progress bar & ratio -->
               <div style="display: flex; align-items: center; gap: 14px; min-width: 220px;">
-                <div style="flex: 1; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
-                  <div style="width: ${pct}%; height: 100%; background: ${m.completed ? '#10B981' : '#7C3AED'}; border-radius: 999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden;">
+                  <div class="lu-bar-fill" style="width: ${pct}%; height: 100%; background: ${m.completed ? '#10B981' : '#7C3AED'}; border-radius: 999px;"></div>
                 </div>
                 <span style="font-size: 13.5px; font-weight: 800; color: #1E293B; min-width: 44px; text-align: right;">
                   ${m.current} / ${m.total}
@@ -10178,8 +10178,8 @@ function renderAiBuddyScreen(container, state, app) {
           </div>
 
           <!-- Progress Bar -->
-          <div style="height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden; margin-bottom: 20px;">
-            <div style="width: ${pct}%; height: 100%; background: #10B981; border-radius: 999px; transition: width 0.3s ease;"></div>
+          <div class="lu-bar-track" style="height: 8px; background: #E2E8F0; border-radius: 999px; overflow: hidden; margin-bottom: 20px;">
+            <div class="lu-bar-fill" style="width: ${pct}%; height: 100%; background: #10B981; border-radius: 999px; transition: width 0.3s ease;"></div>
           </div>
 
           <!-- Daily Checklist Rows -->

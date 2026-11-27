@@ -617,8 +617,8 @@ export function renderChallengesScreen(container, state, app) {
             <div style="font-size: 13.5px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
               Question ${qIndex + 1} of ${totalQuestions}
             </div>
-            <div style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
-              <div style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
+            <div class="lu-bar-track" style="width: 100%; height: 8px; background: #EDE9FE; border-radius: 999px; overflow: hidden;">
+              <div class="lu-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, #7C3AED, #9333EA); border-radius: 999px; transition: width 0.3s ease;"></div>
             </div>
           </div>
         </div>

@@ -79,8 +79,8 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 60%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #0284C7; min-width: 28px; text-align: right;">60%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -100,8 +100,8 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 75%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #10B981; min-width: 28px; text-align: right;">75%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -121,8 +121,8 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 40%; height: 100%; background: linear-gradient(90deg, #10B981, #059669); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #059669; min-width: 28px; text-align: right;">40%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -142,8 +142,8 @@ export function renderDashboardScreen(container, state, app) {
                 </div>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                  <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
-                    <div style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
+                  <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden;">
+                    <div class="lu-bar-fill" style="width: 80%; height: 100%; background: linear-gradient(90deg, #EC4899, #F43F5E); border-radius: 9999px;"></div>
                   </div>
                   <span style="font-size: 12px; font-weight: 800; color: #DB2777; min-width: 28px; text-align: right;">80%</span>
                   <img class="dash-next-arrow" src="assets/dashboard/ui/next_arrow.png" alt="Open" style="width:28px;height:28px;object-fit:contain;" />
@@ -397,8 +397,8 @@ export function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="04">
                 <img class="dash-ic" src="assets/dashboard/ui/science_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Science</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 72%; height: 100%; background: linear-gradient(90deg, #0284C7, #38BDF8); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">72%</span>
               </div>
@@ -407,8 +407,8 @@ export function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/maths_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Maths</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 68%; height: 100%; background: linear-gradient(90deg, #F59E0B, #FBBF24); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">68%</span>
               </div>
@@ -417,8 +417,8 @@ export function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/social_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">Social</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 62%; height: 100%; background: linear-gradient(90deg, #10B981, #34D399); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">62%</span>
               </div>
@@ -427,8 +427,8 @@ export function renderDashboardScreen(container, state, app) {
               <div class="progress-sub-row-v2" data-screen="03">
                 <img class="dash-ic" src="assets/dashboard/ui/english_subject.png" alt="" style="width:30px;height:30px;object-fit:contain;" />
                 <span style="font-size: 12.5px; font-weight: 700; color: #1E293B; width: 52px;">English</span>
-                <div style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
-                  <div style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
+                <div class="lu-bar-track" style="flex: 1; height: 7px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; margin: 0 8px;">
+                  <div class="lu-bar-fill" style="width: 78%; height: 100%; background: linear-gradient(90deg, #8B5CF6, #A855F7); border-radius: 9999px;"></div>
                 </div>
                 <span style="font-size: 12px; font-weight: 800; color: #1E293B; min-width: 28px; text-align: right;">78%</span>
               </div>
