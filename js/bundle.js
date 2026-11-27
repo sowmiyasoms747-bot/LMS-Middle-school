@@ -1463,13 +1463,26 @@ Object.assign(ICONS, {
   send: luDashIcon("ai_send_button", "Send")
 });
 
+// Final supplied icons (assets/more icons/ui)
+Object.assign(ICONS, {
+  classmates: luMoreIcon("classmates", "Classmates"),
+  retry: luMoreIcon("retry_arrows", "Attempts"),
+  devices: luMoreIcon("devices", "Devices"),
+  school: luMoreIcon("school", "School"),
+  key: luMoreIcon("key", "Password"),
+  liveDot: luMoreIcon("live_dot", "Live"),
+  lockedSpeedBadge: luMoreIcon("badge_locked_speed", "Locked badge")
+});
+
 // Swap a known emoji for its supplied icon (unknown emoji are kept as text)
 const LU_EMOJI_ICON_MAP = {
   "📅": "calendar", "🏆": "trophy", "⏰": "clock", "⏱": "clock", "⏱️": "clock",
   "⭐": "star", "📢": "bell", "🔔": "bell", "📄": "document", "📝": "document",
   "❓": "chatBubble", "💬": "chatBubble", "🛡️": "shield", "🛡": "shield",
   "🎯": "target", "📖": "book", "📚": "book", "🔥": "flame", "💡": "lightbulb",
-  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard"
+  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard",
+  "👥": "classmates", "🔄": "retry", "💻": "devices", "📱": "devices", "🏫": "school",
+  "🔤": "school", "🌐": "school", "🔑": "key", "🔴": "liveDot"
 };
 ICONS.fromEmoji = function (emoji, size = 20) {
   const key = LU_EMOJI_ICON_MAP[emoji];
@@ -5672,7 +5685,7 @@ function renderQuizScreen(container, state, app) {
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">🔄</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.retry(30)}</div>
                 <span>1 Attempt</span>
               </div>
 
@@ -8786,7 +8799,7 @@ function renderAchievementsScreen(container, state, app) {
       status: "Locked",
       earned: false,
       category: "Quizzes",
-      iconRenderer: (size) => `<div style="width:${size}px; height:${size}px; border-radius:50%; background:#F1F5F9; display:flex; align-items:center; justify-content:center; font-size:${size*0.5}px; border:2px dashed #CBD5E1;">⚡</div>`
+      iconRenderer: (size) => ICONS.lockedSpeedBadge(size)
     },
     perfectionist: {
       id: "perfectionist",
@@ -10536,7 +10549,7 @@ function renderLiveClassesScreen(container, state, app) {
               <div>
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
                   <span class="badge-status ${cls.status === 'live' ? 'badge-emerald' : 'badge-purple'}">
-                    ${cls.status === 'live' ? '🔴 Live Now' : cls.statusLabel}
+                    ${cls.status === 'live' ? ICONS.liveDot(12) + ' Live Now' : cls.statusLabel}
                   </span>
                   <span style="font-size: 12.5px; color: var(--text-muted); font-weight: 600;">${cls.subject}</span>
                 </div>
@@ -10556,8 +10569,8 @@ function renderLiveClassesScreen(container, state, app) {
 
               <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;">
                 ${cls.status === 'live' ? `
-                  <span style="font-size: 12px; color: #059669; font-weight: 700;">👥 ${cls.attendees} Classmates joined</span>
-                  <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 18px;">
+                  <span style="font-size: 12px; color: #059669; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">${ICONS.classmates(22)} ${cls.attendees} joined</span>
+                  <button class="btn-primary join-live-btn" data-class-id="${cls.id}" style="padding: 8px 16px; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px;">
                     Join Class <span class="lu-btn-icon-chip">${ICONS.video(18)}</span>
                   </button>
                 ` : cls.status === 'recording' ? `
@@ -10606,7 +10619,7 @@ function renderLiveClassesScreen(container, state, app) {
           <div style="padding: 10px; max-width: 500px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
               <div>
-                <h3 style="font-size: 18px; font-weight: 800; color: #1E293B;">🔴 Science - The Cell (Live Class)</h3>
+                <h3 style="font-size: 18px; font-weight: 800; color: #1E293B; display: flex; align-items: center; gap: 8px;">${ICONS.liveDot(16)} Science - The Cell (Live Class)</h3>
                 <span style="font-size: 12.5px; color: #059669; font-weight: 700;">Host: Ms. Revathi • Biology Dept</span>
               </div>
               <span class="badge-status badge-purple">39 Students</span>
@@ -11196,7 +11209,7 @@ function renderProfileScreen(container, state, app) {
             onclick="appInstance.showToast('Password reset link sent to parent email 📧');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">🔑</span>
+              ${ICONS.key(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Change Password</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -11209,7 +11222,7 @@ function renderProfileScreen(container, state, app) {
             onclick="appInstance.showModal('<div style=\\'padding:20px; text-align:center;\\'><h3>Recent Login Activity</h3><p style=\\'color:#64748B; font-size:13px;\\'>Last active: Today at 3:45 PM (Windows / Chrome)<br>Location: Chennai, Tamil Nadu</p><button class=\\'btn-primary\\' onclick=\\'window.closeLmsModal()\\'>OK</button></div>');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">💻</span>
+              ${ICONS.devices(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Login Activity</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>
@@ -11242,7 +11255,7 @@ function renderProfileScreen(container, state, app) {
             onclick="appInstance.showToast('You are currently logged in on 1 trusted device (School Laptop).');"
           >
             <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="font-size: 20px;">📱</span>
+              ${ICONS.devices(26)}
               <span style="font-size: 15px; font-weight: 800; color: #1E293B;">Manage Devices</span>
             </div>
             <span style="font-size: 16px; color: #94A3B8;">❯</span>

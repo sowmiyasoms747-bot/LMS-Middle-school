@@ -519,13 +519,26 @@ Object.assign(ICONS, {
   send: luDashIcon("ai_send_button", "Send")
 });
 
+// Final supplied icons (assets/more icons/ui)
+Object.assign(ICONS, {
+  classmates: luMoreIcon("classmates", "Classmates"),
+  retry: luMoreIcon("retry_arrows", "Attempts"),
+  devices: luMoreIcon("devices", "Devices"),
+  school: luMoreIcon("school", "School"),
+  key: luMoreIcon("key", "Password"),
+  liveDot: luMoreIcon("live_dot", "Live"),
+  lockedSpeedBadge: luMoreIcon("badge_locked_speed", "Locked badge")
+});
+
 // Swap a known emoji for its supplied icon (unknown emoji are kept as text)
 const LU_EMOJI_ICON_MAP = {
   "📅": "calendar", "🏆": "trophy", "⏰": "clock", "⏱": "clock", "⏱️": "clock",
   "⭐": "star", "📢": "bell", "🔔": "bell", "📄": "document", "📝": "document",
   "❓": "chatBubble", "💬": "chatBubble", "🛡️": "shield", "🛡": "shield",
   "🎯": "target", "📖": "book", "📚": "book", "🔥": "flame", "💡": "lightbulb",
-  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard"
+  "🎧": "headset", "⚙️": "sliders", "🎥": "video", "📊": "chart", "📋": "clipboard",
+  "👥": "classmates", "🔄": "retry", "💻": "devices", "📱": "devices", "🏫": "school",
+  "🔤": "school", "🌐": "school", "🔑": "key", "🔴": "liveDot"
 };
 ICONS.fromEmoji = function (emoji, size = 20) {
   const key = LU_EMOJI_ICON_MAP[emoji];

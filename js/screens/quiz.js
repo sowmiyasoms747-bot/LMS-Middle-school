@@ -783,7 +783,7 @@ export function renderQuizScreen(container, state, app) {
               </div>
 
               <div class="quiz-rule-row">
-                <div class="quiz-rule-circle">🔄</div>
+                <div class="quiz-rule-circle lu-plain-icon-box">${ICONS.retry(30)}</div>
                 <span>1 Attempt</span>
               </div>
 

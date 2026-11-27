@@ -94,7 +94,7 @@ export function renderAchievementsScreen(container, state, app) {
       status: "Locked",
       earned: false,
       category: "Quizzes",
-      iconRenderer: (size) => `<div style="width:${size}px; height:${size}px; border-radius:50%; background:#F1F5F9; display:flex; align-items:center; justify-content:center; font-size:${size*0.5}px; border:2px dashed #CBD5E1;">⚡</div>`
+      iconRenderer: (size) => ICONS.lockedSpeedBadge(size)
     },
     perfectionist: {
       id: "perfectionist",
